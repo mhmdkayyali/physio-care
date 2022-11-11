@@ -8,3 +8,7 @@
 **[PROJECT PHILOSOPHY](https://github.com/mhmdkayyali/physio-care#-project-philosophy) • [WIREFRAMES](https://github.com/mhmdkayyali/well_app#-wireframes) • [TECH STACK](https://github.com/mhmdkayyali/physio-care#-tech-stack) • [IMPLEMENTATION](https://github.com/mhmdkayyali/physio-care#-impplementation) • [HOW TO RUN?](https://github.com/mhmdkayyali/physio-care#-how-to-run)**
 
 </div>
+
+<br><br>
+
+<img src="./assets/titles/title2.svg"/>
