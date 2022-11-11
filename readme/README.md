@@ -12,3 +12,5 @@
 <br><br>
 
 <img src="./assets/titles/title2.svg"/>
+
+> The PhysioCare app is a medical and health care app built based on the observed needs of the community. The PhysioCare app makes connecting patients to Physical therapists a breeze.
