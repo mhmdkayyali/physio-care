@@ -6,6 +6,7 @@ function Buttons(props) {
     if (type === "selectedUserTypeButton") return styles.selectedUserTypeButton;
     if (type === "attendedButton") return styles.attendedButton;
     if (type === "cancelButton") return styles.cancelButton;
+    if (type === "yesButton") return styles.yesButton;
     return styles.button;
   }
   function textStyle(type) {
@@ -83,5 +84,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#EB5850",
     alignItems: "center",
     justifyContent: "center",
+  },
+  yesButton: {
+    height: 40,
+    width: 65,
+    backgroundColor: "#EB5850",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 7,
+    marginRight: 20,
   },
 });
