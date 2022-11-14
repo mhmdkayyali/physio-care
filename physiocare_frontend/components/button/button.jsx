@@ -2,6 +2,7 @@ import { StyleSheet, View, Pressable, Text } from "react-native";
 
 function Buttons(props) {
   function btnStyle(type) {
+    if (type === "userTypeButton") return styles.userTypeButton;
     return styles.button;
   }
   function textStyle(type) {
@@ -32,5 +33,14 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 17,
     fontWeight: "bold",
+  },
+  userTypeButton: {
+    height: 120,
+    width: "100%",
+    backgroundColor: "#FFFFFF",
+    borderRadius: 15,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 11,
   },
 });
