@@ -32,3 +32,38 @@ function AppointmentCard(props) {
 }
 
 export default AppointmentCard;
+
+const styles = StyleSheet.create({
+  cardContainer: {
+    width: "100%",
+    height: 132,
+    marginVertical: 7,
+    paddingVertical: 18,
+    paddingHorizontal: 10,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 10,
+    justifyContent: "space-between",
+  },
+  cardInformation: {
+    flexDirection: "row",
+  },
+  lineContainer: {
+    width: "50%",
+    paddingHorizontal: 10,
+  },
+  cardDetailsNames: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#383838",
+  },
+  cardDetails: {
+    fontSize: 14,
+    color: "#383838",
+  },
+  buttonContainer: {
+    paddingHorizontal: 5,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
+  },
+});
