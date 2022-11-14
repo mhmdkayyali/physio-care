@@ -7,6 +7,7 @@ function Buttons(props) {
     if (type === "attendedButton") return styles.attendedButton;
     if (type === "cancelButton") return styles.cancelButton;
     if (type === "yesButton") return styles.yesButton;
+    if (type === "noButton") return styles.noButton;
     return styles.button;
   }
   function textStyle(type) {
@@ -93,5 +94,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 7,
     marginRight: 20,
+  },
+  noButton: {
+    height: 40,
+    width: 65,
+    backgroundColor: "#FFFFFF",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 7,
+    marginLeft: 20,
   },
 });
