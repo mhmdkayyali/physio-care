@@ -11,6 +11,7 @@ function Buttons(props) {
     if (type === "listViewButton") return styles.listViewButton;
     if (type === "filterButton") return styles.filterButton;
     if (type === "timeButton") return styles.timeButton;
+    if (type === "pressedTimeButton") return styles.pressedTimeButton;
     return styles.button;
   }
   function textStyle(type) {
@@ -132,5 +133,13 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 10,
     marginVertical: 5,
+  },
+  pressedTimeButton: {
+    flexGrow: 1,
+    height: 40,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
