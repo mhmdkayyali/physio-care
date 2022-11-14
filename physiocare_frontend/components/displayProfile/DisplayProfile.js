@@ -10,3 +10,21 @@ function ProfileDisplay(props) {
 }
 
 export default ProfileDisplay;
+
+const styles = StyleSheet.create({
+  profileInputContainer: {
+    width: "100%",
+    borderBottomWidth: 1,
+    marginVertical: 16,
+    borderColor: "#A1A1A1",
+  },
+  inputTitle: {
+    color: "#A1A1A1",
+    fontSize: 12,
+    paddingLeft: 12,
+  },
+  textInfo: {
+    fontSize: 20,
+    paddingLeft: 12,
+  },
+});
