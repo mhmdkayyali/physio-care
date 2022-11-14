@@ -6,6 +6,7 @@ function Buttons(props) {
     return styles.button;
   }
   function textStyle(type) {
+    if (type === "userTypeButtonText") return styles.userTypeButtonText;
     return styles.buttonText;
   }
   return (
@@ -42,5 +43,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 11,
+  },
+  userTypeButtonText: {
+    fontSize: 20,
+    color: "#383838",
   },
 });
