@@ -30,3 +30,5 @@ function AppointmentCard(props) {
     </View>
   );
 }
+
+export default AppointmentCard;
