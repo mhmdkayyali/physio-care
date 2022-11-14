@@ -15,3 +15,22 @@ function NotificationCard(props) {
 }
 
 export default NotificationCard;
+
+const styles = StyleSheet.create({
+  cardContainer: {
+    flexDirection: "row",
+    width: "100%",
+    height: 95,
+    marginVertical: 10,
+    paddingVertical: 18,
+    paddingHorizontal: 15,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 10,
+    elevation: 4,
+    shadowColor: "#383838",
+    shadowOpacity: 0.35,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    overflow: "hidden",
+  },
+});
