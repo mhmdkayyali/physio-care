@@ -10,6 +10,7 @@ function Buttons(props) {
     if (type === "noButton") return styles.noButton;
     if (type === "listViewButton") return styles.listViewButton;
     if (type === "filterButton") return styles.filterButton;
+    if (type === "timeButton") return styles.timeButton;
     return styles.button;
   }
   function textStyle(type) {
@@ -122,5 +123,14 @@ const styles = StyleSheet.create({
     width: 110,
     backgroundColor: "#1A7C6B",
     margin: 5,
+  },
+  timeButton: {
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#FFFFFF",
+    width: "100%",
+    height: 40,
+    borderRadius: 10,
+    marginVertical: 5,
   },
 });
