@@ -46,7 +46,6 @@ const styles = StyleSheet.create({
   nameTime: {
     flexDirection: "row",
     justifyContent: "space-between",
-    // width: "100%",
   },
   cardDetails: {
     fontSize: 14,
