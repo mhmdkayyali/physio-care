@@ -19,7 +19,7 @@ function Buttons(props) {
     if (type === "userTypeButtonText") return styles.userTypeButtonText;
     if (type === "selectedUserTypeButtonText")
       return styles.selectedUserTypeButtonText;
-
+    if (type === "scheduleButtonText") return styles.scheduleButtonText;
     return styles.buttonText;
   }
   return (
@@ -152,5 +152,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: "center",
     justifyContent: "center",
+  },
+  scheduleButtonText: {
+    fontSize: 14,
+    fontWeight: "bold",
+    color: "#FFFFFF",
   },
 });
