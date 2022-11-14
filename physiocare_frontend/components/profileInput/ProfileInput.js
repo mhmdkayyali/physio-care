@@ -15,3 +15,5 @@ function ProfileInput(props) {
     </View>
   );
 }
+
+export default ProfileInput;
