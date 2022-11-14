@@ -8,3 +8,5 @@ function ProfileDisplay(props) {
     </View>
   );
 }
+
+export default ProfileDisplay;
