@@ -28,6 +28,8 @@ function Buttons(props) {
     if (type === "timeButtonText") return styles.timeButtonText;
     if (type === "pressedtimeButtonText") return styles.pressedtimeButtonText;
     if (type === "confirmTimeButtonText") return styles.confirmTimeButtonText;
+    if (type === "availableDaysButtonText")
+      return styles.availableDaysButtonText;
     return styles.buttonText;
   }
   return (
@@ -210,5 +212,12 @@ const styles = StyleSheet.create({
     height: 32,
     borderRadius: 10,
     marginTop: 3,
+  },
+  availableDaysButtonText: {
+    width: "100%",
+    color: "#383838",
+    fontSize: 14,
+    fontWeight: "regular",
+    paddingLeft: 15,
   },
 });
