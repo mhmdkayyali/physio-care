@@ -4,6 +4,7 @@ function Buttons(props) {
   function btnStyle(type) {
     if (type === "userTypeButton") return styles.userTypeButton;
     if (type === "selectedUserTypeButton") return styles.selectedUserTypeButton;
+    if (type === "attendedButton") return styles.attendedButton;
     return styles.button;
   }
   function textStyle(type) {
@@ -64,5 +65,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "#FFFFFF",
     fontWeight: "bold",
+  },
+  attendedButton: {
+    height: 40,
+    width: "48%",
+    borderRadius: 10,
+    backgroundColor: "#35DB9F",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
