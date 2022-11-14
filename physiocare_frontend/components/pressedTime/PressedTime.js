@@ -21,3 +21,5 @@ function PressedTimeBtn(props) {
     </View>
   );
 }
+
+export default PressedTimeBtn;
