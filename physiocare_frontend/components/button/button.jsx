@@ -8,6 +8,7 @@ function Buttons(props) {
     if (type === "cancelButton") return styles.cancelButton;
     if (type === "yesButton") return styles.yesButton;
     if (type === "noButton") return styles.noButton;
+    if (type === "listViewButton") return styles.listViewButton;
     return styles.button;
   }
   function textStyle(type) {
@@ -103,5 +104,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 7,
     marginLeft: 20,
+  },
+  listViewButton: {
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#35DB9F",
+    width: "100%",
+    height: 40,
+    borderRadius: 10,
   },
 });
