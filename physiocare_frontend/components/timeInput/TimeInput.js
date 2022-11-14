@@ -9,3 +9,5 @@ function TimeInput(props) {
     ></TextInput>
   );
 }
+
+export default TimeInput;
