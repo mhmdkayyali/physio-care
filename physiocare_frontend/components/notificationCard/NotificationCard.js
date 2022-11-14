@@ -13,3 +13,5 @@ function NotificationCard(props) {
     </View>
   );
 }
+
+export default NotificationCard;
