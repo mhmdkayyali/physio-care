@@ -26,6 +26,7 @@ function Buttons(props) {
     if (type === "filterButtonText") return styles.filterButtonText;
     if (type === "timeButtonText") return styles.timeButtonText;
     if (type === "pressedtimeButtonText") return styles.pressedtimeButtonText;
+    if (type === "confirmTimeButtonText") return styles.confirmTimeButtonText;
     return styles.buttonText;
   }
   return (
@@ -190,8 +191,13 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "500",
   },
-  PressedtimeButtonText: {
+  pressedtimeButtonText: {
     color: "#383838",
+    fontSize: 15,
+    fontWeight: "500",
+  },
+  confirmTimeButtonText: {
+    color: "#FFFFFF",
     fontSize: 15,
     fontWeight: "500",
   },
