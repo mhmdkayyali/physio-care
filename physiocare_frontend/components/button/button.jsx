@@ -8,6 +8,8 @@ function Buttons(props) {
   }
   function textStyle(type) {
     if (type === "userTypeButtonText") return styles.userTypeButtonText;
+    if (type === "selectedUserTypeButtonText")
+      return styles.selectedUserTypeButtonText;
     return styles.buttonText;
   }
   return (
@@ -57,5 +59,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginBottom: 11,
+  },
+  selectedUserTypeButtonText: {
+    fontSize: 20,
+    color: "#FFFFFF",
+    fontWeight: "bold",
   },
 });
