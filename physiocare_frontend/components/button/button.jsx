@@ -12,6 +12,7 @@ function Buttons(props) {
     if (type === "filterButton") return styles.filterButton;
     if (type === "timeButton") return styles.timeButton;
     if (type === "pressedTimeButton") return styles.pressedTimeButton;
+    if (type === "confirmTimeButton") return styles.confirmTimeButton;
     return styles.button;
   }
   function textStyle(type) {
@@ -138,6 +139,16 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     height: 40,
     backgroundColor: "#FFFFFF",
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  confirmTimeButton: {
+    flexGrow: 1,
+    marginLeft: 10,
+    maxWidth: "48%",
+    height: 40,
+    backgroundColor: "#35DB9F",
     borderRadius: 10,
     alignItems: "center",
     justifyContent: "center",
