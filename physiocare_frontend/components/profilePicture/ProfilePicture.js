@@ -10,3 +10,4 @@ function ProfilePicture() {
     </View>
   );
 }
+export default ProfilePicture;
