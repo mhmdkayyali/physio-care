@@ -33,4 +33,23 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     overflow: "hidden",
   },
+  cardDetailsContainer: {
+    height: "97%",
+    width: "100%",
+    justifyContent: "space-between",
+  },
+  cardDetailsNames: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#383838",
+  },
+  nameTime: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    // width: "100%",
+  },
+  cardDetails: {
+    fontSize: 14,
+    color: "#383838",
+  },
 });
