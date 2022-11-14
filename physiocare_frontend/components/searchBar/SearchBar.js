@@ -9,3 +9,16 @@ function SearchingBar(props) {
     ></TextInput>
   );
 }
+
+export default SearchingBar;
+
+const styles = StyleSheet.create({
+  searchInput: {
+    width: "100%",
+    backgroundColor: "#FFFFFF",
+    height: 40,
+    borderRadius: 10,
+    // marginBottom: 16,
+    paddingLeft: 12,
+  },
+});
