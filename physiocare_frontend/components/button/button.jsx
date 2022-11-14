@@ -21,6 +21,7 @@ function Buttons(props) {
       return styles.selectedUserTypeButtonText;
     if (type === "scheduleButtonText") return styles.scheduleButtonText;
     if (type === "yesButtonText") return styles.yesButtonText;
+    if (type === "noButtonText") return styles.noButtonText;
     return styles.buttonText;
   }
   return (
@@ -161,6 +162,11 @@ const styles = StyleSheet.create({
   },
   yesButtonText: {
     color: "#FFFFFF",
+    fontSize: 15,
+    fontWeight: "bold",
+  },
+  noButtonText: {
+    color: "#383838",
     fontSize: 15,
     fontWeight: "bold",
   },
