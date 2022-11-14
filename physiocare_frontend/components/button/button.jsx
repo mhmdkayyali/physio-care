@@ -5,12 +5,14 @@ function Buttons(props) {
     if (type === "userTypeButton") return styles.userTypeButton;
     if (type === "selectedUserTypeButton") return styles.selectedUserTypeButton;
     if (type === "attendedButton") return styles.attendedButton;
+    if (type === "cancelButton") return styles.cancelButton;
     return styles.button;
   }
   function textStyle(type) {
     if (type === "userTypeButtonText") return styles.userTypeButtonText;
     if (type === "selectedUserTypeButtonText")
       return styles.selectedUserTypeButtonText;
+
     return styles.buttonText;
   }
   return (
@@ -71,6 +73,14 @@ const styles = StyleSheet.create({
     width: "48%",
     borderRadius: 10,
     backgroundColor: "#35DB9F",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  cancelButton: {
+    height: 40,
+    width: "48%",
+    borderRadius: 10,
+    backgroundColor: "#EB5850",
     alignItems: "center",
     justifyContent: "center",
   },
