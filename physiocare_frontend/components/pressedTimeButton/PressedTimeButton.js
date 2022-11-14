@@ -1,9 +1,9 @@
 import { StyleSheet, View } from "react-native";
 import Buttons from "../button/Buttons";
 
-function PressedTimeBtn(props) {
+function PressedTimeButton(props) {
   return (
-    <View style={styles.btnContainer}>
+    <View style={styles.buttonContainer}>
       <Buttons
         btnStyle={"pressedTimeBtn"}
         textStyle={"PressedtimeBtnText"}
@@ -22,4 +22,13 @@ function PressedTimeBtn(props) {
   );
 }
 
-export default PressedTimeBtn;
+export default PressedTimeButton;
+
+const styles = StyleSheet.create({
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
+    marginVertical: 5,
+  },
+});
