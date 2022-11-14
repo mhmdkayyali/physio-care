@@ -9,6 +9,7 @@ function Buttons(props) {
     if (type === "yesButton") return styles.yesButton;
     if (type === "noButton") return styles.noButton;
     if (type === "listViewButton") return styles.listViewButton;
+    if (type === "filterButton") return styles.filterButton;
     return styles.button;
   }
   function textStyle(type) {
@@ -112,5 +113,14 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 40,
     borderRadius: 10,
+  },
+  filterButton: {
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: 10,
+    height: 45,
+    width: 110,
+    backgroundColor: "#1A7C6B",
+    margin: 5,
   },
 });
