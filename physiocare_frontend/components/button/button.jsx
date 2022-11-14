@@ -25,6 +25,7 @@ function Buttons(props) {
     if (type === "listViewButtonText") return styles.listViewButtonText;
     if (type === "filterButtonText") return styles.filterButtonText;
     if (type === "timeButtonText") return styles.timeButtonText;
+    if (type === "pressedtimeButtonText") return styles.pressedtimeButtonText;
     return styles.buttonText;
   }
   return (
@@ -185,6 +186,11 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   timeButtonText: {
+    color: "#383838",
+    fontSize: 15,
+    fontWeight: "500",
+  },
+  PressedtimeButtonText: {
     color: "#383838",
     fontSize: 15,
     fontWeight: "500",
