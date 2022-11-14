@@ -1,11 +1,13 @@
 import { StyleSheet, View, Pressable, Text } from "react-native";
 
-function Btn(props) {
+function Buttons(props) {
   return (
-    <Pressable style={btnStyle(props.btnStyle)} onPress={props.onPress}>
+    <Pressable>
       <View>
-        <Text style={textStyle(props.textStyle)}>{props.btnText}</Text>
+        <Text></Text>
       </View>
     </Pressable>
   );
 }
+
+const styles = StyleSheet.create({});
