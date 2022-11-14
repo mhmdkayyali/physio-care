@@ -23,6 +23,8 @@ function Buttons(props) {
     if (type === "yesButtonText") return styles.yesButtonText;
     if (type === "noButtonText") return styles.noButtonText;
     if (type === "listViewButtonText") return styles.listViewButtonText;
+    if (type === "filterButtonText") return styles.filterButtonText;
+    if (type === "timeButtonText") return styles.timeButtonText;
     return styles.buttonText;
   }
   return (
@@ -175,5 +177,16 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 14,
     fontWeight: "bold",
+  },
+  filterButtonText: {
+    color: "#FFFFFF",
+    fontSize: 13,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  timeButtonText: {
+    color: "#383838",
+    fontSize: 15,
+    fontWeight: "500",
   },
 });
