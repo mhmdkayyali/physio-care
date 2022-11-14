@@ -2,10 +2,10 @@ import { StyleSheet, View, Pressable, Text } from "react-native";
 
 function Buttons(props) {
   function btnStyle(type) {
-    return styles.btn;
+    return styles.button;
   }
   function textStyle(type) {
-    return styles.btn_text;
+    return styles.buttonText;
   }
   return (
     <Pressable style={btnStyle(props.btnStyle)}>
@@ -16,6 +16,8 @@ function Buttons(props) {
   );
 }
 
+export default Buttons;
+
 const styles = StyleSheet.create({
   button: {
     alignItems: "center",
@@ -25,7 +27,7 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 15,
   },
-  btn_text: {
+  buttonText: {
     width: "100%",
     color: "#FFFFFF",
     fontSize: 17,
