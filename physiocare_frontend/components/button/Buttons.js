@@ -259,4 +259,12 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 15,
   },
+  confirmedButton: {
+    flexGrow: 1,
+    height: 40,
+    backgroundColor: "#35DB9F",
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });
