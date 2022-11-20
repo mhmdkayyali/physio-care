@@ -54,4 +54,8 @@ const styles = StyleSheet.create({
     width: "100%",
     borderRadius: 10,
   },
+  cardDetailsContainer: {
+    height: "97%",
+    justifyContent: "space-between",
+  },
 });
