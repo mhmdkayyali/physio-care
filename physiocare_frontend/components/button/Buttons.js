@@ -9,7 +9,6 @@ function Buttons(props) {
     if (type === "yesButton") return styles.yesButton;
     if (type === "noButton") return styles.noButton;
     if (type === "listViewButton") return styles.listViewButton;
-    if (type === "filterButton") return styles.filterButton;
     if (type === "timeButton") return styles.timeButton;
     if (type === "pressedTimeButton") return styles.pressedTimeButton;
     if (type === "confirmTimeButton") return styles.confirmTimeButton;
@@ -29,7 +28,6 @@ function Buttons(props) {
     if (type === "yesButtonText") return styles.yesButtonText;
     if (type === "noButtonText") return styles.noButtonText;
     if (type === "listViewButtonText") return styles.listViewButtonText;
-    if (type === "filterButtonText") return styles.filterButtonText;
     if (type === "timeButtonText") return styles.timeButtonText;
     if (type === "pressedtimeButtonText") return styles.pressedtimeButtonText;
     if (type === "confirmTimeButtonText") return styles.confirmTimeButtonText;
@@ -135,15 +133,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginVertical: 15,
   },
-  filterButton: {
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: 10,
-    height: 45,
-    width: 110,
-    backgroundColor: "#1A7C6B",
-    margin: 5,
-  },
   timeButton: {
     alignItems: "center",
     justifyContent: "center",
@@ -190,12 +179,6 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 14,
     fontWeight: "bold",
-  },
-  filterButtonText: {
-    color: "#FFFFFF",
-    fontSize: 13,
-    fontWeight: "bold",
-    textAlign: "center",
   },
   timeButtonText: {
     color: "#383838",
