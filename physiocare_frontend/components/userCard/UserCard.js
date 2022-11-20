@@ -43,4 +43,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFFFFF",
     borderRadius: 10,
   },
+  pictureContainer: {
+    width: 70,
+    height: 85,
+    marginRight: 20,
+  },
 });
