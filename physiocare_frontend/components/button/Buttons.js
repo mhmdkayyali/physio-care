@@ -14,9 +14,9 @@ function Buttons(props) {
     if (type === "pressedTimeButton") return styles.pressedTimeButton;
     if (type === "confirmTimeButton") return styles.confirmTimeButton;
     if (type === "availableDaysButton") return styles.availableDaysButton;
-    return styles.button;
     if (type === "selectedAvailableDaysButton")
       return styles.selectedAvailableDaysButton;
+    return styles.button;
   }
   function textStyle(type) {
     if (type === "userTypeButtonText") return styles.userTypeButtonText;
@@ -32,6 +32,8 @@ function Buttons(props) {
     if (type === "confirmTimeButtonText") return styles.confirmTimeButtonText;
     if (type === "availableDaysButtonText")
       return styles.availableDaysButtonText;
+    if (type === "selectedAvailableDaysButtonText")
+      return styles.selectedAvailableDaysButtonText;
     return styles.buttonText;
   }
   return (
@@ -230,5 +232,12 @@ const styles = StyleSheet.create({
     height: 32,
     borderRadius: 10,
     marginTop: 3,
+  },
+  selectedAvailableDaysButtonText: {
+    width: "100%",
+    color: "#FFFFFF",
+    fontSize: 14,
+    fontWeight: "bold",
+    paddingLeft: 15,
   },
 });
