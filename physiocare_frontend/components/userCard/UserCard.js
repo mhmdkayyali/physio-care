@@ -58,4 +58,9 @@ const styles = StyleSheet.create({
     height: "97%",
     justifyContent: "space-between",
   },
+  cardDetailsNames: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#383838",
+  },
 });
