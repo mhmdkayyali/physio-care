@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
   pressedtimeButtonText: {
     color: "#383838",
     fontSize: 15,
-    fontWeight: "500",
+    fontWeight: "regular",
   },
   confirmTimeButtonText: {
     color: "#FFFFFF",
