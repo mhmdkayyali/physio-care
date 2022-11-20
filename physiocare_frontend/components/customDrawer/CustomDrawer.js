@@ -19,6 +19,10 @@ function CustomDrawer(props) {
         )}
         inactiveBackgroundColor="rgba(255, 255, 255, 0.25)"
         inactiveTintColor="#C9C9C9"
+        onPress={() => {
+          AsyncStorage.clear();
+          props.navigation.navigate("LoginPage");
+        }}
       />
     </>
   );
