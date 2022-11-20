@@ -73,4 +73,10 @@ const styles = StyleSheet.create({
     height: "100%",
     borderRadius: 10,
   },
+  female: {
+    backgroundColor: "rgba(219, 53, 212, 0.07)",
+    width: "100%",
+    height: "100%",
+    borderRadius: 10,
+  },
 });
