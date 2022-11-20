@@ -30,3 +30,17 @@ function UserCard(props) {
 }
 
 export default UserCard;
+
+const styles = StyleSheet.create({
+  cardContainer: {
+    alignItems: "center",
+    flexDirection: "row",
+    width: "100%",
+    height: 120,
+    marginVertical: 7,
+    paddingVertical: 18,
+    paddingHorizontal: 15,
+    backgroundColor: "#FFFFFF",
+    borderRadius: 10,
+  },
+});
