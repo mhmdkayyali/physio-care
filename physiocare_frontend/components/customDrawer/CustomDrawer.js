@@ -12,6 +12,14 @@ function CustomDrawer(props) {
       <DrawerContentScrollView {...props}>
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
+      <DrawerItem
+        label={"Logout"}
+        icon={({ color, size }) => (
+          <Ionicons name="log-out" color={color} size={size} />
+        )}
+        inactiveBackgroundColor="rgba(255, 255, 255, 0.25)"
+        inactiveTintColor="#C9C9C9"
+      />
     </>
   );
 }
