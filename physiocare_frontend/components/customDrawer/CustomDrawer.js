@@ -27,3 +27,5 @@ function CustomDrawer(props) {
     </>
   );
 }
+
+export default CustomDrawer;
