@@ -34,6 +34,7 @@ function Buttons(props) {
       return styles.availableDaysButtonText;
     if (type === "selectedAvailableDaysButtonText")
       return styles.selectedAvailableDaysButtonText;
+    if (type === "saveBtn") return styles.saveBtn;
     return styles.buttonText;
   }
   return (
