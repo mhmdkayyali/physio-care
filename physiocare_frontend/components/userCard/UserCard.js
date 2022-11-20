@@ -48,4 +48,10 @@ const styles = StyleSheet.create({
     height: 85,
     marginRight: 20,
   },
+  picture: {
+    resizeMode: "contain",
+    height: "100%",
+    width: "100%",
+    borderRadius: 10,
+  },
 });
