@@ -35,6 +35,7 @@ function Buttons(props) {
     if (type === "selectedAvailableDaysButtonText")
       return styles.selectedAvailableDaysButtonText;
     if (type === "saveButton") return styles.saveButton;
+    if (type === "callButton") return styles.callButton;
     return styles.buttonText;
   }
   return (
