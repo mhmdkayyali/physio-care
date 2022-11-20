@@ -67,4 +67,10 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#383838",
   },
+  male: {
+    backgroundColor: "rgba(53, 69, 219, 0.07)",
+    width: "100%",
+    height: "100%",
+    borderRadius: 10,
+  },
 });
