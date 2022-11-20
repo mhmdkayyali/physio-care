@@ -34,7 +34,7 @@ function Buttons(props) {
       return styles.availableDaysButtonText;
     if (type === "selectedAvailableDaysButtonText")
       return styles.selectedAvailableDaysButtonText;
-    if (type === "saveBtn") return styles.saveBtn;
+    if (type === "saveButton") return styles.saveButton;
     return styles.buttonText;
   }
   return (
@@ -240,5 +240,13 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "bold",
     paddingLeft: 15,
+  },
+  saveButton: {
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#1A7C6B",
+    width: "100%",
+    height: 40,
+    borderRadius: 15,
   },
 });
