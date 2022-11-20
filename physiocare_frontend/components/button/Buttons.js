@@ -250,4 +250,12 @@ const styles = StyleSheet.create({
     height: 40,
     borderRadius: 15,
   },
+  callButton: {
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#35DB9F",
+    width: 165,
+    height: 40,
+    borderRadius: 15,
+  },
 });
