@@ -4,6 +4,7 @@ import Buttons from "../../components/Buttons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function SignupOne() {
+  const [userType, setUserType] = useState();
   const storeData = async (value) => {
     try {
       if (value) {
