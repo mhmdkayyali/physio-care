@@ -65,12 +65,22 @@ function SignupFour({ navigation }) {
                     ? "selectedAvailableDaysButton"
                     : "availableDaysButton"
                 }
+                textStyle={
+                  select.monday
+                    ? "selectedAvailableDaysButtonText"
+                    : "availableDaysButtonText"
+                }
               />
               <Buttons
                 btnStyle={
                   select.tuesday
                     ? "selectedAvailableDaysButton"
                     : "availableDaysButton"
+                }
+                textStyle={
+                  select.tuesday
+                    ? "selectedAvailableDaysButtonText"
+                    : "availableDaysButtonText"
                 }
               />
               <Btn
@@ -79,12 +89,22 @@ function SignupFour({ navigation }) {
                     ? "selectedAvailableDaysButton"
                     : "availableDaysButton"
                 }
+                textStyle={
+                  select.wednesday
+                    ? "selectedAvailableDaysButtonText"
+                    : "availableDaysButtonText"
+                }
               />
               <Buttons
                 btnStyle={
                   select.thursday
                     ? "selectedAvailableDaysButton"
                     : "availableDaysButton"
+                }
+                textStyle={
+                  select.thursday
+                    ? "selectedAvailableDaysButtonText"
+                    : "availableDaysButtonText"
                 }
               />
               <Buttons
@@ -93,6 +113,11 @@ function SignupFour({ navigation }) {
                     ? "selectedAvailableDaysButton"
                     : "availableDaysButton"
                 }
+                textStyle={
+                  select.friday
+                    ? "selectedAvailableDaysButtonText"
+                    : "availableDaysButtonText"
+                }
               />
               <Buttons
                 btnStyle={
@@ -100,12 +125,22 @@ function SignupFour({ navigation }) {
                     ? "selectedAvailableDaysButton"
                     : "availableDaysButton"
                 }
+                textStyle={
+                  select.saturday
+                    ? "selectedAvailableDaysButtonText"
+                    : "availableDaysButtonText"
+                }
               />
               <Buttons
                 btnStyle={
                   select.sunday
                     ? "selectedAvailableDaysButton"
                     : "availableDaysButton"
+                }
+                textStyle={
+                  select.sunday
+                    ? "selectedAvailableDaysButtonText"
+                    : "availableDaysButtonText"
                 }
               />
             </View>
