@@ -220,3 +220,5 @@ function SignupFour({ navigation }) {
     </View>
   );
 }
+
+export default SignupFour;
