@@ -6,6 +6,13 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function SignupTwo({ navigation }) {
   const [data, setData] = useState();
+  const [enteredInfo, setEnteredInfo] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    password: "",
+    phone_number: "",
+  });
 
   useEffect(() => {
     AsyncStorage.getItem("user")
@@ -21,6 +28,12 @@ function SignupTwo({ navigation }) {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleInputChange = (value, key) => {
+    setEnteredInfo((prev) => {
+      return { ...prev, [key]: value };
+    });
   };
 
   const nextButtonHandler = () => {
