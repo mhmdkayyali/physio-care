@@ -52,6 +52,9 @@ function HomeMap({ navigation }) {
     navigation.navigate("ListView");
   };
 
+  if (!user || !therapists) {
+    return <Text>Loading...</Text>;
+  }
   return (
     <View style={styles.appContainer}>
       <View style={styles.viewBtnSearchBarContainer}>
@@ -60,3 +63,5 @@ function HomeMap({ navigation }) {
     </View>
   );
 }
+
+export default HomeMap;
