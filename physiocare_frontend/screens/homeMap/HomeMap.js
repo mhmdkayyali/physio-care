@@ -89,6 +89,19 @@ function HomeMap({ navigation }) {
             </Text>
           </Callout>
         </Marker>
+
+        {therapists.map((therapist) => {
+          return (
+            <Marker
+              coordinate={{
+                longitude: therapist.longitude,
+                latitude: therapist.latitude,
+              }}
+              pinColor={"#1A7C6B"}
+              key={therapist.id}
+            ></Marker>
+          );
+        })}
       </MapView>
     </View>
   );
