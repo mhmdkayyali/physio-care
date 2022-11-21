@@ -6,6 +6,10 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function SignupThree({ navigation }) {
   const [data, setData] = useState();
+  const [pin, setPin] = useState({
+    latitude: 33.8912434,
+    longitude: 35.5059952,
+  });
 
   useEffect(() => {
     AsyncStorage.getItem("user")
