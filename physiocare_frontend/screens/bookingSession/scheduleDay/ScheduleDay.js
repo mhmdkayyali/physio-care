@@ -76,4 +76,25 @@ const styles = StyleSheet.create({
   btnContainer: {
     width: "100%",
   },
+  therapistNameText: {
+    fontSize: 25,
+    color: "#383838",
+    fontWeight: "bold",
+  },
+  specialtyText: {
+    fontSize: 15,
+    color: "#383838",
+    textAlign: "center",
+  },
+  dayText: {
+    textAlign: "center",
+    fontSize: 18,
+    color: "#383838",
+    fontWeight: "500",
+  },
+  dateText: {
+    textAlign: "center",
+    fontSize: 16,
+    color: "#383838",
+  },
 });
