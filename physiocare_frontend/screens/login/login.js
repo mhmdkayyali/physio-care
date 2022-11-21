@@ -6,10 +6,23 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Login = ({ navigation }) => {
   const [token, setToken] = useState();
+  const [data, setData] = useState();
   const [enteredInfo, setEnteredInfo] = useState({
     email: "",
     password: "",
   });
+
+  useEffect(() => {
+    if (token) {
+      navigation.navigate("DrawerNavigator", {
+        screen: "TherapistLandingPage",
+      });
+    }
+  }, [token]);
+
+  useEffect(() => {
+    getToken();
+  }, []);
 
   const getToken = async (token) => {
     try {
