@@ -6,6 +6,9 @@ import { View, StyleSheet, ScrollView } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function Profile() {
+  const [canEdit, setCanEdit] = useState(false);
+  const [storageData, setStorageData] = useState();
+
   return (
     <View style={styles.appContainer}>
       {storageData?.user_type === "THERAPIST" ? (
