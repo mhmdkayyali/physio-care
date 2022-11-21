@@ -46,6 +46,35 @@ function SignupFour({ navigation }) {
     });
   };
 
+  function signupButtonHandler() {
+    const data2 = {
+      ...data,
+      ...select,
+      ...enteredInfo,
+    };
+    storeData(data2);
+    console.log(data2);
+    axios({
+      headers: {
+        accept: "application/json",
+      },
+      method: "post",
+      url: "http://192.168.43.32:8000/auth/therapist",
+      data: {
+        ...data,
+        ...select,
+        ...enteredInfo,
+      },
+    })
+      .then((res) => {
+        console.log("res", res.data);
+        navigation.navigate("LoginPage");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.logo_login_container}>
