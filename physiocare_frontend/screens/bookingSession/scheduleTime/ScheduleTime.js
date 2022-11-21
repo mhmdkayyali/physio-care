@@ -150,4 +150,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginBottom: 10,
   },
+  btnContainer: {
+    width: "100%",
+    height: "80%",
+  },
 });
