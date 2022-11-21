@@ -73,7 +73,12 @@ function SignupThree({ navigation, route }) {
         />
       </ScrollView>
       <View style={styles.btnContainer}>
-        <Buttons />
+        <Buttons
+          btnText={"NEXT"}
+          onPress={() => {
+            nextButtonHandler();
+          }}
+        />
       </View>
     </View>
   );
