@@ -40,6 +40,10 @@ function SchedulingTime({ navigation, route }) {
     availableSlots.push(`${i}:00`);
   }
 
+  const onTimeSlotPress = (index) => {
+    setSelectedSlot(index);
+  };
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.infoDateContainer}>
