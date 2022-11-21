@@ -24,6 +24,12 @@ function SignupOne() {
     }
   }, [userType]);
 
+  function userTypeHandler() {
+    userType === "PATIENT"
+      ? navigation.navigate("SignupPageTwoPatient", { user_type: userType })
+      : navigation.navigate("SignupPageTwoTherapist", { user_type: userType });
+  }
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.logo_login_container}>
