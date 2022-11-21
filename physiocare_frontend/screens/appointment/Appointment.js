@@ -8,6 +8,11 @@ import axios from "axios";
 
 function Schedule() {
   const [modalVisible, setModalVisible] = useState(false);
+  const [enteredSearchText, setEnteredSearchText] = useState("");
+  const [user, setUser] = useState();
+  const [cancelled, setCancelled] = useState();
+  const [cancelledId, setCancelledId] = useState();
+  const [appointments, setAppointments] = useState([]);
 
   return (
     <View style={styles.appContainer}>
