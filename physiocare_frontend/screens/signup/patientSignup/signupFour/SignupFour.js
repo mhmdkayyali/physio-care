@@ -107,3 +107,5 @@ function SignupPageFourPatient({ navigation, route }) {
     </View>
   );
 }
+
+export default SignupPageFourPatient;
