@@ -151,4 +151,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 7,
     color: "#383838",
   },
+  map: {
+    height: "100%",
+    width: "100%",
+    marginTop: -165,
+    alignItems: "center",
+    justifyContent: "center",
+    width: Dimensions.get("window").width,
+  },
 });
