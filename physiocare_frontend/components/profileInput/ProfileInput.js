@@ -1,16 +1,26 @@
 import { TextInput, StyleSheet, View, Text } from "react-native";
 
 function ProfileInput(props) {
+  const checkEdit = (canEdit) => {
+    if (canEdit) {
+      return styles.canEdittextInput;
+    } else {
+      styles.textInput;
+    }
+  };
+
   return (
     <View style={styles.profileInputContainer}>
       <Text style={styles.inputTitle}>{props.inputTitle}</Text>
       <TextInput
-        style={styles.textInput}
+        style={checkEdit(props.canEdit)}
+        // placeholder={props.placeHolder}
         onChangeText={(value) => {
           props.changeInput(value);
         }}
         editable={props.canEdit}
         value={props.value}
+        defaultValue={props.defaultValue}
       />
     </View>
   );
