@@ -32,6 +32,13 @@ function UserListView() {
     }
   };
 
+  useEffect(() => {
+    getToken();
+  }, []);
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.searchBarContainer}>
