@@ -12,6 +12,13 @@ function SignupTwo({ navigation, route }) {
     password: "",
     phone_number: "",
   });
+
+  function handleInputChange(value, key) {
+    setEnteredInfo((prev) => {
+      return { ...prev, [key]: value };
+    });
+  }
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.logo_login_container}>
@@ -24,11 +31,29 @@ function SignupTwo({ navigation, route }) {
         <Text style={styles.title}>Sign up</Text>
       </View>
       <ScrollView style={styles.inputContainer}>
-        <UserTextInput />
-        <UserTextInput />
-        <UserTextInput />
-        <UserTextInput />
-        <UserTextInput />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "first_name")}
+          placeHolder={"First name"}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "last_name")}
+          placeHolder={"Last name"}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "email")}
+          placeHolder={"Email"}
+          autoCapitalize={"none"}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "password")}
+          placeHolder={"Password"}
+          secureTextEntry={true}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "phone_number")}
+          placeHolder={"Phone number"}
+          keyboardType={"numeric"}
+        />
       </ScrollView>
       <View style={styles.btnContainer}>
         <Buttons />
