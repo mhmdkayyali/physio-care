@@ -57,10 +57,29 @@ function SignupOne() {
           btnText={"Patient"}
           onPress={() => setUserType("PATIENT")}
         />
-        <Buttons />
+        <Buttons
+          btnStyle={
+            userType === "THERAPIST"
+              ? "selectedUserTypeButton"
+              : "userTypeButton"
+          }
+          textStyle={
+            userType === "THERAPIST"
+              ? "selectedUserTypeButtonText"
+              : "userTypeButtonText"
+          }
+          btnText={"Physical Therapist"}
+          onPress={() => setUserType("THERAPIST")}
+        />
       </View>
       <View style={styles.btnContainer}>
-        <Buttons />
+        <Buttons
+          btnText={"NEXT"}
+          onPress={() => {
+            storeData();
+            userTypeHandler();
+          }}
+        />
         <View style={styles.account_login}>
           <Text>Already have an account? </Text>
           <Pressable>
