@@ -137,4 +137,8 @@ const styles = StyleSheet.create({
   userTypeText: {
     fontSize: 20,
   },
+  btnContainer: {
+    flex: 0.29,
+    width: "100%",
+  },
 });
