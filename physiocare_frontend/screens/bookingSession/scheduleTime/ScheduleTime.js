@@ -154,4 +154,25 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "80%",
   },
+  therapistNameText: {
+    fontSize: 25,
+    color: "#383838",
+    fontWeight: "bold",
+  },
+  specialtyText: {
+    fontSize: 15,
+    color: "#383838",
+    textAlign: "center",
+  },
+  dayText: {
+    textAlign: "center",
+    fontSize: 20,
+    color: "#383838",
+    fontWeight: "500",
+  },
+  dateText: {
+    textAlign: "center",
+    fontSize: 14,
+    color: "#383838",
+  },
 });
