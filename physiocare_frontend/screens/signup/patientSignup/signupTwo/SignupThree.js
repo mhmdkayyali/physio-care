@@ -5,6 +5,20 @@ import Buttons from "../../../components/Buttons";
 import { ScrollView } from "react-native-gesture-handler";
 
 function SignupThree({ navigation, route }) {
+  const user = route.params.user;
+  function nextButtonHandler() {
+    navigation.navigate("SignupPageFourPatient", {
+      user: {
+        ...user,
+        gender: enteredInfo.gender,
+        dob: enteredInfo.dob,
+        diagnosis: enteredInfo.diagnosis,
+        case_date: enteredInfo.case_date,
+        treating_doctor: enteredInfo.treating_doctor,
+      },
+    });
+  }
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.logo_login_container}>
