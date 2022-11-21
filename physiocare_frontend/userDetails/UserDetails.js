@@ -4,6 +4,8 @@ import Btn from "../../components/Btn";
 import { View, StyleSheet, ScrollView, Text } from "react-native";
 
 function UserDetails({ navigation, route }) {
+  const user = route.params.user;
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.profilePictureContainer}>
