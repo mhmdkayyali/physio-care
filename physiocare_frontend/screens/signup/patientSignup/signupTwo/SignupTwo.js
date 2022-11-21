@@ -120,4 +120,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  paragraph: {
+    fontSize: 20,
+    color: "#383838",
+    marginBottom: 27,
+  },
 });
