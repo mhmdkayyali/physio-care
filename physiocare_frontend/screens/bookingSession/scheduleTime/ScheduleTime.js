@@ -5,3 +5,5 @@ import ProfilePicture from "../../components/ProfilePicture";
 import PressedTime from "../../components/PressedTime";
 import { ScrollView } from "react-native-gesture-handler";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from "axios";
+import uuid from "react-native-uuid";
