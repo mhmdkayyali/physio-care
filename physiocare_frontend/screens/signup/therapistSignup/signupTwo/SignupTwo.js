@@ -124,3 +124,5 @@ function SignupTwo({ navigation }) {
     </View>
   );
 }
+
+export default SignupTwo;
