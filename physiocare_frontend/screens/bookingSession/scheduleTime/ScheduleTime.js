@@ -130,4 +130,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: "#EFEFEF",
   },
+  profilePictureContainer: {
+    margin: 20,
+  },
 });
