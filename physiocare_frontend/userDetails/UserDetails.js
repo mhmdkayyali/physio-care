@@ -12,15 +12,28 @@ function UserDetails({ navigation, route }) {
         <ProfilePicture />
       </View>
       <View>
-        <Text style={styles.therapistNameText}></Text>
+        <Text style={styles.therapistNameText}>
+          {`${user.first_name} ${user.last_name}`}
+        </Text>
       </View>
       <ScrollView>
-        <ProfileDisplay inputTitle={"SPECIALITY"} />
+        <ProfileDisplay
+          inputContent={user.therapist_additional_informations.specialty}
+          inputTitle={"SPECIALITY"}
+        />
         <ProfileDisplay inputContent={user.location} inputTitle={"LOCATION"} />
-        <ProfileDisplay inputTitle={"RATE PER SESSION"} />
+        <ProfileDisplay
+          inputContent={`${user.therapist_additional_informations.rate} $`}
+          inputTitle={"RATE PER SESSION"}
+        />
       </ScrollView>
       <View style={styles.btnContainer}>
-        <Btn btnText={"BOOK A SESSION"} />
+        <Btn
+          onPress={() =>
+            navigation.navigate("SchedulingDay", { user: JSON.stringify(user) })
+          }
+          btnText={"BOOK A SESSION"}
+        />
       </View>
     </View>
   );
