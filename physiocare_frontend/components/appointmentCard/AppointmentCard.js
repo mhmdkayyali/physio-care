@@ -3,8 +3,11 @@ import Buttons from "../button/Buttons";
 import { useNavigation } from "@react-navigation/native";
 
 function AppointmentCard(props) {
+  const navigate = useNavigation();
   return (
-    <View style={styles.cardContainer}>
+    <View
+      style={props.isCancelled ? styles.cancelledCard : styles.cardContainer}
+    >
       <View style={styles.cardInformation}>
         <View style={styles.lineContainer}>
           <Text style={styles.cardDetailsNames}>{props.userName}</Text>
@@ -15,19 +18,35 @@ function AppointmentCard(props) {
           <Text style={styles.cardDetails}>{props.time}</Text>
         </View>
       </View>
-      <View style={styles.buttonContainer}>
-        <Buttons
-          btnStyle={"attendedBtn"}
-          textStyle={"scheduleBtnText"}
-          btnText={"ATTENDED"}
-        />
-        <Buttons
-          btnStyle={"cancelBtn"}
-          textStyle={"scheduleBtnText"}
-          btnText={"CANCEL"}
-          onPress={props.showModal}
-        />
-      </View>
+      {props.isCancelled != null ? (
+        <View style={styles.cancelledContainer}>
+          <Text style={styles.cancelledText}>Cancelled</Text>
+        </View>
+      ) : (
+        <View style={styles.btnContainer}>
+          <Buttons
+            btnStyle={"attendedBtn"}
+            textStyle={"scheduleBtnText"}
+            btnText={"ATTEND"}
+            onPress={() => {
+              navigate.navigate("VideoPage", {
+                meetingId: props.meeting,
+                name: props.meetingName,
+              });
+            }}
+          />
+          <Buttons
+            btnStyle={"cancelBtn"}
+            textStyle={"scheduleBtnText"}
+            btnText={"CANCEL"}
+            onPress={() => {
+              props.showModal();
+              props.cancel(props.meetingName);
+              props.cancelId(props.id);
+            }}
+          />
+        </View>
+      )}
     </View>
   );
 }
