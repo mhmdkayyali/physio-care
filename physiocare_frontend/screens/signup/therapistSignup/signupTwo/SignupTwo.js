@@ -161,4 +161,13 @@ const styles = StyleSheet.create({
     flex: 3,
     width: "100%",
   },
+  paragraphContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  paragraph: {
+    fontSize: 20,
+    color: "#383838",
+    marginBottom: 27,
+  },
 });
