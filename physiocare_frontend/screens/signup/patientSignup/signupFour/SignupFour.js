@@ -127,4 +127,12 @@ const styles = StyleSheet.create({
     color: "#383838",
     marginBottom: 20,
   },
+  map: {
+    height: 250,
+    width: "100%",
+    borderRadius: 15,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 11,
+  },
 });
