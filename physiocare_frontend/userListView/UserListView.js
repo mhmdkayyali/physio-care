@@ -39,6 +39,27 @@ function UserListView() {
     console.log(data);
   }, [data]);
 
+  useEffect(() => {
+    const url =
+      storageData?.user_type === "PATIENT"
+        ? "http://192.168.43.32:8000/therapist"
+        : "http://192.168.43.32:8000/patient";
+    axios
+      .get(url, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        if (res) {
+          setData(res.data);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [token]);
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.searchBarContainer}>
