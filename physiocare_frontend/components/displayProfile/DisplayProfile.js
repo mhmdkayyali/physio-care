@@ -1,10 +1,10 @@
-import { StyleSheet, View, Text } from "react-native";
+import { TextInput, StyleSheet, View, Text } from "react-native";
 
 function ProfileDisplay(props) {
   return (
     <View style={styles.profileInputContainer}>
       <Text style={styles.inputTitle}>{props.inputTitle}</Text>
-      <Text style={styles.textInfo}>Neuromusculoskeletal</Text>
+      <Text style={styles.textInfo}>{props.inputContent}</Text>
     </View>
   );
 }
@@ -20,11 +20,12 @@ const styles = StyleSheet.create({
   },
   inputTitle: {
     color: "#A1A1A1",
-    fontSize: 12,
-    paddingLeft: 12,
+    fontSize: 10,
+    paddingLeft: 5,
   },
   textInfo: {
-    fontSize: 20,
+    fontSize: 18,
     paddingLeft: 12,
+    color: "#383838",
   },
 });
