@@ -29,6 +29,11 @@ function SignupFour({ navigation }) {
     await AsyncStorage.setItem("user", JSON.stringify(value));
     console.log(value);
   };
+  const onPressHandler = (value, key) => {
+    setSelect((prev) => {
+      return { ...prev, [key]: value };
+    });
+  };
 
   return (
     <View style={styles.appContainer}>
