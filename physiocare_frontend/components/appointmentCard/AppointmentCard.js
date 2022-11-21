@@ -86,4 +86,27 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     width: "100%",
   },
+  cancelledContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    height: 40,
+    borderRadius: 10,
+    backgroundColor: "#rgba(161, 161, 161, 0.33)",
+  },
+  cancelledText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "white",
+  },
+  cancelledCard: {
+    width: "100%",
+    height: 132,
+    marginVertical: 7,
+    paddingVertical: 18,
+    paddingHorizontal: 10,
+    backgroundColor: "white",
+    borderRadius: 10,
+    justifyContent: "space-between",
+  },
 });
