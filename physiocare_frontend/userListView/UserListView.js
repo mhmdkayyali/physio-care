@@ -79,6 +79,9 @@ function UserListView() {
                 ? item?.therapist_additional_informations?.specialty
                 : item?.pt_additional_informations?.diagnosis
             }
+            gender={item.gender}
+            location={item.location}
+            user={item}
           />
         ))}
       </ScrollView>
