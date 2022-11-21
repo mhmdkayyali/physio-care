@@ -88,3 +88,5 @@ function SignupThree({ navigation }) {
     </View>
   );
 }
+
+export default SignupThree;
