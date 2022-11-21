@@ -142,4 +142,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 50,
   },
+
+  logo: {
+    resizeMode: "contain",
+    height: "100%",
+    width: "100%",
+  },
 });
