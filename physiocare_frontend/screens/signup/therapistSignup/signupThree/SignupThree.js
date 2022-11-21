@@ -99,6 +99,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: "#EFEFEF",
   },
+  logo_login_container: {
+    width: "100%",
+    alignItems: "center",
+    marginTop: 50,
+    flex: 2.7,
+  },
+  logoContainer: {
+    width: 215,
+    height: 215,
+  },
+  logo: {
+    resizeMode: "contain",
+    height: "100%",
+    width: "100%",
+  },
   title: {
     fontSize: 26,
     color: "#383838",
