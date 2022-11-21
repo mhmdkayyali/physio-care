@@ -70,6 +70,8 @@ function SignupFour({ navigation }) {
                     ? "selectedAvailableDaysButtonText"
                     : "availableDaysButtonText"
                 }
+                btnText={"Monday"}
+                onPress={() => onPressHandler(!select.monday, "monday")}
               />
               <Buttons
                 btnStyle={
@@ -82,6 +84,8 @@ function SignupFour({ navigation }) {
                     ? "selectedAvailableDaysButtonText"
                     : "availableDaysButtonText"
                 }
+                btnText={"Tuesday"}
+                onPress={() => onPressHandler(!select.tuesday, "tuesday")}
               />
               <Btn
                 btnStyle={
@@ -94,6 +98,8 @@ function SignupFour({ navigation }) {
                     ? "selectedAvailableDaysButtonText"
                     : "availableDaysButtonText"
                 }
+                btnText={"Wednesday"}
+                onPress={() => onPressHandler(!select.wednesday, "wednesday")}
               />
               <Buttons
                 btnStyle={
@@ -106,6 +112,8 @@ function SignupFour({ navigation }) {
                     ? "selectedAvailableDaysButtonText"
                     : "availableDaysButtonText"
                 }
+                btnText={"Thursday"}
+                onPress={() => onPressHandler(!select.thursday, "thursday")}
               />
               <Buttons
                 btnStyle={
@@ -118,6 +126,8 @@ function SignupFour({ navigation }) {
                     ? "selectedAvailableDaysButtonText"
                     : "availableDaysButtonText"
                 }
+                btnText={"Friday"}
+                onPress={() => onPressHandler(!select.friday, "friday")}
               />
               <Buttons
                 btnStyle={
@@ -130,6 +140,8 @@ function SignupFour({ navigation }) {
                     ? "selectedAvailableDaysButtonText"
                     : "availableDaysButtonText"
                 }
+                btnText={"Saturday"}
+                onPress={() => onPressHandler(!select.saturday, "saturday")}
               />
               <Buttons
                 btnStyle={
@@ -142,6 +154,8 @@ function SignupFour({ navigation }) {
                     ? "selectedAvailableDaysButtonText"
                     : "availableDaysButtonText"
                 }
+                btnText={"Sunday"}
+                onPress={() => onPressHandler(!select.sunday, "sunday")}
               />
             </View>
           </View>
