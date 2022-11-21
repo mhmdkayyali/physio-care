@@ -122,3 +122,12 @@ function SchedulingTime({ navigation, route }) {
 }
 
 export default SchedulingTime;
+
+const styles = StyleSheet.create({
+  appContainer: {
+    flex: 1,
+    alignItems: "center",
+    paddingHorizontal: 20,
+    backgroundColor: "#EFEFEF",
+  },
+});
