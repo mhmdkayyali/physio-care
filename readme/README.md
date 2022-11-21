@@ -1,4 +1,4 @@
-<img src="./assets/titles/title1.svg"/>
+<img src="./readme/assets/titles/title1.svg"/>
 
 <div align="center">
 
@@ -9,7 +9,7 @@
 </div>
 
 <br><br>
-<img src="./assets/titles/title2.svg"/>
+<img src="./readme/assets/titles/title2.svg"/>
 
 > The PhysioCare app is a medical and health care app built based on the observed needs of the community. The PhysioCare app makes connecting patients to Physical therapists a breeze.
 
@@ -34,7 +34,7 @@
 
   <br><br>
 
-<img src="./assets/titles/title3.svg"/>
+<img src="./readme/assets/titles/title3.svg"/>
 
 > This design was planned before on paper, then moved to Figma app for the fine details.
 > Note that i didn't use any styling library or theme, all from scratch and using pure css modules
@@ -49,7 +49,7 @@
 
 <br><br>
 
-<img src="./assets/titles/title4.svg"/>
+<img src="./readme/assets/titles/title4.svg"/>
 
 Here's a brief high-level overview of the tech stack the Well app uses:
 
@@ -60,7 +60,7 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 <br><br>
 
-<img src="./assets/titles/title5.svg"/>
+<img src="./readme/assets/titles/title5.svg"/>
 
 > Using the above mentioned tech stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, these are screenshots from the real app
 
@@ -70,7 +70,7 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 <br><br>
 
-<img src="./assets/titles/title6.svg"/>
+<img src="./readme/assets/titles/title6.svg"/>
 
 > This is an example of how you may give instructions on setting up your project locally.
 > To get a local copy up and running follow these simple example steps.
