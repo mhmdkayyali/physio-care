@@ -1,12 +1,15 @@
+import { useState } from "react";
 import { StyleSheet, View } from "react-native";
 import Buttons from "../button/Buttons";
 
 function PressedTimeButton(props) {
+  const [confirmed, setConfirmed] = useState(false);
+
   return (
     <View style={styles.buttonContainer}>
       <Buttons
-        btnStyle={"pressedTimeBtn"}
-        textStyle={"PressedtimeBtnText"}
+        btnStyle={confirmed ? "confirmTimeButton" : "pressedTimeButton"}
+        textStyle={confirmed ? "" : "pressedtimeButtonText"}
         btnText={props.slot}
         onPress={props.onPress}
       />
@@ -15,7 +18,12 @@ function PressedTimeButton(props) {
           btnStyle={"confirmTimeBtn"}
           textStyle={"confirmTimeBtnText"}
           btnText={"CONFIRM"}
-          onPress={() => {}}
+          onPress={() => {
+            props.unselect();
+            props.canChoose();
+            setConfirmed(true);
+            props.selectedTime(props.slot);
+          }}
         />
       )}
     </View>

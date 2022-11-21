@@ -14,7 +14,6 @@ function ProfileInput(props) {
       <Text style={styles.inputTitle}>{props.inputTitle}</Text>
       <TextInput
         style={checkEdit(props.canEdit)}
-        // placeholder={props.placeHolder}
         onChangeText={(value) => {
           props.changeInput(value);
         }}
@@ -51,7 +50,6 @@ const styles = StyleSheet.create({
     width: "95%",
     fontSize: 20,
     backgroundColor: "#E2E2E2",
-    // height: 40,
     borderRadius: 5,
     margin: 10,
     paddingLeft: 12,
