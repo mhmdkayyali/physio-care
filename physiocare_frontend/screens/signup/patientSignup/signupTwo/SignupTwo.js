@@ -3,7 +3,15 @@ import { Text, View, Image } from "react-native";
 import Buttons from "../../../components/Buttons";
 import { ScrollView } from "react-native-gesture-handler";
 
-function SignupTwo() {
+function SignupTwo({ navigation, route }) {
+  const user = route.params;
+  const [enteredInfo, setEnteredInfo] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    password: "",
+    phone_number: "",
+  });
   return (
     <View style={styles.appContainer}>
       <View style={styles.logo_login_container}>
