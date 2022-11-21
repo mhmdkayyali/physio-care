@@ -134,4 +134,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginBottom: 11,
   },
+  userTypeText: {
+    fontSize: 20,
+  },
 });
