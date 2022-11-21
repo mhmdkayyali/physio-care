@@ -65,3 +65,13 @@ function HomeMap({ navigation }) {
 }
 
 export default HomeMap;
+
+const styles = StyleSheet.create({
+  appContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 15,
+    backgroundColor: "#EFEFEF",
+  },
+});
