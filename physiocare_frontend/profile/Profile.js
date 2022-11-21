@@ -20,7 +20,11 @@ function Profile() {
   function canEditHandler() {
     setCanEdit(!canEdit);
   }
-
+  function handleInputChange(value, key) {
+    setInfo((prev) => {
+      return { ...prev, [key]: value };
+    });
+  }
   useEffect(() => {
     AsyncStorage.getItem("user")
       .then((res) => {
