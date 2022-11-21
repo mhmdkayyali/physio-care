@@ -74,7 +74,12 @@ function HomeMap({ navigation }) {
           longitudeDelta: 0.0421,
         }}
         provider="google"
-      ></MapView>
+      >
+        <Circle
+          center={{ longitude: user.longitude, latitude: user.latitude }}
+          radius={2000}
+        />
+      </MapView>
     </View>
   );
 }
