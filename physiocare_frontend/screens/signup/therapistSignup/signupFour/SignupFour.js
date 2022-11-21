@@ -210,7 +210,12 @@ function SignupFour({ navigation }) {
         </View>
       </View>
       <View style={styles.btnContainer}>
-        <Btn btnText={"SIGN UP"} />
+        <Btn
+          btnText={"SIGN UP"}
+          onPress={() => {
+            signupButtonHandler();
+          }}
+        />
       </View>
     </View>
   );
