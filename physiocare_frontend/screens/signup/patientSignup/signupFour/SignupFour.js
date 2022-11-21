@@ -4,7 +4,7 @@ import axios from "axios";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import Buttons from "../../../components/Buttons";
 
-function SignupPageFourPatient({ navigation, route }) {
+function SignupFour({ navigation, route }) {
   const user = route.params.user;
 
   useEffect(() => {
@@ -108,7 +108,7 @@ function SignupPageFourPatient({ navigation, route }) {
   );
 }
 
-export default SignupPageFourPatient;
+export default SignupFour;
 
 const styles = StyleSheet.create({
   appContainer: {
@@ -117,6 +117,21 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     paddingHorizontal: 20,
     backgroundColor: "#EFEFEF",
+  },
+  logo_login_container: {
+    width: "100%",
+    alignItems: "center",
+    marginTop: 50,
+    flex: 2.7,
+  },
+  logoContainer: {
+    width: 215,
+    height: 215,
+  },
+  logo: {
+    resizeMode: "contain",
+    height: "100%",
+    width: "100%",
   },
   title: {
     fontSize: 26,
