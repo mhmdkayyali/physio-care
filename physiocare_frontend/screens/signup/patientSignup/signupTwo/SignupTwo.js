@@ -112,4 +112,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  inputContainer: {
+    flex: 3,
+    width: "100%",
+  },
 });
