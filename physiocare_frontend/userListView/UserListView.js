@@ -23,6 +23,15 @@ function UserListView() {
     setEnteredSearchText(enteredText);
   }
 
+  const getToken = async () => {
+    try {
+      const token = await AsyncStorage.getItem("token");
+      setToken(token);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.searchBarContainer}>
