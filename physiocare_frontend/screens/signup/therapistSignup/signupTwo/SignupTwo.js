@@ -15,6 +15,14 @@ function SignupTwo({ navigation }) {
       .catch((error) => console.log(error));
   }, []);
 
+  const storeData = async (value) => {
+    try {
+      await AsyncStorage.setItem("user", JSON.stringify(value));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.logo_login_container}>
