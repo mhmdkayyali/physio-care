@@ -4,6 +4,7 @@ import ProfilePicture from "../../components/ProfilePicture";
 import { Calendar } from "react-native-calendars";
 
 function SchedulingDay({ navigation, route }) {
+  const selectedUser = JSON.parse(route.params.user);
   return (
     <View style={styles.appContainer}>
       <View style={styles.infoDateContainer}>
