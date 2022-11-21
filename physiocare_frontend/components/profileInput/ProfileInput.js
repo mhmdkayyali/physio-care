@@ -47,4 +47,14 @@ const styles = StyleSheet.create({
     fontSize: 12,
     paddingLeft: 12,
   },
+  canEdittextInput: {
+    width: "95%",
+    fontSize: 20,
+    backgroundColor: "#E2E2E2",
+    // height: 40,
+    borderRadius: 5,
+    margin: 10,
+    paddingLeft: 12,
+    color: "#383838",
+  },
 });
