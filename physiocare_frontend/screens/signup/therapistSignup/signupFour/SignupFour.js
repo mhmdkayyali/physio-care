@@ -7,6 +7,15 @@ import axios from "axios";
 
 function SignupFour({ navigation }) {
   const [data, setData] = useState();
+  const [select, setSelect] = useState({
+    sunday: false,
+    monday: false,
+    tuesday: false,
+    wednesday: false,
+    thursday: false,
+    friday: false,
+    saturday: false,
+  });
 
   return (
     <View style={styles.appContainer}>
