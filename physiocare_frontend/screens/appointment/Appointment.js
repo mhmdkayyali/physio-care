@@ -14,6 +14,14 @@ function Schedule() {
   const [cancelledId, setCancelledId] = useState();
   const [appointments, setAppointments] = useState([]);
 
+  useEffect(() => {
+    const getUser = async () => {
+      const user = await AsyncStorage.getItem("user");
+      setUser(JSON.parse(user));
+    };
+    getUser();
+  }, []);
+
   return (
     <View style={styles.appContainer}>
       <Modal visible={modalVisible} animationType={"fade"} transparent={true}>
