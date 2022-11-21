@@ -68,7 +68,7 @@ function SignupPageFourPatient({ navigation, route }) {
         </View>
       </View>
       <View style={styles.btnContainer}>
-        <Buttons btnText={"SIGN UP"} />
+        <Buttons btnText={"SIGN UP"} onPress={signupButtonHandler} />
       </View>
     </View>
   );
