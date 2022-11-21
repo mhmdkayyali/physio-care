@@ -9,6 +9,10 @@ function Profile() {
   const [canEdit, setCanEdit] = useState(false);
   const [storageData, setStorageData] = useState();
 
+  function canEditHandler() {
+    setCanEdit(!canEdit);
+  }
+
   return (
     <View style={styles.appContainer}>
       {storageData?.user_type === "THERAPIST" ? (
