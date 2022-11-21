@@ -1,6 +1,6 @@
 import ProfileDisplay from "../../components/ProfileDisplay";
 import ProfilePicture from "../../components/ProfilePicture";
-import Btn from "../../components/Btn";
+import Buttons from "../../components/Buttons";
 import { View, StyleSheet, ScrollView, Text } from "react-native";
 
 function UserDetails({ navigation, route }) {
@@ -28,7 +28,7 @@ function UserDetails({ navigation, route }) {
         />
       </ScrollView>
       <View style={styles.btnContainer}>
-        <Btn
+        <Buttons
           onPress={() =>
             navigation.navigate("SchedulingDay", { user: JSON.stringify(user) })
           }
@@ -54,5 +54,13 @@ const styles = StyleSheet.create({
   btnContainer: {
     marginTop: 20,
     marginBottom: 30,
+  },
+  therapistNameText: {
+    fontSize: 22,
+    color: "#383838",
+    fontWeight: "bold",
+    textAlign: "center",
+    marginTop: 10,
+    marginBottom: 10,
   },
 });
