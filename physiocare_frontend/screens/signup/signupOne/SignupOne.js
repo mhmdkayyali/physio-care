@@ -34,3 +34,5 @@ function SignupOne() {
     </View>
   );
 }
+
+export default SignupOne;
