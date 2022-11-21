@@ -134,7 +134,11 @@ function Profile() {
         )}
       </ScrollView>
       <View style={styles.btnContainer}>
-        <Buttons />
+        <Buttons
+          btnText={canEdit ? "SAVE" : "EDIT"}
+          onPress={canEditHandler}
+          btnStyle={canEdit ? "saveButton" : null}
+        />
       </View>
     </View>
   );
