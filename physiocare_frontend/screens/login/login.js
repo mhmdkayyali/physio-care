@@ -6,6 +6,10 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Login = ({ navigation }) => {
   const [token, setToken] = useState();
+  const [enteredInfo, setEnteredInfo] = useState({
+    email: "",
+    password: "",
+  });
 
   const getToken = async (token) => {
     try {
@@ -14,6 +18,12 @@ const Login = ({ navigation }) => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const handleInputChange = (value, key) => {
+    setEnteredInfo((prev) => {
+      return { ...prev, [key]: value };
+    });
   };
 
   const loginButtonHandler = () => {
@@ -59,8 +69,16 @@ const Login = ({ navigation }) => {
         <Text style={styles.title}>Login</Text>
       </View>
       <View style={styles.inputContainer}>
-        <UserTextInput />
-        <UserTextInput />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "email")}
+          placeHolder={"Email"}
+          autoCapitalize={"none"}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "password")}
+          placeHolder={"Password"}
+          secureTextEntry={true}
+        />
       </View>
       <View style={styles.login_signup_container}>
         <Buttons btnText={"LOGIN"} />
