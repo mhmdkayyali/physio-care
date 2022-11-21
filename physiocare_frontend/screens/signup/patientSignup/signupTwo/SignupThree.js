@@ -104,4 +104,8 @@ const styles = StyleSheet.create({
     marginTop: 50,
     flex: 0.85,
   },
+  logoContainer: {
+    width: 215,
+    height: 215,
+  },
 });
