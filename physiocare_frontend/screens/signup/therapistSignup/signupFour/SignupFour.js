@@ -254,4 +254,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  userTypesContainer: {
+    flex: 4,
+    width: "100%",
+  },
 });
