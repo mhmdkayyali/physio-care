@@ -9,9 +9,26 @@ function Profile() {
   const [canEdit, setCanEdit] = useState(false);
   const [storageData, setStorageData] = useState();
 
+  useEffect(() => {
+    AsyncStorage.getItem("user")
+      .then((res) => {
+        setStorageData(JSON.parse(res));
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
   function canEditHandler() {
     setCanEdit(!canEdit);
   }
+
+  useEffect(() => {
+    AsyncStorage.getItem("user")
+      .then((res) => {
+        setStorageData(JSON.parse(res));
+        console.log("res", res);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <View style={styles.appContainer}>
