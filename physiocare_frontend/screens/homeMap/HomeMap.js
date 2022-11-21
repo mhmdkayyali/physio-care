@@ -94,4 +94,12 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(131, 131, 131, 0.3)",
     marginTop: 5,
   },
+  filterParagraph: {
+    fontSize: 13,
+    fontWeight: "bold",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 7,
+    color: "#383838",
+  },
 });
