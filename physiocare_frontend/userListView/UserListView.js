@@ -6,6 +6,11 @@ import SearchingBar from "../../components/SearchingBar";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function UserListView() {
+  const [token, setToken] = useState("");
+  const [data, setData] = useState([]);
+  const [storageData, setStorageData] = useState();
+  const [enteredSearchText, setEnteredSearchText] = useState("");
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.searchBarContainer}>
