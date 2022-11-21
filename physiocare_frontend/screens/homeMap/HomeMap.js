@@ -7,6 +7,10 @@ import axios from "axios";
 import Buttons from "../../components/button/Buttons";
 
 function HomeMap({ navigation }) {
+  const [therapists, setTherapists] = useState([]);
+  const [token, setToken] = useState();
+  const [user, setUser] = useState();
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.viewBtnSearchBarContainer}>
