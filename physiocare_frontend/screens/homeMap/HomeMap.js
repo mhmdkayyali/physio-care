@@ -79,6 +79,10 @@ function HomeMap({ navigation }) {
           center={{ longitude: user.longitude, latitude: user.latitude }}
           radius={2000}
         />
+        <Marker
+          coordinate={{ longitude: user.longitude, latitude: user.latitude }}
+          pinColor={"#1A7C6B"}
+        ></Marker>
       </MapView>
     </View>
   );
