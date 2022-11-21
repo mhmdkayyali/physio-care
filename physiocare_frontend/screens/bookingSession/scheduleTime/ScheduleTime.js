@@ -175,4 +175,15 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: "#383838",
   },
+  scheduleParagraph: {
+    fontSize: 15,
+    color: "#383838",
+    marginLeft: 10,
+    marginRight: 20,
+    fontWeight: "500",
+  },
+  selectTimeParagraph: {
+    fontSize: 12,
+    color: "#A1A1A1",
+  },
 });
