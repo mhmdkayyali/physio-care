@@ -22,6 +22,17 @@ function SchedulingDay({ navigation, route }) {
           <Text style={styles.scheduleParagraph}>Schedule a session</Text>
           <Text style={styles.selectTimeParagraph}>select a time</Text>
         </View>
+        <Calendar
+          minDate={new Date().toString()}
+          disableArrowLeft={true}
+          enableSwipeMonths={true}
+          onDayPress={(day) => {
+            navigation.navigate("SchedulingTime", {
+              date: JSON.stringify(day.dateString),
+              user: JSON.stringify(selectedUser),
+            });
+          }}
+        />
       </View>
     </View>
   );
