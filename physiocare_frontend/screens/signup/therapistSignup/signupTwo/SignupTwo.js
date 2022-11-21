@@ -67,16 +67,51 @@ function SignupTwo({ navigation }) {
         <Text style={styles.title}>Sign up</Text>
       </View>
       <ScrollView style={styles.inputContainer}>
-        <UserTextInput />
-        <UserTextInput />
-        <UserTextInput />
-        <UserTextInput />
-        <UserTextInput />
-        <UserTextInput />
-        <UserTextInput />
-        <UserTextInput />
-        <UserTextInput />
-        <UserTextInput />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "first_name")}
+          placeHolder={"First name"}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "last_name")}
+          placeHolder={"Last name"}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "email")}
+          placeHolder={"Email"}
+          autoCapitalize={"none"}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "password")}
+          placeHolder={"Password"}
+          secureTextEntry={true}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "phone_number")}
+          placeHolder={"Phone number"}
+          keyboardType={"numeric"}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "gender")}
+          placeHolder={"Gender"}
+          autoCapitalize={"characters"}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "dob")}
+          placeHolder={"Date of birth"}
+          keyboardType={"numeric"}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "specialty")}
+          placeHolder={"Specialty"}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "location")}
+          placeHolder={"Location"}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "rate")}
+          placeHolder={"Rate"}
+        />
       </ScrollView>
       <View style={styles.btnContainer}>
         <Buttons />
