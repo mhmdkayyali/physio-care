@@ -19,6 +19,19 @@ function SignupTwo({ navigation, route }) {
     });
   }
 
+  function nextButtonHandler() {
+    navigation.navigate("SignupPageThreePatient", {
+      user: {
+        ...user,
+        first_name: enteredInfo.first_name,
+        last_name: enteredInfo.last_name,
+        email: enteredInfo.email,
+        password: enteredInfo.password,
+        phone_number: enteredInfo.phone_number,
+      },
+    });
+  }
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.logo_login_container}>
