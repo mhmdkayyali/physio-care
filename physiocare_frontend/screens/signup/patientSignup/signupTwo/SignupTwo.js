@@ -125,4 +125,13 @@ const styles = StyleSheet.create({
     color: "#383838",
     marginBottom: 27,
   },
+  userTypeBtn: {
+    height: 120,
+    width: "100%",
+    backgroundColor: "#FFFFFF",
+    borderRadius: 15,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 11,
+  },
 });
