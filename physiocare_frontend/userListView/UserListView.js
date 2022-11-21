@@ -68,6 +68,15 @@ function UserListView() {
           placeHolder={"Search bar"}
         />
       </View>
+      <ScrollView>
+        {data.map((item) => (
+          <UserCard
+            userType={item.user_type}
+            key={item.id}
+            userName={`${item.first_name} ${item.last_name}`}
+          />
+        ))}
+      </ScrollView>
     </View>
   );
 }
