@@ -11,6 +11,14 @@ function UserListView() {
   const [storageData, setStorageData] = useState();
   const [enteredSearchText, setEnteredSearchText] = useState("");
 
+  useEffect(() => {
+    AsyncStorage.getItem("user")
+      .then((res) => {
+        setStorageData(JSON.parse(res));
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.searchBarContainer}>
