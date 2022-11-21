@@ -80,4 +80,9 @@ const styles = StyleSheet.create({
     height: 90,
     justifyContent: "space-between",
   },
+  filterByTextBtnsContainer: {
+    flexDirection: "row",
+    marginBottom: 60,
+    zIndex: 1,
+  },
 });
