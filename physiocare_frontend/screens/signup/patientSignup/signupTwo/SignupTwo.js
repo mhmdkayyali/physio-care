@@ -79,3 +79,15 @@ function SignupTwo({ navigation, route }) {
     </View>
   );
 }
+
+export default SignupTwo;
+
+const styles = StyleSheet.create({
+  appContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "space-around",
+    paddingHorizontal: 20,
+    backgroundColor: "#EFEFEF",
+  },
+});
