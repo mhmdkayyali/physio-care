@@ -32,6 +32,41 @@ function SchedulingTime({ navigation, route }) {
     console.log(selectedTime);
   }, [selectedTime]);
 
+  useEffect(() => {
+    const createAppointment = async () => {
+      if (canChoose === false) {
+        const user = await AsyncStorage.getItem("user");
+        const patient_id = JSON.parse(user).id;
+        console.log(patient_id);
+
+        const payload = {
+          time: selectedTime,
+          date_time: selectedDate,
+          therapist_id: selectedUser.id,
+          patient_id: patient_id,
+          meeting_link: `http://192.168.43.32:3000/video?meetingId=${uuid.v4()}&name=${
+            JSON.parse(user).first_name
+          }`,
+        };
+        console.log(payload);
+
+        axios
+          .post("http://192.168.43.32:8000/patient", payload)
+          .then((res) => {
+            console.log(res.data);
+            navigation.navigate("DrawerNavigator", {
+              screen: "ScheduleDrawer",
+            });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    };
+
+    createAppointment();
+  }, [canChoose]);
+
   for (
     let i = parseInt(selectedUser.therapist_additional_informations.start_time);
     i < parseInt(selectedUser.therapist_additional_informations.end_time);
