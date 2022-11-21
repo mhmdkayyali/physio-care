@@ -5,6 +5,16 @@ import Buttons from "../../../components/Buttons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function SignupTwo({ navigation }) {
+  const [data, setData] = useState();
+
+  useEffect(() => {
+    AsyncStorage.getItem("user")
+      .then((res) => {
+        setData(JSON.parse(res));
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.logo_login_container}>
