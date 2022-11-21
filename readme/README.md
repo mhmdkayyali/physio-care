@@ -59,3 +59,13 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 - This project also uses [MySQL](https://www.mysql.com/). A relational database management system (RDBMS) based on SQL – Structured Query Language. It is used to store the data.
 
 <br><br>
+
+<img src="./assets/titles/title5.svg"/>
+
+> Using the above mentioned tech stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, these are screenshots from the real app
+
+| Landing                                                                                | Home/Search                                                                               |
+| -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| ![Landing](https://github.com/julescript/spotifyndr/blob/master/demo/Landing_Page.jpg) | ![Home/Search](https://github.com/julescript/spotifyndr/blob/master/demo/Search_Page.jpg) |
+
+<br><br>
