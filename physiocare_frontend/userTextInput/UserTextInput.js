@@ -12,3 +12,5 @@ function UserTextInput(props) {
     ></TextInput>
   );
 }
+
+export default UserTextInput;
