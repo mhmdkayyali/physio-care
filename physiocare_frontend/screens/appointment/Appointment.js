@@ -3,3 +3,5 @@ import { useEffect, useState } from "react";
 import ScheduleCard from "../components/ScheduleCard";
 import SearchingBar from "../components/SearchingBar";
 import Btn from "../components/Btn";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from "axios";
