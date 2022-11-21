@@ -99,6 +99,17 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: "#EFEFEF",
   },
+  title: {
+    fontSize: 26,
+    color: "#383838",
+    fontWeight: "bold",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  mapTitleContainer: {
+    flex: 3,
+    width: "100%",
+  },
   paragraphContainer: {},
   paragraph: {
     fontSize: 15,
