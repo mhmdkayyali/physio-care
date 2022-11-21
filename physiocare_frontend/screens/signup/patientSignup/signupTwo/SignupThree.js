@@ -15,6 +15,12 @@ function SignupThree({ navigation, route }) {
     treating_doctor: "",
   });
 
+  function handleInputChange(value, key) {
+    setEnteredInfo((prev) => {
+      return { ...prev, [key]: value };
+    });
+  }
+
   function nextButtonHandler() {
     navigation.navigate("SignupPageFourPatient", {
       user: {
@@ -40,11 +46,31 @@ function SignupThree({ navigation, route }) {
         <Text style={styles.title}>Sign up</Text>
       </View>
       <ScrollView style={styles.inputContainer}>
-        <UserTextInput />
-        <UserTextInput />
-        <UserTextInput />
-        <UserTextInput />
-        <UserTextInput />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "gender")}
+          placeHolder={"Gender"}
+          autoCapitalize={"characters"}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "dob")}
+          placeHolder={"Date of birth"}
+          keyboardType={"numeric"}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "diagnosis")}
+          placeHolder={"Diagnosis"}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "case_date")}
+          placeHolder={"Case date"}
+          keyboardType={"numeric"}
+        />
+        <UserTextInput
+          onChangeHandler={(value) =>
+            handleInputChange(value, "treating_doctor")
+          }
+          placeHolder={"Treating doctor"}
+        />
       </ScrollView>
       <View style={styles.btnContainer}>
         <Buttons />
