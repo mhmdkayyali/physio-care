@@ -8,6 +8,18 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 function Profile() {
   const [canEdit, setCanEdit] = useState(false);
   const [storageData, setStorageData] = useState();
+  const [info, setInfo] = useState({
+    first_name: storageData?.first_name,
+    last_name: storageData?.last_name,
+    email: storageData?.email,
+    phone_number: storageData?.phone_number,
+    location: storageData?.location,
+    diagnosis: storageData?.pt_additional_informations?.diagnosis,
+    case_date: storageData?.pt_additional_informations?.case_date,
+    treating_doctor: storageData?.pt_additional_informations?.treating_doctor,
+    dob: storageData?.dob,
+    specialty: storageData?.therapist_additional_informations?.specialty,
+  });
 
   useEffect(() => {
     AsyncStorage.getItem("user")
