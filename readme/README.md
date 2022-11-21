@@ -69,3 +69,56 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 | ![Landing](https://github.com/julescript/spotifyndr/blob/master/demo/Landing_Page.jpg) | ![Home/Search](https://github.com/julescript/spotifyndr/blob/master/demo/Search_Page.jpg) |
 
 <br><br>
+
+<img src="./assets/titles/title6.svg"/>
+
+> This is an example of how you may give instructions on setting up your project locally.
+> To get a local copy up and running follow these simple example steps.
+> This is an example of how to list things you need to use the software and how to install them.
+
+### Prerequisites
+
+- npm
+  ```sh
+  npm install npm@latest -g
+  ```
+- Expo Go app on your phone
+
+### Installation
+
+1. Clone the repo
+
+   ```sh
+   git clone https://github.com/mhmdkayyali/physio-care.git
+   ```
+
+2. Install [Node.js](https://nodejs.org/en/)
+3. Go to physiocare_server directory
+   ```sh
+   cd physiocare_server
+   ```
+4. Install npm packages
+   ```sh
+   npm install
+   ```
+5. Run the server
+
+   ```sh
+   nodemon .
+   ```
+
+6. Go to physiocare_frontend directory
+
+   ```sh
+   cd physiocare_frontend
+   ```
+
+7. Install npm packages
+   ```sh
+   npm install
+   ```
+8. Run physiocare_frontend
+   ```sh
+   expo start
+   ```
+9. Scan QR that appeared in the terminal with your phone (expo go app required)
