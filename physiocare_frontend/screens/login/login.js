@@ -169,4 +169,9 @@ const styles = StyleSheet.create({
     color: "#35DB9F",
     fontSize: 15,
   },
+  login_signup_container: {
+    flex: 0.5,
+    width: "100%",
+    alignItems: "center",
+  },
 });
