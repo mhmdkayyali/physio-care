@@ -56,4 +56,12 @@ const styles = StyleSheet.create({
   profilePictureContainer: {
     margin: 20,
   },
+  nameSpecialtyContainer: {
+    flex: 0.7,
+  },
+  infoDateContainer: {
+    flex: 0.9,
+    width: "100%",
+    alignItems: "center",
+  },
 });
