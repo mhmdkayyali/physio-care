@@ -19,6 +19,10 @@ function UserListView() {
       .catch((error) => console.log(error));
   }, []);
 
+  function searchBarInputHandler(enteredText) {
+    setEnteredSearchText(enteredText);
+  }
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.searchBarContainer}>
