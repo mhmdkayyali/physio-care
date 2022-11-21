@@ -18,6 +18,12 @@ function SignupOne() {
     }
   };
 
+  useEffect(() => {
+    if (userType) {
+      storeData(userType);
+    }
+  }, [userType]);
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.logo_login_container}>
