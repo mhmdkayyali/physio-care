@@ -164,4 +164,9 @@ const styles = StyleSheet.create({
     marginTop: 14,
     flexDirection: "row",
   },
+
+  signup_btn: {
+    color: "#35DB9F",
+    fontSize: 15,
+  },
 });
