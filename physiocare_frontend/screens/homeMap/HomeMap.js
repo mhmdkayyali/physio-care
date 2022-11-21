@@ -33,6 +33,21 @@ function HomeMap({ navigation }) {
     getUser();
   }, []);
 
+  useEffect(() => {
+    axios
+      .get("http://192.168.43.32:8000/therapist", {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        setTherapists(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [token]);
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.viewBtnSearchBarContainer}>
