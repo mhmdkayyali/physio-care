@@ -118,4 +118,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: "#EFEFEF",
   },
+  paragraphContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  paragraph: {
+    fontSize: 17,
+    color: "#383838",
+    marginBottom: 20,
+  },
 });
