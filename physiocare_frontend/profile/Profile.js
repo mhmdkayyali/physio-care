@@ -21,7 +21,28 @@ function Profile() {
             />
           </>
         ) : (
-          <></>
+          <>
+            <ProfileInput
+              inputTitle={"DIAGNOSIS"}
+              canEdit={canEdit}
+              value={info.diagnosis}
+              defaultValue={storageData?.pt_additional_informations.diagnosis}
+            />
+            <ProfileInput
+              inputTitle={"CASE DATE"}
+              canEdit={canEdit}
+              value={info.case_date}
+              defaultValue={storageData?.pt_additional_informations.case_date}
+            />
+            <ProfileInput
+              inputTitle={"TREATING DOCTOR"}
+              canEdit={canEdit}
+              value={info.treating_doctor}
+              defaultValue={
+                storageData?.pt_additional_informations.treating_doctor
+              }
+            />
+          </>
         )}
       </ScrollView>
       <View style={styles.btnContainer}>
