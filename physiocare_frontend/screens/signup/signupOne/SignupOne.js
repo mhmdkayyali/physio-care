@@ -4,6 +4,19 @@ import Buttons from "../../components/Buttons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function SignupOne() {
+  const storeData = async (value) => {
+    try {
+      if (value) {
+        await AsyncStorage.setItem(
+          "user",
+          JSON.stringify({ user_type: value })
+        );
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.logo_login_container}>
