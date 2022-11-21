@@ -50,11 +50,19 @@ function SignupFour({ navigation }) {
         <View>
           <Text>Set available hours</Text>
           <View style={styles.availableTimeContainer}>
-            <TimeInput placeHolder={"8:00"} />
+            <TimeInput
+              onChangeHandler={(value) =>
+                handleInputChange(value, "start_time")
+              }
+              placeHolder={"8:00"}
+            />
             <View>
               <Text style={styles.dash}>-</Text>
             </View>
-            <TimeInput placeHolder={"17:00"} />
+            <TimeInput
+              onChangeHandler={(value) => handleInputChange(value, "end_time")}
+              placeHolder={"17:00"}
+            />
           </View>
           <View>
             <Text>Set available days</Text>
