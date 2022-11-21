@@ -131,4 +131,12 @@ const styles = StyleSheet.create({
     color: "#383838",
     marginBottom: 10,
   },
+  map: {
+    height: 285,
+    width: "100%",
+    borderRadius: 15,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 11,
+  },
 });
