@@ -13,6 +13,10 @@ function SchedulingTime({ navigation, route }) {
   const selectedUser = JSON.parse(route.params.user);
   const currentDate = new Date(selectedDate).getDay();
 
+  const [selectedSlot, setSelectedSlot] = useState();
+  const [canChoose, setCanChoose] = useState(true);
+  const [selectedTime, setSelectedTime] = useState();
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.infoDateContainer}>
