@@ -159,4 +159,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+
+  account_sign_up: {
+    marginTop: 14,
+    flexDirection: "row",
+  },
 });
