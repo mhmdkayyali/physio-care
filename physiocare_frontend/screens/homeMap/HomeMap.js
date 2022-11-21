@@ -19,6 +19,14 @@ function HomeMap({ navigation }) {
       console.log(error);
     }
   };
+  const getUser = async () => {
+    try {
+      const user = await AsyncStorage.getItem("user");
+      setUser(JSON.parse(user));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <View style={styles.appContainer}>
