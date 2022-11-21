@@ -16,6 +16,37 @@ const Login = ({ navigation }) => {
     }
   };
 
+  const loginButtonHandler = () => {
+    axios({
+      headers: {
+        access: "application/json",
+      },
+      method: "post",
+      url: "http://192.168.43.32:8000/auth/login/",
+      data: {
+        email: enteredInfo.email,
+        password: enteredInfo.password,
+      },
+    })
+      .then(async (res) => {
+        await storeToken(res.data.token);
+        await storeUser(res.data.user);
+        console.log(res.data);
+        if (token && res.data.user.user_type === "PATIENT") {
+          navigation.navigate("DrawerNavigator", {
+            screen: "PatientLandingPage",
+          });
+        } else if (token && res.data.user.user_type === "THERAPIST") {
+          navigation.navigate("DrawerNavigator", {
+            screen: "ScheduleDrawer",
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.logo_login_container}>
