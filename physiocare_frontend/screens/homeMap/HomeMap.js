@@ -58,7 +58,12 @@ function HomeMap({ navigation }) {
   return (
     <View style={styles.appContainer}>
       <View style={styles.viewBtnSearchBarContainer}>
-        <Buttons />
+        <Buttons
+          btnStyle={"listViewButton"}
+          textStyle={"listViewButtonText"}
+          onPress={listViewBtnHandler}
+          btnText={"LIST VIEW"}
+        />
       </View>
     </View>
   );
