@@ -66,6 +66,40 @@ function SignupPageFourPatient({ navigation, route }) {
         <View style={styles.paragraphContainer}>
           <Text style={styles.paragraph}>Enter your location</Text>
         </View>
+        <Pressable>
+          <View style={styles.map}>
+            <MapView
+              style={styles.map}
+              initialRegion={{
+                latitude: 33.8912434,
+                longitude: 35.5059952,
+                latitudeDelta: 0.0922,
+                longitudeDelta: 0.0421,
+              }}
+              provider="google"
+            >
+              <Marker
+                coordinate={pin}
+                pinColor={"#1A7C6B"}
+                draggable={true}
+                onDragStart={(e) => {
+                  console.log("Drag start", e.nativeEvent.coordinate);
+                }}
+                onDragEnd={(e) => {
+                  setPin({
+                    latitude: e.nativeEvent.coordinate.latitude,
+                    longitude: e.nativeEvent.coordinate.longitude,
+                  });
+                }}
+              >
+                <Callout>
+                  <Text>Mohammad Al Kayyali</Text>
+                </Callout>
+              </Marker>
+              <Circle center={pin} radius={1000} />
+            </MapView>
+          </View>
+        </Pressable>
       </View>
       <View style={styles.btnContainer}>
         <Buttons btnText={"SIGN UP"} onPress={signupButtonHandler} />
