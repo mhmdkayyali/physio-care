@@ -222,3 +222,13 @@ function SignupFour({ navigation }) {
 }
 
 export default SignupFour;
+
+const styles = StyleSheet.create({
+  appContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "space-around",
+    paddingHorizontal: 20,
+    backgroundColor: "#EFEFEF",
+  },
+});
