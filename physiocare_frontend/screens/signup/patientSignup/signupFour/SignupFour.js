@@ -135,4 +135,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginBottom: 11,
   },
+  userTypeText: {
+    fontSize: 20,
+  },
+  btnContainer: {
+    flex: 0.9,
+    width: "100%",
+  },
 });
