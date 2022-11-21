@@ -8,6 +8,13 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 function Profile() {
   return (
     <View style={styles.appContainer}>
+      {storageData?.user_type === "THERAPIST" ? (
+        <View style={styles.profilePictureContainer}>
+          <ProfilePicture />
+        </View>
+      ) : (
+        <View style={styles.topMargin}></View>
+      )}
       <ScrollView>
         <ProfileInput
           inputTitle={"FIRST NAME"}
