@@ -7,12 +7,23 @@ import Buttons from "../../../components/Buttons";
 function SignupPageFourPatient({ navigation, route }) {
   const user = route.params.user;
 
+  useEffect(() => {
+    console.log(lastInfo);
+  }, [pin]);
+
   const [pin, setPin] = useState({
     latitude: 33.8912434,
     longitude: 35.5059952,
   });
 
   const [lastInfo, setLastInfo] = useState({});
+
+  useEffect(() => {
+    setLastInfo({
+      ...user,
+      ...pin,
+    });
+  }, []);
 
   return (
     <View style={styles.appContainer}>
