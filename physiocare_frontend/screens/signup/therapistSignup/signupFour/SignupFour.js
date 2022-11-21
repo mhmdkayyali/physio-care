@@ -59,13 +59,55 @@ function SignupFour({ navigation }) {
           <View>
             <Text>Set available days</Text>
             <View>
-              <Buttons />
-              <Buttons />
-              <Btn />
-              <Buttons />
-              <Buttons />
-              <Buttons />
-              <Buttons />
+              <Buttons
+                btnStyle={
+                  select.monday
+                    ? "selectedAvailableDaysButton"
+                    : "availableDaysButton"
+                }
+              />
+              <Buttons
+                btnStyle={
+                  select.tuesday
+                    ? "selectedAvailableDaysButton"
+                    : "availableDaysButton"
+                }
+              />
+              <Btn
+                btnStyle={
+                  select.wednesday
+                    ? "selectedAvailableDaysButton"
+                    : "availableDaysButton"
+                }
+              />
+              <Buttons
+                btnStyle={
+                  select.thursday
+                    ? "selectedAvailableDaysButton"
+                    : "availableDaysButton"
+                }
+              />
+              <Buttons
+                btnStyle={
+                  select.friday
+                    ? "selectedAvailableDaysButton"
+                    : "availableDaysButton"
+                }
+              />
+              <Buttons
+                btnStyle={
+                  select.saturday
+                    ? "selectedAvailableDaysButton"
+                    : "availableDaysButton"
+                }
+              />
+              <Buttons
+                btnStyle={
+                  select.sunday
+                    ? "selectedAvailableDaysButton"
+                    : "availableDaysButton"
+                }
+              />
             </View>
           </View>
         </View>
