@@ -98,4 +98,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: "#EFEFEF",
   },
+  logo_login_container: {
+    width: "100%",
+    alignItems: "center",
+    marginTop: 50,
+    flex: 0.85,
+  },
 });
