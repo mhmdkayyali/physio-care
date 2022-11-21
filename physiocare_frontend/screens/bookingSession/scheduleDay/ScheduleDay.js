@@ -32,6 +32,12 @@ function SchedulingDay({ navigation, route }) {
               user: JSON.stringify(selectedUser),
             });
           }}
+          theme={{
+            calendarBackground: "#EFEFEF",
+            selectedDayBackgroundColor: "#35DB9F",
+            dotColor: "#35DB9F",
+            arrowColor: "#35DB9F",
+          }}
         />
       </View>
     </View>
