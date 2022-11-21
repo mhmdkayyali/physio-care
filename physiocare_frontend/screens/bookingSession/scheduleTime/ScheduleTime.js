@@ -9,6 +9,9 @@ import axios from "axios";
 import uuid from "react-native-uuid";
 
 function SchedulingTime({ navigation, route }) {
+  const selectedDate = JSON.parse(route.params.date);
+  const selectedUser = JSON.parse(route.params.user);
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.infoDateContainer}>
