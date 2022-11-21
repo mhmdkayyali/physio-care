@@ -25,6 +25,11 @@ function SignupFour({ navigation }) {
       .catch((error) => console.log(error));
   }, []);
 
+  const storeData = async (value) => {
+    await AsyncStorage.setItem("user", JSON.stringify(value));
+    console.log(value);
+  };
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.logo_login_container}>
