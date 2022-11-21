@@ -43,3 +43,5 @@ function SchedulingDay({ navigation, route }) {
     </View>
   );
 }
+
+export default SchedulingDay;
