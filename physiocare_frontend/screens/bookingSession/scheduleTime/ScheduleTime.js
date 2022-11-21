@@ -120,3 +120,5 @@ function SchedulingTime({ navigation, route }) {
     </View>
   );
 }
+
+export default SchedulingTime;
