@@ -24,6 +24,14 @@ const Login = ({ navigation }) => {
     getToken();
   }, []);
 
+  const storeToken = async (token) => {
+    try {
+      await AsyncStorage.setItem("token", token);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const getToken = async (token) => {
     try {
       const token = await AsyncStorage.getItem("token");
