@@ -35,6 +35,17 @@ function SignupFour({ navigation }) {
     });
   };
 
+  const [enteredInfo, setEnteredInfo] = useState({
+    start_time: "",
+    end_time: "",
+  });
+
+  const handleInputChange = (value, key) => {
+    setEnteredInfo((prev) => {
+      return { ...prev, [key]: value };
+    });
+  };
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.logo_login_container}>
