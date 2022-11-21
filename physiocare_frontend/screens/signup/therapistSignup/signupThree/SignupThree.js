@@ -3,3 +3,27 @@ import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import Buttons from "../../../components/Buttons";
 import MapView, { Callout, Circle, Marker } from "react-native-maps";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+
+function SignupThree({ navigation }) {
+  return (
+    <View style={styles.appContainer}>
+      <View style={styles.logo_login_container}>
+        <View style={styles.logoContainer}>
+          <Image
+            style={styles.logo}
+            source={require("../../../assets/images/logo.png")}
+          />
+        </View>
+        <Text style={styles.title}>Sign up</Text>
+      </View>
+      <View style={styles.mapTitleContainer}>
+        <View style={styles.paragraphContainer}>
+          <Text style={styles.paragraph}>Enter your Location</Text>
+        </View>
+      </View>
+      <View style={styles.btnContainer}>
+        <Buttons btnText={"NEXT"} onPress={nextButtonHandler} />
+      </View>
+    </View>
+  );
+}
