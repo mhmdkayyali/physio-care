@@ -6,6 +6,15 @@ import { ScrollView } from "react-native-gesture-handler";
 
 function SignupThree({ navigation, route }) {
   const user = route.params.user;
+
+  const [enteredInfo, setEnteredInfo] = useState({
+    gender: "",
+    dob: "",
+    diagnosis: "",
+    case_date: "",
+    treating_doctor: "",
+  });
+
   function nextButtonHandler() {
     navigation.navigate("SignupPageFourPatient", {
       user: {
