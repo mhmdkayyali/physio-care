@@ -80,4 +80,8 @@ const styles = StyleSheet.create({
     color: "#383838",
     marginBottom: 27,
   },
+  account_login: {
+    marginTop: 10,
+    flexDirection: "row",
+  },
 });
