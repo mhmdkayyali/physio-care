@@ -38,3 +38,5 @@ function UserDetails({ navigation, route }) {
     </View>
   );
 }
+
+export default UserDetails;
