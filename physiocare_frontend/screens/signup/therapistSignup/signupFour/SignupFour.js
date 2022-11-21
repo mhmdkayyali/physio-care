@@ -6,6 +6,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 
 function SignupFour({ navigation }) {
+  const [data, setData] = useState();
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.logo_login_container}>
