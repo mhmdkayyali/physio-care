@@ -48,3 +48,14 @@
 | ![Artists results](https://github.com/julescript/spotifyndr/blob/master/demo/Artists_Page.jpg) | ![Artist's Albums](https://github.com/julescript/spotifyndr/blob/master/demo/Albums_Page.jpg) |
 
 <br><br>
+
+<img src="./assets/titles/title4.svg"/>
+
+Here's a brief high-level overview of the tech stack the Well app uses:
+
+- This project uses the [react-native](https://reactnative.dev/) framework. It is a JavaScript framework for writing real, natively rendering mobile applications for iOS and Android.
+- For maps implementation, the project uses [react-native-maps](https://www.npmjs.com/package/react-native-maps?activeTab=readme) for the map view.
+- It uses [prisma](https://www.prisma.io/). A next-generation object–relational mapper (ORM). It is used to connect to the database. It is used to generate the database schema and the client. It uses a custom Schema Definition Language (SDL) that automatically writes migrations and generates type-safe code.
+- This project also uses [MySQL](https://www.mysql.com/). A relational database management system (RDBMS) based on SQL – Structured Query Language. It is used to store the data.
+
+<br><br>
