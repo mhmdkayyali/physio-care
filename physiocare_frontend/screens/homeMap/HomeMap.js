@@ -74,4 +74,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     backgroundColor: "#EFEFEF",
   },
+  viewBtnSearchBarContainer: {
+    zIndex: 1,
+    width: "100%",
+    height: 90,
+    justifyContent: "space-between",
+  },
 });
