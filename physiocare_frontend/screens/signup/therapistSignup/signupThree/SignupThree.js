@@ -5,6 +5,14 @@ import MapView, { Callout, Circle, Marker } from "react-native-maps";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function SignupThree({ navigation }) {
+  useEffect(() => {
+    AsyncStorage.getItem("user")
+      .then((res) => {
+        setData(JSON.parse(res));
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
   const nextButtonHandler = () => {
     const data2 = {
       ...data,
