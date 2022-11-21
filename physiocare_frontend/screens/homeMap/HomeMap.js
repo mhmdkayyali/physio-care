@@ -85,4 +85,13 @@ const styles = StyleSheet.create({
     marginBottom: 60,
     zIndex: 1,
   },
+  filterParagraphContainer: {
+    height: 44,
+    borderRadius: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    marginRight: 10,
+    backgroundColor: "rgba(131, 131, 131, 0.3)",
+    marginTop: 5,
+  },
 });
