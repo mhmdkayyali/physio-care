@@ -28,6 +28,11 @@ function HomeMap({ navigation }) {
     }
   };
 
+  useEffect(() => {
+    getToken();
+    getUser();
+  }, []);
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.viewBtnSearchBarContainer}>
