@@ -45,3 +45,12 @@ function SchedulingDay({ navigation, route }) {
 }
 
 export default SchedulingDay;
+
+const styles = StyleSheet.create({
+  appContainer: {
+    flex: 1,
+    alignItems: "center",
+    paddingHorizontal: 20,
+    backgroundColor: "#EFEFEF",
+  },
+});
