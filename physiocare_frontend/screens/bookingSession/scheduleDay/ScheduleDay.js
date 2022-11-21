@@ -64,4 +64,13 @@ const styles = StyleSheet.create({
     width: "100%",
     alignItems: "center",
   },
+  scheduleTimeBtnContainer: {
+    flex: 1,
+    width: "100%",
+  },
+  scheduleTimeContainer: {
+    width: "100%",
+    flexDirection: "row",
+    marginBottom: 10,
+  },
 });
