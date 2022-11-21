@@ -48,6 +48,10 @@ function HomeMap({ navigation }) {
       });
   }, [token]);
 
+  const listViewBtnHandler = () => {
+    navigation.navigate("ListView");
+  };
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.viewBtnSearchBarContainer}>
