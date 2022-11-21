@@ -126,3 +126,13 @@ function SignupTwo({ navigation }) {
 }
 
 export default SignupTwo;
+
+const styles = StyleSheet.create({
+  appContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "space-around",
+    paddingHorizontal: 20,
+    backgroundColor: "#EFEFEF",
+  },
+});
