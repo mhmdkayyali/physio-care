@@ -247,4 +247,11 @@ const styles = StyleSheet.create({
     height: "100%",
     width: "100%",
   },
+  title: {
+    fontSize: 26,
+    color: "#383838",
+    fontWeight: "bold",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });
