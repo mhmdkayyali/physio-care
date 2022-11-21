@@ -11,6 +11,7 @@ import uuid from "react-native-uuid";
 function SchedulingTime({ navigation, route }) {
   const selectedDate = JSON.parse(route.params.date);
   const selectedUser = JSON.parse(route.params.user);
+  const currentDate = new Date(selectedDate).getDay();
 
   return (
     <View style={styles.appContainer}>
