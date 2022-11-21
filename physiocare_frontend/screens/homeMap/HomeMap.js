@@ -82,7 +82,13 @@ function HomeMap({ navigation }) {
         <Marker
           coordinate={{ longitude: user.longitude, latitude: user.latitude }}
           pinColor={"#1A7C6B"}
-        ></Marker>
+        >
+          <Callout>
+            <Text>
+              {user.first_name} {user.last_name}
+            </Text>
+          </Callout>
+        </Marker>
       </MapView>
     </View>
   );
