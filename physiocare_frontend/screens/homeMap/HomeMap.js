@@ -99,7 +99,13 @@ function HomeMap({ navigation }) {
               }}
               pinColor={"#1A7C6B"}
               key={therapist.id}
-            ></Marker>
+            >
+              <Callout>
+                <Text>
+                  {therapist.first_name} {therapist.last_name}
+                </Text>
+              </Callout>
+            </Marker>
           );
         })}
       </MapView>
