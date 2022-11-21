@@ -17,6 +17,29 @@ function SchedulingTime({ navigation, route }) {
   const [canChoose, setCanChoose] = useState(true);
   const [selectedTime, setSelectedTime] = useState();
 
+  const availableSlots = [];
+  const weekDays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  useEffect(() => {
+    console.log(selectedTime);
+  }, [selectedTime]);
+
+  for (
+    let i = parseInt(selectedUser.therapist_additional_informations.start_time);
+    i < parseInt(selectedUser.therapist_additional_informations.end_time);
+    i++
+  ) {
+    availableSlots.push(`${i}:00`);
+  }
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.infoDateContainer}>
