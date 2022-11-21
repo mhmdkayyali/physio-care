@@ -145,3 +145,10 @@ function Profile() {
 }
 
 export default Profile;
+
+const styles = StyleSheet.create({
+  appContainer: {
+    flex: 1,
+    paddingHorizontal: 20,
+  },
+});
