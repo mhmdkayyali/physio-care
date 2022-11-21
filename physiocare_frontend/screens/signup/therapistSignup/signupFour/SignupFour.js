@@ -258,4 +258,8 @@ const styles = StyleSheet.create({
     flex: 4,
     width: "100%",
   },
+  availableTimeContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
 });
