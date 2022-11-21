@@ -99,6 +99,23 @@ function SchedulingTime({ navigation, route }) {
           <Text style={styles.scheduleParagraph}>Schedule a session</Text>
           <Text style={styles.selectTimeParagraph}>select a time</Text>
         </View>
+        <View style={styles.btnContainer}>
+          <ScrollView>
+            {availableSlots.map((slot, index) => (
+              <PressedTime
+                key={index}
+                slot={slot}
+                selected={selectedSlot === index}
+                onPress={canChoose ? () => onTimeSlotPress(index) : null}
+                unselect={canChoose ? () => setSelectedSlot() : null}
+                canChoose={() => {
+                  setCanChoose(false);
+                }}
+                selectedTime={setSelectedTime}
+              />
+            ))}
+          </ScrollView>
+        </View>
       </View>
     </View>
   );
