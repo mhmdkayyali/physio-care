@@ -84,4 +84,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     flexDirection: "row",
   },
+  loginBtn: {
+    color: "#35DB9F",
+    fontSize: 15,
+  },
 });
