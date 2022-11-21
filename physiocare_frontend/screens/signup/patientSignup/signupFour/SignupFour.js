@@ -25,6 +25,32 @@ function SignupPageFourPatient({ navigation, route }) {
     });
   }, []);
 
+  function signupButtonHandler() {
+    axios({
+      headers: {
+        access: "application/json",
+      },
+      method: "post",
+      url: "http://192.168.44.109:8000/auth/patient",
+      data: lastInfo,
+    })
+      .then((res) => {
+        console.log(res.data);
+        navigation.navigate(
+          "DrawerNavigator",
+          {
+            screen: "PatientLandingPage",
+          },
+          {
+            token: res.data.token,
+          }
+        );
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.logo_login_container}>
