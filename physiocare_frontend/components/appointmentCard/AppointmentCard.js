@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import Buttons from "../button/Buttons";
+import { useNavigation } from "@react-navigation/native";
 
 function AppointmentCard(props) {
   return (
