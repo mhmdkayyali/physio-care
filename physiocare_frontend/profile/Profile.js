@@ -9,6 +9,36 @@ function Profile() {
   return (
     <View style={styles.appContainer}>
       <ScrollView>
+        <ProfileInput
+          inputTitle={"FIRST NAME"}
+          canEdit={canEdit}
+          value={info.first_name}
+          defaultValue={storageData?.first_name}
+        />
+        <ProfileInput
+          inputTitle={"LAST NAME"}
+          canEdit={canEdit}
+          value={info.last_name}
+          defaultValue={storageData?.last_name}
+        />
+        <ProfileInput
+          inputTitle={"EMAIL"}
+          canEdit={canEdit}
+          value={info.email}
+          defaultValue={storageData?.email}
+        />
+        <ProfileInput
+          inputTitle={"PHONE NUMBER"}
+          canEdit={canEdit}
+          value={info.phone_number}
+          defaultValue={storageData?.phone_number}
+        />
+        <ProfileInput
+          inputTitle={"DATE OF BIRTH"}
+          canEdit={canEdit}
+          value={info.dob}
+          defaultValue={storageData?.dob}
+        />
         {storageData?.user_type === "THERAPIST" ? (
           <>
             <ProfileInput
