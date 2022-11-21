@@ -7,6 +7,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 
 function Schedule() {
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <View style={styles.appContainer}>
       <Modal visible={modalVisible} animationType={"fade"} transparent={true}>
