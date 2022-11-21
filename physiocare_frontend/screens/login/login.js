@@ -152,4 +152,11 @@ const styles = StyleSheet.create({
     width: 215,
     height: 215,
   },
+  title: {
+    fontSize: 26,
+    color: "#383838",
+    fontWeight: "bold",
+    alignItems: "center",
+    justifyContent: "center",
+  },
 });
