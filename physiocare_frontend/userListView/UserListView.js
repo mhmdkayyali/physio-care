@@ -74,6 +74,11 @@ function UserListView() {
             userType={item.user_type}
             key={item.id}
             userName={`${item.first_name} ${item.last_name}`}
+            conditionSpecialty={
+              item.user_type === "THERAPIST"
+                ? item?.therapist_additional_informations?.specialty
+                : item?.pt_additional_informations?.diagnosis
+            }
           />
         ))}
       </ScrollView>
