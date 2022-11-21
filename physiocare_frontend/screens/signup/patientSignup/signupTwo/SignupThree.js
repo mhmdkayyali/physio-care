@@ -7,10 +7,6 @@ import { ScrollView } from "react-native-gesture-handler";
 function SignupThree({ navigation, route }) {
   const user = route.params.user;
 
-  useEffect(() => {
-    console.log(user);
-  }, [enteredInfo]);
-
   const [enteredInfo, setEnteredInfo] = useState({
     gender: "",
     dob: "",
@@ -133,7 +129,7 @@ const styles = StyleSheet.create({
     color: "#383838",
     marginBottom: 27,
   },
-  userTypeButton: {
+  userTypeBtn: {
     height: 120,
     width: "100%",
     backgroundColor: "#FFFFFF",
@@ -144,5 +140,9 @@ const styles = StyleSheet.create({
   },
   userTypeText: {
     fontSize: 20,
+  },
+  btnContainer: {
+    flex: 0.29,
+    width: "100%",
   },
 });
