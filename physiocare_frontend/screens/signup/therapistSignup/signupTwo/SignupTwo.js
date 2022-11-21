@@ -23,6 +23,25 @@ function SignupTwo({ navigation }) {
     }
   };
 
+  const nextButtonHandler = () => {
+    const data2 = {
+      ...data,
+      first_name: enteredInfo.first_name,
+      last_name: enteredInfo.last_name,
+      email: enteredInfo.email,
+      password: enteredInfo.password,
+      phone_number: enteredInfo.phone_number,
+      gender: enteredInfo.gender,
+      dob: enteredInfo.dob,
+      specialty: enteredInfo.specialty,
+      location: enteredInfo.location,
+      rate: enteredInfo.rate,
+      profile_picture: "",
+    };
+    storeData(data2);
+    navigation.navigate("SignupPageThreeTherapist");
+  };
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.logo_login_container}>
