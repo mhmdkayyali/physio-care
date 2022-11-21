@@ -7,6 +7,15 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 const Login = ({ navigation }) => {
   const [token, setToken] = useState();
 
+  const getToken = async (token) => {
+    try {
+      const token = await AsyncStorage.getItem("token");
+      setToken(token);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.logo_login_container}>
