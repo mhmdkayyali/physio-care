@@ -17,6 +17,14 @@ function SignupFour({ navigation }) {
     saturday: false,
   });
 
+  useEffect(() => {
+    AsyncStorage.getItem("user")
+      .then((res) => {
+        setData(JSON.parse(res));
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.logo_login_container}>
