@@ -269,4 +269,10 @@ const styles = StyleSheet.create({
     flex: 0.9,
     width: "100%",
   },
+  dash: {
+    fontSize: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    color: "#FFFFFF",
+  },
 });
