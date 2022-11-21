@@ -88,4 +88,9 @@ const styles = StyleSheet.create({
     color: "#35DB9F",
     fontSize: 15,
   },
+  btnContainer: {
+    flex: 0.9,
+    width: "100%",
+    alignItems: "center",
+  },
 });
