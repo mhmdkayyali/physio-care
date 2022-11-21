@@ -99,4 +99,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     backgroundColor: "#EFEFEF",
   },
+  paragraphContainer: {},
+  paragraph: {
+    fontSize: 15,
+    color: "#383838",
+    marginBottom: 10,
+  },
 });
