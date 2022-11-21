@@ -45,7 +45,18 @@ function SignupOne() {
         <View style={styles.paragraphContainer}>
           <Text style={styles.paragraph}>What type of user are you?</Text>
         </View>
-        <Buttons />
+        <Buttons
+          btnStyle={
+            userType === "PATIENT" ? "selectedUserTypeButton" : "userTypeButton"
+          }
+          textStyle={
+            userType === "PATIENT"
+              ? "selectedUserTypeButtonText"
+              : "userTypeButtonText"
+          }
+          btnText={"Patient"}
+          onPress={() => setUserType("PATIENT")}
+        />
         <Buttons />
       </View>
       <View style={styles.btnContainer}>
