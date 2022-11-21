@@ -65,6 +65,16 @@ function HomeMap({ navigation }) {
           btnText={"LIST VIEW"}
         />
       </View>
+      <MapView
+        style={styles.map}
+        initialRegion={{
+          longitude: user.longitude,
+          latitude: user.latitude,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }}
+        provider="google"
+      ></MapView>
     </View>
   );
 }
