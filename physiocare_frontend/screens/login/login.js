@@ -137,4 +137,9 @@ const styles = StyleSheet.create({
   inputContainer: {
     width: "100%",
   },
+  logo_login_container: {
+    width: "100%",
+    alignItems: "center",
+    marginTop: 50,
+  },
 });
