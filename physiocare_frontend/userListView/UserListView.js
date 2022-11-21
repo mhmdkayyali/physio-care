@@ -88,5 +88,11 @@ function UserListView() {
     </View>
   );
 }
-
 export default UserListView;
+
+const styles = StyleSheet.create({
+  appContainer: {
+    flex: 1,
+    paddingHorizontal: 20,
+  },
+});
