@@ -67,4 +67,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  userTypesContainer: {
+    flex: 3,
+    width: "100%",
+  },
 });
