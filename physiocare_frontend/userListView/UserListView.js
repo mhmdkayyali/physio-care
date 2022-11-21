@@ -88,3 +88,5 @@ function UserListView() {
     </View>
   );
 }
+
+export default UserListView;
