@@ -48,6 +48,10 @@ function Schedule() {
     }
   }, [user]);
 
+  function cancelSessionBtnHandler() {
+    setModalVisible(true);
+  }
+
   return (
     <View style={styles.appContainer}>
       <Modal visible={modalVisible} animationType={"fade"} transparent={true}>
