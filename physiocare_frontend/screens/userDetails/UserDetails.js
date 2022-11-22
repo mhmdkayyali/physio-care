@@ -1,6 +1,6 @@
-import ProfileDisplay from "../../components/ProfileDisplay";
-import ProfilePicture from "../../components/ProfilePicture";
-import Buttons from "../../components/Buttons";
+import DisplayProfile from "../../components/displayProfile/DisplayProfile";
+import ProfilePicture from "../../components/profilePicture/ProfilePicture";
+import Buttons from "../../components/button/Buttons";
 import { View, StyleSheet, ScrollView, Text } from "react-native";
 
 function UserDetails({ navigation, route }) {
@@ -17,12 +17,12 @@ function UserDetails({ navigation, route }) {
         </Text>
       </View>
       <ScrollView>
-        <ProfileDisplay
+        <DisplayProfile
           inputContent={user.therapist_additional_informations.specialty}
           inputTitle={"SPECIALITY"}
         />
-        <ProfileDisplay inputContent={user.location} inputTitle={"LOCATION"} />
-        <ProfileDisplay
+        <DisplayProfile inputContent={user.location} inputTitle={"LOCATION"} />
+        <DisplayProfile
           inputContent={`${user.therapist_additional_informations.rate} $`}
           inputTitle={"RATE PER SESSION"}
         />
