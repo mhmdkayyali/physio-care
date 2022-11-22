@@ -34,6 +34,9 @@ const DrawerNavigator = () => {
         options={{
           drawerLabel: "Home",
           title: "Home",
+          drawerIcon: ({ color, size }) => (
+            <Ionicons name={"home"} color={color} size={size} />
+          ),
         }}
       />
       <Drawer.Screen
@@ -42,6 +45,9 @@ const DrawerNavigator = () => {
         options={{
           drawerLabel: "Profile",
           title: "Profile",
+          drawerIcon: ({ color, size }) => (
+            <Ionicons name={"person"} color={color} size={size} />
+          ),
         }}
       />
       <Drawer.Screen
@@ -50,6 +56,9 @@ const DrawerNavigator = () => {
         options={{
           drawerLabel: "Appointment",
           title: "Appointment",
+          drawerIcon: ({ color, size }) => (
+            <Ionicons name={"calendar"} color={color} size={size} />
+          ),
         }}
       />
     </Drawer.Navigator>
