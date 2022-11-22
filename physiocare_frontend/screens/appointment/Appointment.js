@@ -1,14 +1,12 @@
 import { View, StyleSheet, ScrollView, Modal, Text } from "react-native";
 import { useEffect, useState } from "react";
-import ScheduleCard from "../components/ScheduleCard";
-import SearchingBar from "../components/SearchingBar";
-import Btn from "../components/Btn";
+import AppointmentCard from "../../components/appointmentCard/AppointmentCard";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
+import Buttons from "../../components/button/Buttons";
 
 function Appointment() {
   const [modalVisible, setModalVisible] = useState(false);
-  const [enteredSearchText, setEnteredSearchText] = useState("");
   const [user, setUser] = useState();
   const [cancelled, setCancelled] = useState();
   const [cancelledId, setCancelledId] = useState();
@@ -52,10 +50,6 @@ function Appointment() {
     setModalVisible(true);
   }
 
-  function searchBarInputHandler(enteredText) {
-    setEnteredSearchText(enteredText);
-  }
-
   return (
     <View style={styles.appContainer}>
       <Modal visible={modalVisible} animationType={"fade"} transparent={true}>
@@ -65,13 +59,13 @@ function Appointment() {
               Are you sure you want to cancel the session with {cancelled}
             </Text>
             <View style={styles.btnContainer}>
-              <Btn
+              <Buttons
                 btnStyle={"noBtn"}
                 textStyle={"noBtnText"}
                 btnText={"NO"}
                 onPress={() => setModalVisible(false)}
               />
-              <Btn
+              <Buttons
                 btnStyle={"yesBtn"}
                 textStyle={"yesBtnText"}
                 btnText={"YES"}
@@ -98,7 +92,7 @@ function Appointment() {
       <ScrollView>
         {appointments.map((appointment) => {
           return user.user_type === "THERAPIST" ? (
-            <ScheduleCard
+            <AppointmentCard
               isCancelled={appointment.canceled_at}
               key={appointment.id}
               id={appointment.id}
@@ -115,7 +109,7 @@ function Appointment() {
               meetingName={appointment?.patient?.first_name}
             />
           ) : (
-            <ScheduleCard
+            <AppointmentCard
               isCancelled={appointment.canceled_at}
               key={appointment.id}
               id={appointment.id}
