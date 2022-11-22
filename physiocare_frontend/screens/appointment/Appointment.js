@@ -38,6 +38,16 @@ function Schedule() {
       });
   };
 
+  useEffect(() => {
+    console.log(cancelledId);
+  }, [cancelledId]);
+
+  useEffect(() => {
+    if (user != null) {
+      getAppointments();
+    }
+  }, [user]);
+
   return (
     <View style={styles.appContainer}>
       <Modal visible={modalVisible} animationType={"fade"} transparent={true}>
