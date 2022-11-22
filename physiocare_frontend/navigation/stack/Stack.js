@@ -8,6 +8,8 @@ import Login from "../../screens/login/Login";
 
 import SignupOne from "../../screens/signup/signupOne/SignupOne";
 
+import SignupTwoPatient from "../../screens/signup/patientSignup/signupTwoPatient/SignupTwoPatient";
+
 import UserListView from "../../screens/userListView/UserListView";
 
 const Stack = createNativeStackNavigator();
@@ -27,6 +29,7 @@ const NativeStackNavigator = () => {
         <Stack.Screen name="DrawerNavigator" component={DrawerNavigator} />
         <Stack.Screen name="UserListView" component={UserListView} />
         <Stack.Screen name="SignupOne" component={SignupOne} />
+        <Stack.Screen name="SignupTwoPatient" component={SignupTwoPatient} />
       </Stack.Navigator>
     </NavigationContainer>
   );
