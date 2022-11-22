@@ -1,5 +1,5 @@
-import Buttons from "../components/Buttons";
-import UserTextInput from "../components/UserTextInput";
+import Buttons from "../../components/button/Buttons";
+import UserTextInput from "../../components/userTextInput/UserTextInput";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -75,11 +75,11 @@ const Login = ({ navigation }) => {
         console.log(res.data);
         if (token && res.data.user.user_type === "PATIENT") {
           navigation.navigate("DrawerNavigator", {
-            screen: "PatientLandingPage",
+            screen: "HomeMap",
           });
         } else if (token && res.data.user.user_type === "THERAPIST") {
           navigation.navigate("DrawerNavigator", {
-            screen: "ScheduleDrawer",
+            screen: "HomeMap",
           });
         }
       })
@@ -112,7 +112,7 @@ const Login = ({ navigation }) => {
         />
       </View>
       <View style={styles.login_signup_container}>
-        <Buttons btnText={"LOGIN"} />
+        <Buttons btnText={"LOGIN"} onPress={loginButtonHandler} />
         <View style={styles.account_sign_up}>
           <Text>Don't have an account? </Text>
           <Pressable>

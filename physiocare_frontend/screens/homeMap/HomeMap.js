@@ -49,7 +49,7 @@ function HomeMap({ navigation }) {
   }, [token]);
 
   const listViewBtnHandler = () => {
-    navigation.navigate("ListView");
+    navigation.navigate("UserListView");
   };
 
   if (!user || !therapists) {

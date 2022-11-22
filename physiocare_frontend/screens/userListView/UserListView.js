@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { View, StyleSheet, ScrollView, Text } from "react-native";
-import UserCard from "../../components/UserCard";
-import SearchingBar from "../../components/SearchingBar";
+import { View, StyleSheet, ScrollView } from "react-native";
+import UserCard from "../../components/userCard/UserCard";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function UserListView() {
   const [token, setToken] = useState("");
   const [data, setData] = useState([]);
   const [storageData, setStorageData] = useState();
-  const [enteredSearchText, setEnteredSearchText] = useState("");
 
   useEffect(() => {
     AsyncStorage.getItem("user")
@@ -18,10 +16,6 @@ function UserListView() {
       })
       .catch((error) => console.log(error));
   }, []);
-
-  function searchBarInputHandler(enteredText) {
-    setEnteredSearchText(enteredText);
-  }
 
   const getToken = async () => {
     try {
@@ -62,12 +56,6 @@ function UserListView() {
 
   return (
     <View style={styles.appContainer}>
-      <View style={styles.searchBarContainer}>
-        <SearchingBar
-          onChangeHandler={searchBarInputHandler}
-          placeHolder={"Search bar"}
-        />
-      </View>
       <ScrollView>
         {data.map((item) => (
           <UserCard
@@ -94,9 +82,5 @@ const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
     paddingHorizontal: 20,
-  },
-  searchBarContainer: {
-    marginBottom: 5,
-    marginTop: 10,
   },
 });

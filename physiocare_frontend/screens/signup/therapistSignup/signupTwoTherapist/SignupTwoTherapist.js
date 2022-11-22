@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import UserTextInput from "../../../components/UserTextInput";
+import UserTextInput from "../../../../components/userTextInput/UserTextInput";
 import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
-import Buttons from "../../../components/Buttons";
+import Buttons from "../../../../components/button/Buttons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-function SignupTwo({ navigation }) {
+function SignupTwoTherapist({ navigation }) {
   const [data, setData] = useState();
   const [enteredInfo, setEnteredInfo] = useState({
     first_name: "",
@@ -52,7 +52,7 @@ function SignupTwo({ navigation }) {
       profile_picture: "",
     };
     storeData(data2);
-    navigation.navigate("SignupPageThreeTherapist");
+    navigation.navigate("SignupThreeTherapist");
   };
 
   return (
@@ -61,7 +61,7 @@ function SignupTwo({ navigation }) {
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
-            source={require("../../../assets/images/logo.png")}
+            source={require("../../../../assets/images/logo.png")}
           />
         </View>
         <Text style={styles.title}>Sign up</Text>
@@ -125,7 +125,7 @@ function SignupTwo({ navigation }) {
   );
 }
 
-export default SignupTwo;
+export default SignupTwoTherapist;
 
 const styles = StyleSheet.create({
   appContainer: {

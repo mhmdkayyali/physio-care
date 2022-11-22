@@ -1,14 +1,13 @@
 import { StyleSheet, View, Text } from "react-native";
 import { useState, useEffect } from "react";
-import Btn from "../../components/Btn";
-import ProfilePicture from "../../components/ProfilePicture";
-import PressedTime from "../../components/PressedTime";
+import ProfilePicture from "../../../components/profilePicture/ProfilePicture";
+import PressedTimeButton from "../../../components/pressedTimeButton/PressedTimeButton";
 import { ScrollView } from "react-native-gesture-handler";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import uuid from "react-native-uuid";
 
-function SchedulingTime({ navigation, route }) {
+function ScheduleTime({ navigation, route }) {
   const selectedDate = JSON.parse(route.params.date);
   const selectedUser = JSON.parse(route.params.user);
   const currentDate = new Date(selectedDate).getDay();
@@ -55,7 +54,7 @@ function SchedulingTime({ navigation, route }) {
           .then((res) => {
             console.log(res.data);
             navigation.navigate("DrawerNavigator", {
-              screen: "ScheduleDrawer",
+              screen: "Appointment",
             });
           })
           .catch((err) => {
@@ -102,7 +101,7 @@ function SchedulingTime({ navigation, route }) {
         <View style={styles.btnContainer}>
           <ScrollView>
             {availableSlots.map((slot, index) => (
-              <PressedTime
+              <PressedTimeButton
                 key={index}
                 slot={slot}
                 selected={selectedSlot === index}
@@ -121,7 +120,7 @@ function SchedulingTime({ navigation, route }) {
   );
 }
 
-export default SchedulingTime;
+export default ScheduleTime;
 
 const styles = StyleSheet.create({
   appContainer: {

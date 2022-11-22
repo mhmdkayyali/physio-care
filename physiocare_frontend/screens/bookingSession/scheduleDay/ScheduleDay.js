@@ -1,9 +1,9 @@
 import { StyleSheet, View, Text } from "react-native";
-import Buttons from "../../components/Buttons";
-import ProfilePicture from "../../components/ProfilePicture";
+import Buttons from "../../../components/button/Buttons";
+import ProfilePicture from "../../../components/profilePicture/ProfilePicture";
 import { Calendar } from "react-native-calendars";
 
-function SchedulingDay({ navigation, route }) {
+function ScheduleDay({ navigation, route }) {
   const selectedUser = JSON.parse(route.params.user);
   return (
     <View style={styles.appContainer}>
@@ -27,7 +27,7 @@ function SchedulingDay({ navigation, route }) {
           disableArrowLeft={true}
           enableSwipeMonths={true}
           onDayPress={(day) => {
-            navigation.navigate("SchedulingTime", {
+            navigation.navigate("ScheduleTime", {
               date: JSON.stringify(day.dateString),
               user: JSON.stringify(selectedUser),
             });
@@ -44,7 +44,7 @@ function SchedulingDay({ navigation, route }) {
   );
 }
 
-export default SchedulingDay;
+export default ScheduleDay;
 
 const styles = StyleSheet.create({
   appContainer: {

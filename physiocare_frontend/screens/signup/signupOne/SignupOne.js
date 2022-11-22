@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
-import Buttons from "../../components/Buttons";
+import Buttons from "../../../components/button/Buttons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function SignupOne() {
@@ -26,8 +26,8 @@ function SignupOne() {
 
   function userTypeHandler() {
     userType === "PATIENT"
-      ? navigation.navigate("SignupPageTwoPatient", { user_type: userType })
-      : navigation.navigate("SignupPageTwoTherapist", { user_type: userType });
+      ? navigation.navigate("SignupTwoPatient", { user_type: userType })
+      : navigation.navigate("SignupTwoTherapist", { user_type: userType });
   }
 
   return (
@@ -36,7 +36,7 @@ function SignupOne() {
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
-            source={require("../../assets/images/logo.png")}
+            source={require("../../../assets/images/logo.png")}
           />
         </View>
         <Text style={styles.title}>Sign up</Text>

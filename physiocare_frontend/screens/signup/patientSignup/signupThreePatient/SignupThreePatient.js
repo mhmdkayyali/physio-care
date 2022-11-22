@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import UserTextInput from "../../../components/UserTextInput";
-import { StyleSheet, Text, View, Image, Pressable, Button } from "react-native";
-import Buttons from "../../../components/Buttons";
+import { useState } from "react";
+import UserTextInput from "../../../../components/userTextInput/UserTextInput";
+import { StyleSheet, Text, View, Image } from "react-native";
+import Buttons from "../../../../components/button/Buttons";
 import { ScrollView } from "react-native-gesture-handler";
 
-function SignupThree({ navigation, route }) {
+function SignupThreePatient({ navigation, route }) {
   const user = route.params.user;
 
   const [enteredInfo, setEnteredInfo] = useState({
@@ -22,7 +22,7 @@ function SignupThree({ navigation, route }) {
   }
 
   function nextButtonHandler() {
-    navigation.navigate("SignupPageFourPatient", {
+    navigation.navigate("SignupFourPatient", {
       user: {
         ...user,
         gender: enteredInfo.gender,
@@ -40,7 +40,7 @@ function SignupThree({ navigation, route }) {
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
-            source={require("../../../assets/images/logo.png")}
+            source={require("../../../../assets/images/logo.png")}
           />
         </View>
         <Text style={styles.title}>Sign up</Text>
@@ -84,7 +84,7 @@ function SignupThree({ navigation, route }) {
   );
 }
 
-export default SignupThree;
+export default SignupThreePatient;
 
 const styles = StyleSheet.create({
   appContainer: {

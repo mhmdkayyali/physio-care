@@ -1,36 +1,55 @@
+import MapView, { Marker } from "react-native-maps";
 import { useEffect, useState } from "react";
+import axios from "axios";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
-import Buttons from "../../../components/Buttons";
-import MapView, { Callout, Circle, Marker } from "react-native-maps";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import Buttons from "../../../../components/button/Buttons";
 
-function SignupThree({ navigation }) {
-  const [data, setData] = useState();
+function SignupFourPatient({ navigation, route }) {
+  const user = route.params.user;
+
+  useEffect(() => {
+    console.log(lastInfo);
+  }, [pin]);
+
   const [pin, setPin] = useState({
     latitude: 33.8912434,
     longitude: 35.5059952,
   });
 
+  const [lastInfo, setLastInfo] = useState({});
+
   useEffect(() => {
-    AsyncStorage.getItem("user")
-      .then((res) => {
-        setData(JSON.parse(res));
-      })
-      .catch((error) => console.log(error));
+    setLastInfo({
+      ...user,
+      ...pin,
+    });
   }, []);
 
-  const storeData = async (value) => {
-    await AsyncStorage.setItem("user", JSON.stringify(value));
-  };
-
-  const nextButtonHandler = () => {
-    const data2 = {
-      ...data,
-      ...pin,
-    };
-    storeData(data2);
-    navigation.navigate("SignupPageFourTherapist");
-  };
+  function signupButtonHandler() {
+    axios({
+      headers: {
+        access: "application/json",
+      },
+      method: "post",
+      url: "http://192.168.44.109:8000/auth/patient",
+      data: lastInfo,
+    })
+      .then((res) => {
+        console.log(res.data);
+        navigation.navigate(
+          "DrawerNavigator",
+          {
+            screen: "Login",
+          },
+          {
+            token: res.data.token,
+          }
+        );
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   return (
     <View style={styles.appContainer}>
@@ -38,14 +57,14 @@ function SignupThree({ navigation }) {
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
-            source={require("../../../assets/images/logo.png")}
+            source={require("../../../../assets/images/logo.png")}
           />
         </View>
         <Text style={styles.title}>Sign up</Text>
       </View>
       <View style={styles.mapTitleContainer}>
         <View style={styles.paragraphContainer}>
-          <Text style={styles.paragraph}>Enter your Location</Text>
+          <Text style={styles.paragraph}>Enter your location</Text>
         </View>
         <Pressable>
           <View style={styles.map}>
@@ -72,24 +91,19 @@ function SignupThree({ navigation }) {
                     longitude: e.nativeEvent.coordinate.longitude,
                   });
                 }}
-              >
-                <Callout>
-                  <Text>Mohammad Al Kayyali</Text>
-                </Callout>
-              </Marker>
-              <Circle center={pin} radius={1000} />
+              ></Marker>
             </MapView>
           </View>
         </Pressable>
       </View>
       <View style={styles.btnContainer}>
-        <Buttons btnText={"NEXT"} onPress={nextButtonHandler} />
+        <Buttons btnText={"SIGN UP"} onPress={signupButtonHandler} />
       </View>
     </View>
   );
 }
 
-export default SignupThree;
+export default SignupFourPatient;
 
 const styles = StyleSheet.create({
   appContainer: {
@@ -125,14 +139,17 @@ const styles = StyleSheet.create({
     flex: 3,
     width: "100%",
   },
-  paragraphContainer: {},
+  paragraphContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
   paragraph: {
-    fontSize: 15,
+    fontSize: 17,
     color: "#383838",
-    marginBottom: 10,
+    marginBottom: 20,
   },
   map: {
-    height: 285,
+    height: 250,
     width: "100%",
     borderRadius: 15,
     alignItems: "center",
