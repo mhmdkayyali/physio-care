@@ -139,3 +139,10 @@ function Schedule() {
   );
 }
 export default Schedule;
+
+const styles = StyleSheet.create({
+  appContainer: {
+    flex: 1,
+    padding: 15,
+  },
+});
