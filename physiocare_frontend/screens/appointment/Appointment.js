@@ -168,4 +168,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     flexDirection: "row",
   },
+  searchBarContainer: {
+    marginBottom: 5,
+  },
 });
