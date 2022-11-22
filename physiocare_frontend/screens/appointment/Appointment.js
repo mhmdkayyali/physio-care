@@ -98,7 +98,22 @@ function Schedule() {
       <ScrollView>
         {appointments.map((appointment) => {
           return user.user_type === "THERAPIST" ? (
-            <ScheduleCard />
+            <ScheduleCard
+              isCancelled={appointment.canceled_at}
+              key={appointment.id}
+              id={appointment.id}
+              userName={`${appointment.patient.first_name} ${appointment.patient.last_name}`}
+              date={appointment.date_time.split("T")[0]}
+              conditionSpecialty={
+                appointment.patient.pt_additional_informations.diagnosis
+              }
+              time={appointment.time}
+              showModal={cancelSessionBtnHandler}
+              cancel={setCancelled}
+              cancelId={setCancelledId}
+              meeting={appointment?.meeting_links?.meeting_link}
+              meetingName={appointment?.patient?.first_name}
+            />
           ) : (
             <ScheduleCard />
           );
