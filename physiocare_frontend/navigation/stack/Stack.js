@@ -14,6 +14,7 @@ import SignupFourPatient from "../../screens/signup/patientSignup/signupFourPati
 
 import SignupTwoTherapist from "../../screens/signup/therapistSignup/signupTwoTherapist/SignupTwoTherapist";
 import SignupThreeTherapist from "../../screens/signup/therapistSignup/signupThreeTherapist/SignupThreeTherapist";
+import SignupFourTherapist from "../../screens/signup/therapistSignup/signupFourTherapist/SignupFourTherapist";
 
 import UserListView from "../../screens/userListView/UserListView";
 
@@ -47,6 +48,10 @@ const NativeStackNavigator = () => {
         <Stack.Screen
           name="SignupThreeTherapist"
           component={SignupThreeTherapist}
+        />
+        <Stack.Screen
+          name="SignupFourTherapist"
+          component={SignupFourTherapist}
         />
       </Stack.Navigator>
     </NavigationContainer>
