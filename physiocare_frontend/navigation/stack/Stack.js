@@ -34,27 +34,52 @@ const NativeStackNavigator = () => {
           headerTintColor: "#FFFFFF",
         }}
       >
-        <Stack.Screen name="Login" component={Login} ini />
-        <Stack.Screen name="DrawerNavigator" component={DrawerNavigator} />
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{ headerShown: false }}
+          ini
+        />
+        <Stack.Screen
+          name="DrawerNavigator"
+          component={DrawerNavigator}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen name="UserListView" component={UserListView} />
-        <Stack.Screen name="SignupOne" component={SignupOne} />
-        <Stack.Screen name="SignupTwoPatient" component={SignupTwoPatient} />
+        <Stack.Screen
+          name="SignupOne"
+          component={SignupOne}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="SignupTwoPatient"
+          component={SignupTwoPatient}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="SignupThreePatient"
           component={SignupThreePatient}
+          options={{ headerShown: false }}
         />
-        <Stack.Screen name="SignupFourPatient" component={SignupFourPatient} />
+        <Stack.Screen
+          name="SignupFourPatient"
+          component={SignupFourPatient}
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="SignupTwoTherapist"
           component={SignupTwoTherapist}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="SignupThreeTherapist"
           component={SignupThreeTherapist}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="SignupFourTherapist"
           component={SignupFourTherapist}
+          options={{ headerShown: false }}
         />
         <Stack.Screen name="UserDetails" component={UserDetails} />
         <Stack.Screen name="ScheduleDay" component={ScheduleDay} />
