@@ -28,9 +28,27 @@ const DrawerNavigator = () => {
         swipeEnabled: true,
       }}
     >
-      <Drawer.Screen name="HomeMap" component={HomeMap} />
-      <Drawer.Screen name="Profile" component={Profile} />
-      <Drawer.Screen name="Appointment" component={Appointment} />
+      <Drawer.Screen
+        name="HomeMap"
+        component={HomeMap}
+        options={{
+          drawerLabel: "Home",
+        }}
+      />
+      <Drawer.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          drawerLabel: "Profile",
+        }}
+      />
+      <Drawer.Screen
+        name="Appointment"
+        component={Appointment}
+        options={{
+          drawerLabel: "Appointment",
+        }}
+      />
     </Drawer.Navigator>
   );
 };
