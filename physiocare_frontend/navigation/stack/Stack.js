@@ -4,6 +4,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import DrawerNavigator from "../drawer/Drawer";
 
+import Login from "../../screens/login/Login";
+
 const Stack = createNativeStackNavigator();
 
 const NativeStackNavigator = () => {
@@ -17,6 +19,7 @@ const NativeStackNavigator = () => {
           headerTintColor: "#FFFFFF",
         }}
       >
+        <Stack.Screen name="Login" component={Login} ini />
         <Stack.Screen name="DrawerNavigator" component={DrawerNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
