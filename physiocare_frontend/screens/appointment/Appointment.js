@@ -115,7 +115,23 @@ function Schedule() {
               meetingName={appointment?.patient?.first_name}
             />
           ) : (
-            <ScheduleCard />
+            <ScheduleCard
+              isCancelled={appointment.canceled_at}
+              key={appointment.id}
+              id={appointment.id}
+              userName={`${appointment.therapist.first_name} ${appointment.therapist.last_name}`}
+              date={appointment.date_time.split("T")[0]}
+              conditionSpecialty={
+                appointment.therapist.therapist_additional_informations
+                  .specialty
+              }
+              time={appointment.time}
+              showModal={cancelSessionBtnHandler}
+              cancel={setCancelled}
+              cancelId={setCancelledId}
+              meetingName={appointment?.therapist?.first_name}
+              meeting={appointment?.meeting_links?.meeting_link}
+            />
           );
         })}
       </ScrollView>
