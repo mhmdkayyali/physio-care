@@ -33,6 +33,7 @@ const DrawerNavigator = () => {
         component={HomeMap}
         options={{
           drawerLabel: "Home",
+          title: "Home",
         }}
       />
       <Drawer.Screen
@@ -40,6 +41,7 @@ const DrawerNavigator = () => {
         component={Profile}
         options={{
           drawerLabel: "Profile",
+          title: "Profile",
         }}
       />
       <Drawer.Screen
@@ -47,6 +49,7 @@ const DrawerNavigator = () => {
         component={Appointment}
         options={{
           drawerLabel: "Appointment",
+          title: "Appointment",
         }}
       />
     </Drawer.Navigator>
