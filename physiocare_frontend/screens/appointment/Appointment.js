@@ -52,6 +52,10 @@ function Schedule() {
     setModalVisible(true);
   }
 
+  function searchBarInputHandler(enteredText) {
+    setEnteredSearchText(enteredText);
+  }
+
   return (
     <View style={styles.appContainer}>
       <Modal visible={modalVisible} animationType={"fade"} transparent={true}>
