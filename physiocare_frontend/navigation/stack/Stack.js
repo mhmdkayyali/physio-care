@@ -81,9 +81,21 @@ const NativeStackNavigator = () => {
           component={SignupFourTherapist}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="UserDetails" component={UserDetails} />
-        <Stack.Screen name="ScheduleDay" component={ScheduleDay} />
-        <Stack.Screen name="ScheduleTime" component={ScheduleTime} />
+        <Stack.Screen
+          name="UserDetails"
+          component={UserDetails}
+          options={{ headerTitle: "Details" }}
+        />
+        <Stack.Screen
+          name="ScheduleDay"
+          component={ScheduleDay}
+          options={{ headerTitle: "Select a Day" }}
+        />
+        <Stack.Screen
+          name="ScheduleTime"
+          component={ScheduleTime}
+          options={{ headerTitle: "Select a Time" }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
