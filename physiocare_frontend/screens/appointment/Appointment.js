@@ -153,4 +153,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "rgba(56,56,56,0.6)",
   },
+  modalContainer: {
+    height: 160,
+    width: "80%",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#EFEFEF",
+    borderRadius: 10,
+    justifyContent: "space-evenly",
+    paddingHorizontal: 20,
+  },
 });
