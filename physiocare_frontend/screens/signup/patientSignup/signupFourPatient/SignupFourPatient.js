@@ -1,8 +1,8 @@
-import MapView, { Callout, Circle, Marker } from "react-native-maps";
+import MapView, { Marker } from "react-native-maps";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
-import Buttons from "../../../components/Buttons";
+import Buttons from "../../../../components/button/Buttons";
 
 function SignupFourPatient({ navigation, route }) {
   const user = route.params.user;
@@ -39,7 +39,7 @@ function SignupFourPatient({ navigation, route }) {
         navigation.navigate(
           "DrawerNavigator",
           {
-            screen: "PatientLandingPage",
+            screen: "Login",
           },
           {
             token: res.data.token,
@@ -57,7 +57,7 @@ function SignupFourPatient({ navigation, route }) {
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
-            source={require("../../../assets/images/logo.png")}
+            source={require("../../../../assets/images/logo.png")}
           />
         </View>
         <Text style={styles.title}>Sign up</Text>
@@ -91,12 +91,7 @@ function SignupFourPatient({ navigation, route }) {
                     longitude: e.nativeEvent.coordinate.longitude,
                   });
                 }}
-              >
-                <Callout>
-                  <Text>Mohammad Al Kayyali</Text>
-                </Callout>
-              </Marker>
-              <Circle center={pin} radius={1000} />
+              ></Marker>
             </MapView>
           </View>
         </Pressable>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
-import Buttons from "../../../components/Buttons";
-import MapView, { Callout, Circle, Marker } from "react-native-maps";
+import Buttons from "../../../../components/button/Buttons";
+import MapView, { Marker } from "react-native-maps";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 function SignupThreeTherapist({ navigation }) {
@@ -38,7 +38,7 @@ function SignupThreeTherapist({ navigation }) {
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
-            source={require("../../../assets/images/logo.png")}
+            source={require("../../../../assets/images/logo.png")}
           />
         </View>
         <Text style={styles.title}>Sign up</Text>
@@ -72,12 +72,7 @@ function SignupThreeTherapist({ navigation }) {
                     longitude: e.nativeEvent.coordinate.longitude,
                   });
                 }}
-              >
-                <Callout>
-                  <Text>Mohammad Al Kayyali</Text>
-                </Callout>
-              </Marker>
-              <Circle center={pin} radius={1000} />
+              ></Marker>
             </MapView>
           </View>
         </Pressable>

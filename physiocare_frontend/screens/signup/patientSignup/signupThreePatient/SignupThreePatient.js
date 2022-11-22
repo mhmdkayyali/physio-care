@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import UserTextInput from "../../../components/UserTextInput";
-import { StyleSheet, Text, View, Image, Pressable, Button } from "react-native";
-import Buttons from "../../../components/Buttons";
+import { useState } from "react";
+import UserTextInput from "../../../../components/userTextInput/UserTextInput";
+import { StyleSheet, Text, View, Image } from "react-native";
+import Buttons from "../../../../components/button/Buttons";
 import { ScrollView } from "react-native-gesture-handler";
 
 function SignupThreePatient({ navigation, route }) {
@@ -22,7 +22,7 @@ function SignupThreePatient({ navigation, route }) {
   }
 
   function nextButtonHandler() {
-    navigation.navigate("SignupPageFourPatient", {
+    navigation.navigate("SignupFourPatient", {
       user: {
         ...user,
         gender: enteredInfo.gender,
@@ -40,7 +40,7 @@ function SignupThreePatient({ navigation, route }) {
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
-            source={require("../../../assets/images/logo.png")}
+            source={require("../../../../assets/images/logo.png")}
           />
         </View>
         <Text style={styles.title}>Sign up</Text>

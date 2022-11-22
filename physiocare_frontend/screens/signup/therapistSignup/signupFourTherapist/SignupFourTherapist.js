@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { StyleSheet, Text, View, Image, Pressable, Button } from "react-native";
-import Buttons from "../../../components/Buttons";
-import TimeInput from "../../../components/TimeInput";
+import { StyleSheet, Text, View, Image } from "react-native";
+import Buttons from "../../../../components/button/Buttons";
+import TimeInput from "../../../../components/timeInput/TimeInput";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 
@@ -68,7 +68,7 @@ function SignupFourTherapist({ navigation }) {
     })
       .then((res) => {
         console.log("res", res.data);
-        navigation.navigate("LoginPage");
+        navigation.navigate("Login");
       })
       .catch((error) => {
         console.log(error);
@@ -81,7 +81,7 @@ function SignupFourTherapist({ navigation }) {
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
-            source={require("../../../assets/images/logo.png")}
+            source={require("../../../../assets/images/logo.png")}
           />
         </View>
         <Text style={styles.title}>Sign up</Text>
@@ -221,7 +221,7 @@ function SignupFourTherapist({ navigation }) {
   );
 }
 
-export default SignupFour;
+export default SignupFourTherapist;
 
 const styles = StyleSheet.create({
   appContainer: {

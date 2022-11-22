@@ -1,6 +1,6 @@
-import UserTextInput from "../../../components/UserTextInput";
+import UserTextInput from "../../../../components/userTextInput/UserTextInput";
 import { Text, View, Image } from "react-native";
-import Buttons from "../../../components/Buttons";
+import Buttons from "../../../../components/button/Buttons";
 import { ScrollView } from "react-native-gesture-handler";
 
 function SignupTwoPatient({ navigation, route }) {
@@ -20,7 +20,7 @@ function SignupTwoPatient({ navigation, route }) {
   }
 
   function nextButtonHandler() {
-    navigation.navigate("SignupPageThreePatient", {
+    navigation.navigate("SignupThreePatient", {
       user: {
         ...user,
         first_name: enteredInfo.first_name,
@@ -38,7 +38,7 @@ function SignupTwoPatient({ navigation, route }) {
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
-            source={require("../../../assets/images/logo.png")}
+            source={require("../../../../assets/images/logo.png")}
           />
         </View>
         <Text style={styles.title}>Sign up</Text>
