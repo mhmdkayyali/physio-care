@@ -6,6 +6,8 @@ import DrawerNavigator from "../drawer/Drawer";
 
 import Login from "../../screens/login/Login";
 
+import UserListView from "../../screens/userListView/UserListView";
+
 const Stack = createNativeStackNavigator();
 
 const NativeStackNavigator = () => {
@@ -21,6 +23,7 @@ const NativeStackNavigator = () => {
       >
         <Stack.Screen name="Login" component={Login} ini />
         <Stack.Screen name="DrawerNavigator" component={DrawerNavigator} />
+        <Stack.Screen name="UserListView" component={UserListView} />
       </Stack.Navigator>
     </NavigationContainer>
   );
