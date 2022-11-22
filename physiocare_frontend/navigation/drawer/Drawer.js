@@ -64,3 +64,5 @@ const DrawerNavigator = () => {
     </Drawer.Navigator>
   );
 };
+
+export default DrawerNavigator;
