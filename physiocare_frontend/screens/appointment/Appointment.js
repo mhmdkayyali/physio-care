@@ -95,6 +95,15 @@ function Schedule() {
           </View>
         </View>
       </Modal>
+      <ScrollView>
+        {appointments.map((appointment) => {
+          return user.user_type === "THERAPIST" ? (
+            <ScheduleCard />
+          ) : (
+            <ScheduleCard />
+          );
+        })}
+      </ScrollView>
     </View>
   );
 }
