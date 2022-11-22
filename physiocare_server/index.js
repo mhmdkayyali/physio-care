@@ -26,3 +26,5 @@ app.use("/appointment", appointmentRoutes);
 
 const linkRoutes = require("./routes/links.routes");
 app.use("/link", linkRoutes);
+
+require("./config/db.config");
