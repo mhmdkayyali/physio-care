@@ -17,6 +17,7 @@ const DrawerNavigator = () => {
         drawerActiveBackgroundColor: "#35DB9F",
         drawerActiveTintColor: "#FFFFFF",
         drawerInactiveTintColor: "#C9C9C9",
+        swipeEnabled: true,
       }}
     ></Drawer.Navigator>
   );
