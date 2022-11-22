@@ -2,6 +2,8 @@ import * as React from "react";
 import "react-native-gesture-handler";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
+import HomeMap from "../../screens/homeMap/HomeMap";
+
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
@@ -19,6 +21,8 @@ const DrawerNavigator = () => {
         drawerInactiveTintColor: "#C9C9C9",
         swipeEnabled: true,
       }}
-    ></Drawer.Navigator>
+    >
+      <Drawer.Screen name="HomeMap" component={HomeMap} />
+    </Drawer.Navigator>
   );
 };
