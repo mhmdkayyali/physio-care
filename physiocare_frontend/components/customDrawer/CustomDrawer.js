@@ -6,7 +6,7 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-function CustomDrawer(props) {
+const CustomDrawer = (props) => {
   return (
     <>
       <DrawerContentScrollView {...props}>
@@ -21,11 +21,11 @@ function CustomDrawer(props) {
         inactiveTintColor="#C9C9C9"
         onPress={() => {
           AsyncStorage.clear();
-          props.navigation.navigate("LoginPage");
+          props.navigation.navigate("Login");
         }}
       />
     </>
   );
-}
+};
 
 export default CustomDrawer;

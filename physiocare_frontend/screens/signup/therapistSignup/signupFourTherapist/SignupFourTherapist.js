@@ -5,7 +5,7 @@ import TimeInput from "../../../components/TimeInput";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 
-function SignupFour({ navigation }) {
+function SignupFourTherapist({ navigation }) {
   const [data, setData] = useState();
   const [select, setSelect] = useState({
     sunday: false,

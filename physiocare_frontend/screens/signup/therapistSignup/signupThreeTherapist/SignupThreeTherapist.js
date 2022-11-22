@@ -4,7 +4,7 @@ import Buttons from "../../../components/Buttons";
 import MapView, { Callout, Circle, Marker } from "react-native-maps";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-function SignupThree({ navigation }) {
+function SignupThreeTherapist({ navigation }) {
   const [data, setData] = useState();
   const [pin, setPin] = useState({
     latitude: 33.8912434,
@@ -89,7 +89,7 @@ function SignupThree({ navigation }) {
   );
 }
 
-export default SignupThree;
+export default SignupThreeTherapist;
 
 const styles = StyleSheet.create({
   appContainer: {

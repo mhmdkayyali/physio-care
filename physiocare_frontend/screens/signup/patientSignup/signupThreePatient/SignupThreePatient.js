@@ -1,16 +1,18 @@
+import { useEffect, useState } from "react";
 import UserTextInput from "../../../components/UserTextInput";
-import { Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Pressable, Button } from "react-native";
 import Buttons from "../../../components/Buttons";
 import { ScrollView } from "react-native-gesture-handler";
 
-function SignupTwo({ navigation, route }) {
-  const user = route.params;
+function SignupThreePatient({ navigation, route }) {
+  const user = route.params.user;
+
   const [enteredInfo, setEnteredInfo] = useState({
-    first_name: "",
-    last_name: "",
-    email: "",
-    password: "",
-    phone_number: "",
+    gender: "",
+    dob: "",
+    diagnosis: "",
+    case_date: "",
+    treating_doctor: "",
   });
 
   function handleInputChange(value, key) {
@@ -20,14 +22,14 @@ function SignupTwo({ navigation, route }) {
   }
 
   function nextButtonHandler() {
-    navigation.navigate("SignupPageThreePatient", {
+    navigation.navigate("SignupPageFourPatient", {
       user: {
         ...user,
-        first_name: enteredInfo.first_name,
-        last_name: enteredInfo.last_name,
-        email: enteredInfo.email,
-        password: enteredInfo.password,
-        phone_number: enteredInfo.phone_number,
+        gender: enteredInfo.gender,
+        dob: enteredInfo.dob,
+        diagnosis: enteredInfo.diagnosis,
+        case_date: enteredInfo.case_date,
+        treating_doctor: enteredInfo.treating_doctor,
       },
     });
   }
@@ -45,27 +47,29 @@ function SignupTwo({ navigation, route }) {
       </View>
       <ScrollView style={styles.inputContainer}>
         <UserTextInput
-          onChangeHandler={(value) => handleInputChange(value, "first_name")}
-          placeHolder={"First name"}
+          onChangeHandler={(value) => handleInputChange(value, "gender")}
+          placeHolder={"Gender"}
+          autoCapitalize={"characters"}
         />
         <UserTextInput
-          onChangeHandler={(value) => handleInputChange(value, "last_name")}
-          placeHolder={"Last name"}
-        />
-        <UserTextInput
-          onChangeHandler={(value) => handleInputChange(value, "email")}
-          placeHolder={"Email"}
-          autoCapitalize={"none"}
-        />
-        <UserTextInput
-          onChangeHandler={(value) => handleInputChange(value, "password")}
-          placeHolder={"Password"}
-          secureTextEntry={true}
-        />
-        <UserTextInput
-          onChangeHandler={(value) => handleInputChange(value, "phone_number")}
-          placeHolder={"Phone number"}
+          onChangeHandler={(value) => handleInputChange(value, "dob")}
+          placeHolder={"Date of birth"}
           keyboardType={"numeric"}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "diagnosis")}
+          placeHolder={"Diagnosis"}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "case_date")}
+          placeHolder={"Case date"}
+          keyboardType={"numeric"}
+        />
+        <UserTextInput
+          onChangeHandler={(value) =>
+            handleInputChange(value, "treating_doctor")
+          }
+          placeHolder={"Treating doctor"}
         />
       </ScrollView>
       <View style={styles.btnContainer}>
@@ -80,7 +84,7 @@ function SignupTwo({ navigation, route }) {
   );
 }
 
-export default SignupTwo;
+export default SignupThreePatient;
 
 const styles = StyleSheet.create({
   appContainer: {

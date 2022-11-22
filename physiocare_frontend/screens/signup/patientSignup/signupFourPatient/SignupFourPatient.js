@@ -4,7 +4,7 @@ import axios from "axios";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import Buttons from "../../../components/Buttons";
 
-function SignupFour({ navigation, route }) {
+function SignupFourPatient({ navigation, route }) {
   const user = route.params.user;
 
   useEffect(() => {
@@ -108,7 +108,7 @@ function SignupFour({ navigation, route }) {
   );
 }
 
-export default SignupFour;
+export default SignupFourPatient;
 
 const styles = StyleSheet.create({
   appContainer: {

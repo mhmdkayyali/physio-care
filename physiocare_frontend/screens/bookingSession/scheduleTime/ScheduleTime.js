@@ -8,7 +8,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import uuid from "react-native-uuid";
 
-function SchedulingTime({ navigation, route }) {
+function ScheduleTime({ navigation, route }) {
   const selectedDate = JSON.parse(route.params.date);
   const selectedUser = JSON.parse(route.params.user);
   const currentDate = new Date(selectedDate).getDay();
@@ -121,7 +121,7 @@ function SchedulingTime({ navigation, route }) {
   );
 }
 
-export default SchedulingTime;
+export default ScheduleTime;
 
 const styles = StyleSheet.create({
   appContainer: {

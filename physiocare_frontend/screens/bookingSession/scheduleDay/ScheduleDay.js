@@ -3,7 +3,7 @@ import Buttons from "../../components/Buttons";
 import ProfilePicture from "../../components/ProfilePicture";
 import { Calendar } from "react-native-calendars";
 
-function SchedulingDay({ navigation, route }) {
+function ScheduleDay({ navigation, route }) {
   const selectedUser = JSON.parse(route.params.user);
   return (
     <View style={styles.appContainer}>
@@ -44,7 +44,7 @@ function SchedulingDay({ navigation, route }) {
   );
 }
 
-export default SchedulingDay;
+export default ScheduleDay;
 
 const styles = StyleSheet.create({
   appContainer: {

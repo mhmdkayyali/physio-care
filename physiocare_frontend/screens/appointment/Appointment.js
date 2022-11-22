@@ -6,7 +6,7 @@ import Btn from "../components/Btn";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 
-function Schedule() {
+function Appointment() {
   const [modalVisible, setModalVisible] = useState(false);
   const [enteredSearchText, setEnteredSearchText] = useState("");
   const [user, setUser] = useState();
@@ -138,7 +138,7 @@ function Schedule() {
     </View>
   );
 }
-export default Schedule;
+export default Appointment;
 
 const styles = StyleSheet.create({
   appContainer: {
