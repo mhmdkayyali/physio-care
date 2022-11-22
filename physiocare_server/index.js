@@ -11,3 +11,6 @@ const { adminMiddleware } = require("./middlewares/admin.middleware");
 
 const authRoutes = require("./routes/auth.route");
 app.use("/auth", authRoutes);
+
+const adminRoutes = require("./routes/admins.routes");
+app.use("/admin", adminMiddleware, adminRoutes);
