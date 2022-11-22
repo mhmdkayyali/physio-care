@@ -65,7 +65,12 @@ function Schedule() {
               Are you sure you want to cancel the session with {cancelled}
             </Text>
             <View style={styles.btnContainer}>
-              <Btn />
+              <Btn
+                btnStyle={"noBtn"}
+                textStyle={"noBtnText"}
+                btnText={"NO"}
+                onPress={() => setModalVisible(false)}
+              />
               <Btn />
             </View>
           </View>
