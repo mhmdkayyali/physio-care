@@ -6,6 +6,8 @@ import HomeMap from "../../screens/homeMap/HomeMap";
 import Appointment from "../../screens/appointment/Appointment";
 import Profile from "../../screens/profile/Profile";
 
+import { Ionicons } from "@expo/vector-icons";
+
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
