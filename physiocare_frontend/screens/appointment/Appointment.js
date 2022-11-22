@@ -22,6 +22,22 @@ function Schedule() {
     getUser();
   }, []);
 
+  const getAppointments = async () => {
+    await axios
+      .get(
+        user?.user_type === "PATIENT"
+          ? `http://192.168.43.32:8000/patient/appointment/${user.id}/PATIENT`
+          : `http://192.168.43.32:8000/patient/appointment/${user.id}/THERAPIST`
+      )
+      .then((res) => {
+        console.log(res.data);
+        setAppointments(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <View style={styles.appContainer}>
       <Modal visible={modalVisible} animationType={"fade"} transparent={true}>
