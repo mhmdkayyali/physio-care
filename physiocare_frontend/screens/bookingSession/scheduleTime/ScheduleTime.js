@@ -1,8 +1,7 @@
 import { StyleSheet, View, Text } from "react-native";
 import { useState, useEffect } from "react";
-import Btn from "../../components/Btn";
-import ProfilePicture from "../../components/ProfilePicture";
-import PressedTime from "../../components/PressedTime";
+import ProfilePicture from "../../../components/profilePicture/ProfilePicture";
+import PressedTimeButton from "../../../components/pressedTimeButton/PressedTimeButton";
 import { ScrollView } from "react-native-gesture-handler";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
@@ -55,7 +54,7 @@ function ScheduleTime({ navigation, route }) {
           .then((res) => {
             console.log(res.data);
             navigation.navigate("DrawerNavigator", {
-              screen: "ScheduleDrawer",
+              screen: "Appointment",
             });
           })
           .catch((err) => {
@@ -102,7 +101,7 @@ function ScheduleTime({ navigation, route }) {
         <View style={styles.btnContainer}>
           <ScrollView>
             {availableSlots.map((slot, index) => (
-              <PressedTime
+              <PressedTimeButton
                 key={index}
                 slot={slot}
                 selected={selectedSlot === index}
