@@ -100,3 +100,5 @@ const NativeStackNavigator = () => {
     </NavigationContainer>
   );
 };
+
+export default NativeStackNavigator;
