@@ -17,3 +17,6 @@ app.use("/admin", adminMiddleware, adminRoutes);
 
 const patientRoutes = require("./routes/patients.routes");
 app.use("/patient", patientRoutes);
+
+const therapistRoutes = require("./routes/therapists.routes");
+app.use("/therapist", therapistRoutes);
