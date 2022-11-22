@@ -14,3 +14,6 @@ app.use("/auth", authRoutes);
 
 const adminRoutes = require("./routes/admins.routes");
 app.use("/admin", adminMiddleware, adminRoutes);
+
+const patientRoutes = require("./routes/patients.routes");
+app.use("/patient", patientRoutes);
