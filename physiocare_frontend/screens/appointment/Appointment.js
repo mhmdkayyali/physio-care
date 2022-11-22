@@ -138,3 +138,4 @@ function Schedule() {
     </View>
   );
 }
+export default Schedule;
