@@ -163,4 +163,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     paddingHorizontal: 20,
   },
+  btnContainer: {
+    width: "100%",
+    justifyContent: "center",
+    flexDirection: "row",
+  },
 });
