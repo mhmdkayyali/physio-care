@@ -16,7 +16,9 @@ const NativeStackNavigator = () => {
           headerTitleAlign: "center",
           headerTintColor: "#FFFFFF",
         }}
-      ></Stack.Navigator>
+      >
+        <Stack.Screen name="DrawerNavigator" component={DrawerNavigator} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 };
