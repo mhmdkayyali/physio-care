@@ -28,7 +28,6 @@ function Appointment() {
           : `http://192.168.43.32:8000/patient/appointment/${user.id}/THERAPIST`
       )
       .then((res) => {
-        console.log(res.data);
         setAppointments(res.data);
       })
       .catch((err) => {
@@ -75,7 +74,6 @@ function Appointment() {
                       id: cancelledId,
                     })
                     .then((res) => {
-                      console.log(res.data);
                       getAppointments();
                     })
                     .catch((err) => {
