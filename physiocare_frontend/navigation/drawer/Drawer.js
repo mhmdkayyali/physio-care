@@ -3,6 +3,7 @@ import "react-native-gesture-handler";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import HomeMap from "../../screens/homeMap/HomeMap";
+import Appointment from "../../screens/appointment/Appointment";
 import Profile from "../../screens/profile/Profile";
 
 const Drawer = createDrawerNavigator();
@@ -25,6 +26,7 @@ const DrawerNavigator = () => {
     >
       <Drawer.Screen name="HomeMap" component={HomeMap} />
       <Drawer.Screen name="Profile" component={Profile} />
+      <Drawer.Screen name="Appointment" component={Appointment} />
     </Drawer.Navigator>
   );
 };
