@@ -7,12 +7,14 @@ import Appointment from "../../screens/appointment/Appointment";
 import Profile from "../../screens/profile/Profile";
 
 import { Ionicons } from "@expo/vector-icons";
+import CustomDrawer from "../../components/customDrawer/CustomDrawer";
 
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
   return (
     <Drawer.Navigator
+      drawerContent={(props) => <CustomDrawer {...props} />}
       screenOptions={{
         headerTitleAlign: "center",
         drawerActiveTintColor: "#35DB9F",
