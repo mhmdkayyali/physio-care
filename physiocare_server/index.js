@@ -23,3 +23,6 @@ app.use("/therapist", therapistRoutes);
 
 const appointmentRoutes = require("./routes/appointments.routes");
 app.use("/appointment", appointmentRoutes);
+
+const linkRoutes = require("./routes/links.routes");
+app.use("/link", linkRoutes);
