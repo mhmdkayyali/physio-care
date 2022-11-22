@@ -8,3 +8,6 @@ app.use(cors());
 
 const { authMiddleware } = require("./middlewares/auth.middleware");
 const { adminMiddleware } = require("./middlewares/admin.middleware");
+
+const authRoutes = require("./routes/auth.route");
+app.use("/auth", authRoutes);
