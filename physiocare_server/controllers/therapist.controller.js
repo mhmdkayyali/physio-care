@@ -34,3 +34,20 @@ const getTherapist = async (req, res) => {
     res.send(e.message);
   }
 };
+
+const createTherapist = async (req, res) => {
+  const { specialty, profile_picture, ...data } = req.body;
+  const createdTherapist = await db.users.create({
+    data: {
+      ...data,
+      dob: new Date(req.body.dob),
+      therapist_additional_informations: {
+        create: {
+          specialty,
+          profile_picture,
+        },
+      },
+    },
+  });
+  return res.json(createdTherapist);
+};
