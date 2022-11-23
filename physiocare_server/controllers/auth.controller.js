@@ -65,3 +65,56 @@ const signupPatient = async (req, res) => {
     res.status(400).send({ message: err.message });
   }
 };
+
+const signupTherapist = async (req, res) => {
+  const {
+    specialty,
+    profile_picture,
+    monday,
+    tuesday,
+    wednesday,
+    thursday,
+    friday,
+    saturday,
+    sunday,
+    start_time,
+    end_time,
+    password,
+    rate,
+    ...data
+  } = req.body;
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const createdTherapist = await db.users.create({
+      data: {
+        password: hashedPassword,
+        ...data,
+        dob: new Date(req.body.dob),
+        therapist_additional_informations: {
+          create: {
+            specialty,
+            profile_picture,
+            monday,
+            tuesday,
+            wednesday,
+            thursday,
+            friday,
+            saturday,
+            sunday,
+            start_time,
+            end_time,
+            rate,
+          },
+        },
+      },
+    });
+
+    const token = jwt.sign(
+      { email: createdTherapist.email },
+      process.env.JWT_SECRET_KEY
+    );
+    res.json({ id: createdTherapist.id, token });
+  } catch (err) {
+    res.status(400).send({ message: err.message });
+  }
+};
