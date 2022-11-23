@@ -29,6 +29,25 @@ model users {
   updated_at                        DateTime?                          @updatedAt
 }
 
+model appointments {
+  id                 Int            @id @unique @default(autoincrement())
+  date_time          DateTime
+  time               String         @default("") @db.VarChar(255)
+  canceled_at        DateTime?
+  canceled_by_id     Int?
+  canceled_by        users?         @relation("canceled_appointments", fields: [canceled_by_id], references: [id], onDelete: Cascade)
+  patient_id         Int
+  patient            users?         @relation("patient_appointments", fields: [patient_id], references: [id], onDelete: Cascade)
+  therapist_id       Int
+  therapist          users?         @relation("therapist_appointments", fields: [therapist_id], references: [id], onDelete: Cascade)
+  session_type       session_types  @default(ONLINE)
+  meeting_links      meeting_links?
+  pt_attended        Boolean?
+  therapist_attended Boolean?
+  created_at         DateTime       @default(now())
+  updated_at         DateTime       @updatedAt
+}
+
 model therapist_additional_informations {
   id              Int     @id @unique @default(autoincrement())
   specialty       String  @db.VarChar(255)
