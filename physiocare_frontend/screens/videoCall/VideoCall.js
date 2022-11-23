@@ -4,6 +4,9 @@ import { WebView } from "react-native-webview";
 import { Camera } from "expo-camera";
 
 const VideoPage = ({ navigation, route }) => {
+  const meetingId = route?.params?.meetingId ?? "123";
+  const name = route?.params?.name.split(" ")[0] ?? "Unknown";
+
   return (
     <WebView
       originWhitelist={["*"]}
