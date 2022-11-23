@@ -7,6 +7,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum user_types {
+  PATIENT
+  THERAPIST
+  ADMIN
+}
+
 model users {
   id                                Int                                @id @unique @default(autoincrement())
   first_name                        String                             @db.VarChar(255)
