@@ -6,6 +6,15 @@ import { Camera } from "expo-camera";
 const VideoPage = ({ navigation, route }) => {
   const meetingId = route?.params?.meetingId ?? "123";
   const name = route?.params?.name.split(" ")[0] ?? "Unknown";
+  console.log(meetingId);
+  useEffect(() => {
+    (async () => {
+      const { status: cameraStatus } =
+        await Camera.requestCameraPermissionsAsync();
+      const { status: micStatus } =
+        await Camera.requestMicrophonePermissionsAsync();
+    })();
+  }, []);
 
   return (
     <WebView
