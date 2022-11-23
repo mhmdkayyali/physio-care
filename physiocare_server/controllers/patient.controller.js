@@ -16,3 +16,21 @@ const getAllPatients = async (req, res) => {
     res.status(500).send(e);
   }
 };
+
+const getPatient = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const patient = await db.users.findFirst({
+      where: {
+        user_type: "PATIENT",
+        id: parseInt(id),
+      },
+      include: {
+        pt_additional_informations: true,
+      },
+    });
+    return res.json(patient);
+  } catch (e) {
+    res.send(e.message);
+  }
+};
