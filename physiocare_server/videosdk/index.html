@@ -18,5 +18,44 @@
   </head>
   <body>
     <div id="meeting-container-id"></div>
+
+    <script>
+      // get meetingId from the URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const meetingId = urlParams.get("meetingId");
+      const name = urlParams.get("name");
+      console.log(meetingId);
+      const meeting = new VideoSDKMeeting();
+
+      meeting.init({
+        name: name,
+        apiKey: "6bad672c-d311-4c14-a596-1f94c477a34b", // generated from app.videosdk.live
+        meetingId: meetingId, // enter your meeting id
+
+        region: "sg001", // region for new meeting
+
+        containerId: "meeting-container-id",
+
+        micEnabled: true,
+        webcamEnabled: true,
+        participantCanToggleSelfWebcam: true,
+        participantCanToggleSelfMic: true,
+        participantCanLeave: true, // if false, leave button won't be visible
+
+        chatEnabled: false,
+        screenShareEnabled: false,
+        pollEnabled: false,
+        whiteboardEnabled: false,
+        raiseHandEnabled: false,
+        mode: "CONFERENCE", // VIEWER || CONFERENCE
+
+        notificationSoundEnabled: true,
+
+        debug: true, // pop up error during invalid config or netwrok error
+
+        maxResolution: "sd", // "hd" or "sd"
+        joinWithoutUserInteraction: true, // if true, join meeting without user interaction
+      });
+    </script>
   </body>
 </html>
