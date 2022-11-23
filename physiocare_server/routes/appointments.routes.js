@@ -6,3 +6,5 @@ const {
   createAppointment,
   updateAppointment,
 } = require("../controllers/appointment.controller");
+
+router.get("/", getAllAppointments);
