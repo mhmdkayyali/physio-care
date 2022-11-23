@@ -51,3 +51,23 @@ const createTherapist = async (req, res) => {
   });
   return res.json(createdTherapist);
 };
+
+const updateTherapist = async (req, res) => {
+  const { id, specialty, profile_picture, ...data } = req.body;
+  const updatedTherapist = await db.users.update({
+    data: {
+      ...data,
+      dob: req.body.dob ? new Date(req.body.dob) : undefined,
+      therapist_additional_informations: {
+        update: {
+          specialty,
+          profile_picture,
+        },
+      },
+    },
+    where: {
+      id: parseInt(id),
+    },
+  });
+  return res.json(updatedTherapist);
+};
