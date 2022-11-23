@@ -122,3 +122,52 @@ const createAppointment = async (req, res) => {
     res.send(e.message);
   }
 };
+
+const getAppointments = async (req, res) => {
+  try {
+    const { id, user_type } = req.params;
+    if (user_type === "PATIENT") {
+      const appointment = await db.appointments.findMany({
+        where: {
+          patient_id: parseInt(id),
+        },
+        include: {
+          meeting_links: true,
+          patient: {
+            include: {
+              pt_additional_informations: true,
+            },
+          },
+          therapist: {
+            include: {
+              therapist_additional_informations: true,
+            },
+          },
+        },
+      });
+      return res.json(appointment);
+    } else {
+      const appointment = await db.appointments.findMany({
+        where: {
+          therapist_id: parseInt(id),
+        },
+        include: {
+          meeting_links: true,
+          patient: {
+            include: {
+              pt_additional_informations: true,
+            },
+          },
+          therapist: {
+            include: {
+              therapist_additional_informations: true,
+            },
+          },
+        },
+      });
+      return res.json(appointment);
+    }
+  } catch (e) {
+    res.send(e.message);
+  }
+};
