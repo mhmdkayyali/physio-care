@@ -13,6 +13,12 @@ enum user_types {
   ADMIN
 }
 
+enum session_types {
+  CLINIC
+  ONLINE
+  HOME
+}
+
 model users {
   id                                Int                                @id @unique @default(autoincrement())
   first_name                        String                             @db.VarChar(255)
