@@ -7,3 +7,4 @@ const {
 } = require("../controllers/auth.controller");
 
 router.post("/login", login);
+router.post("/patient", signupPatient);
