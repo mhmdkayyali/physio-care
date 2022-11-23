@@ -15,3 +15,4 @@ router.get("/", getAllPatients);
 router.put("/", updatePatient);
 router.delete("/", deletePatient);
 router.post("/", createAppointment);
+router.put("/cancel", cancelAppointment);
