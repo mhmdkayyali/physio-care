@@ -14,3 +14,4 @@ router.get("/:id", getPatient);
 router.get("/", getAllPatients);
 router.put("/", updatePatient);
 router.delete("/", deletePatient);
+router.post("/", createAppointment);
