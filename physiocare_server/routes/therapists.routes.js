@@ -11,3 +11,5 @@ router.get("/", getAllTherapists);
 router.get("/:id", getTherapist);
 router.put("/", updateTherapist);
 router.delete("/", deleteTherapist);
+
+module.exports = router;
