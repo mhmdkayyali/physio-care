@@ -29,3 +29,28 @@ const getAppointment = async (req, res) => {
     res.send(e.message);
   }
 };
+
+const createAppointment = async (req, res) => {
+  try {
+    const { meeting_link, ...data } = req.body;
+    const createdAppointment = await db.appointments.create({
+      data: {
+        ...data,
+        date_time: req.body.date_time
+          ? new Date(req.body.date_time)
+          : undefined,
+        canceled_at: req.body.canceled_at
+          ? new Date(req.body.canceled_at)
+          : undefined,
+        meeting_links: {
+          create: {
+            meeting_link,
+          },
+        },
+      },
+    });
+    return res.json(createdAppointment);
+  } catch (e) {
+    res.send(e.message);
+  }
+};
