@@ -17,3 +17,5 @@ router.delete("/", deletePatient);
 router.post("/", createAppointment);
 router.put("/cancel", cancelAppointment);
 router.get("/appointment/:id/:user_type", getAppointments);
+
+module.exports = router;
