@@ -12,3 +12,4 @@ const {
 
 router.get("/:id", getPatient);
 router.get("/", getAllPatients);
+router.put("/", updatePatient);
