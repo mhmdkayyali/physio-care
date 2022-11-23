@@ -28,3 +28,21 @@ model users {
   created_at                        DateTime?                          @default(now())
   updated_at                        DateTime?                          @updatedAt
 }
+
+model therapist_additional_informations {
+  id              Int     @id @unique @default(autoincrement())
+  specialty       String  @db.VarChar(255)
+  rate            String  @default("") @db.VarChar(255)
+  profile_picture String  @default("") @db.LongText
+  users_id        Int     @unique
+  users           users   @relation(fields: [users_id], references: [id], onDelete: Cascade)
+  monday          Boolean @default(false)
+  tuesday         Boolean @default(false)
+  wednesday       Boolean @default(false)
+  thursday        Boolean @default(false)
+  friday          Boolean @default(false)
+  saturday        Boolean @default(false)
+  sunday          Boolean @default(false)
+  start_time      String  @default("") @db.VarChar(255)
+  end_time        String  @default("") @db.VarChar(255)
+}
