@@ -82,3 +82,19 @@ const updatePatient = async (req, res) => {
     res.send(e.message);
   }
 };
+
+const deletePatient = async (req, res) => {
+  try {
+    const { id } = req.body;
+    await db.users.delete({
+      where: {
+        id,
+      },
+    });
+    return res.json({
+      Response: "Success",
+    });
+  } catch (e) {
+    res.status(500).send(e);
+  }
+};
