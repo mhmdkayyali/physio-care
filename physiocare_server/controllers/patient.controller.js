@@ -188,3 +188,14 @@ const cancelAppointment = async (req, res) => {
     res.send(e.message);
   }
 };
+
+module.exports = {
+  getAllPatients,
+  getPatient,
+  createPatient,
+  updatePatient,
+  deletePatient,
+  createAppointment,
+  cancelAppointment,
+  getAppointments,
+};
