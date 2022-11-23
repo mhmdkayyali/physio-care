@@ -8,3 +8,4 @@ const {
 } = require("../controllers/appointment.controller");
 
 router.get("/", getAllAppointments);
+router.get("/:id", getAppointment);
