@@ -34,3 +34,25 @@ const getPatient = async (req, res) => {
     res.send(e.message);
   }
 };
+
+const createPatient = async (req, res) => {
+  try {
+    const { diagnosis, case_date, treating_doctor, ...data } = req.body;
+    const createdPatient = await db.users.create({
+      data: {
+        ...data,
+        dob: new Date(req.body.dob),
+        pt_additional_informations: {
+          create: {
+            diagnosis,
+            case_date: new Date(req.body.case_date),
+            treating_doctor,
+          },
+        },
+      },
+    });
+    return res.json(createdPatient);
+  } catch (e) {
+    res.send(e.message);
+  }
+};
