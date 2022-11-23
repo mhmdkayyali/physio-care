@@ -71,3 +71,15 @@ const updateTherapist = async (req, res) => {
   });
   return res.json(updatedTherapist);
 };
+
+const deleteTherapist = async (req, res) => {
+  const { id } = req.body;
+  await db.users.delete({
+    where: {
+      id,
+    },
+  });
+  return res.json({
+    Response: "Success",
+  });
+};
