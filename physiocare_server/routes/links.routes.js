@@ -5,3 +5,5 @@ const {
   getLink,
   updateLink,
 } = require("../controllers/link.controller");
+
+router.get("/", getAllLinks);
