@@ -98,3 +98,27 @@ const deletePatient = async (req, res) => {
     res.status(500).send(e);
   }
 };
+
+const createAppointment = async (req, res) => {
+  try {
+    const { patient_id, therapist_id, date_time, time, meeting_link, ...data } =
+      req.body;
+    const createdAppointment = await db.appointments.create({
+      data: {
+        ...data,
+        time: time,
+        date_time: new Date(req.body.date_time),
+        patient_id: parseInt(patient_id),
+        therapist_id: parseInt(therapist_id),
+        meeting_links: {
+          create: {
+            meeting_link: meeting_link,
+          },
+        },
+      },
+    });
+    return res.json(createdAppointment);
+  } catch (e) {
+    res.send(e.message);
+  }
+};
