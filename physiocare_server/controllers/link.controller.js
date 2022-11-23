@@ -22,3 +22,18 @@ const getLink = async (req, res) => {
     res.send(e.message);
   }
 };
+
+const updateLink = async (req, res) => {
+  try {
+    const { id, ...data } = req.body;
+    const updatedLink = await db.meeting_links.update({
+      data: { ...data },
+      where: {
+        id,
+      },
+    });
+    return res.json(updatedLink);
+  } catch (e) {
+    res.send(e.message);
+  }
+};
