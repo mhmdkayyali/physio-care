@@ -8,3 +8,4 @@ const {
 
 router.get("/", getAllLinks);
 router.get("/:id", getLink);
+router.put("/", updateLink);
