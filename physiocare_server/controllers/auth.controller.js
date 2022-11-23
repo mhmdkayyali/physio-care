@@ -118,3 +118,5 @@ const signupTherapist = async (req, res) => {
     res.status(400).send({ message: err.message });
   }
 };
+
+module.exports = { login, signupPatient, signupTherapist };
