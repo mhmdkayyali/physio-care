@@ -9,3 +9,5 @@ const {
   cancelAppointment,
   getAppointments,
 } = require("../controllers/patient.controller");
+
+router.get("/:id", getPatient);
