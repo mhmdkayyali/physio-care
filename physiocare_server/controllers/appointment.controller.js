@@ -82,3 +82,10 @@ const updateAppointment = async (req, res) => {
     res.send(e.message);
   }
 };
+
+module.exports = {
+  getAllAppointments,
+  getAppointment,
+  createAppointment,
+  updateAppointment,
+};
