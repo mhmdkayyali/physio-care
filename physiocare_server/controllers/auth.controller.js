@@ -32,3 +32,36 @@ const login = async (req, res) => {
     console.log(err);
   }
 };
+
+const signupPatient = async (req, res) => {
+  const { password, ...data } = req.body;
+  console.log(password);
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const createdPatient = await db.users.create({
+      data: {
+        password: hashedPassword,
+        ...data,
+        dob: new Date(req.body.dob),
+        pt_additional_informations: {
+          create: {
+            diagnosis: req.body.pt_additional_informations.diagnosis,
+            case_date: new Date(req.body.case_date),
+            treating_doctor:
+              req.body.pt_additional_informations.treating_doctor,
+          },
+        },
+        therapist_additional_informations: undefined,
+      },
+    });
+
+    const token = jwt.sign(
+      { email: createdPatient.email },
+      process.env.JWT_SECRET_KEY
+    );
+    res.json({ id: createdPatient.id, token });
+  } catch (err) {
+    console.error(err);
+    res.status(400).send({ message: err.message });
+  }
+};
