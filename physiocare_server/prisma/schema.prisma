@@ -48,6 +48,15 @@ model appointments {
   updated_at         DateTime       @updatedAt
 }
 
+model meeting_links {
+  id             Int          @id @unique @default(autoincrement())
+  meeting_link   String       @db.VarChar(255)
+  appointment_id Int          @unique
+  appointment    appointments @relation(fields: [appointment_id], references: [id], onDelete: Cascade)
+  created_at     DateTime     @default(now())
+  updated_at     DateTime     @updatedAt
+}
+
 model therapist_additional_informations {
   id              Int     @id @unique @default(autoincrement())
   specialty       String  @db.VarChar(255)
