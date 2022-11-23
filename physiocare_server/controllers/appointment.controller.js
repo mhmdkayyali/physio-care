@@ -54,3 +54,31 @@ const createAppointment = async (req, res) => {
     res.send(e.message);
   }
 };
+
+const updateAppointment = async (req, res) => {
+  try {
+    const { id, meeting_link, ...data } = req.body;
+    const updatedAppointment = await db.appointments.update({
+      data: {
+        ...data,
+        date_time: req.body.date_time
+          ? new Date(req.body.date_time)
+          : undefined,
+        canceled_at: req.body.canceled_at
+          ? new Date(req.body.canceled_at)
+          : undefined,
+        meeting_links: {
+          update: {
+            meeting_link,
+          },
+        },
+      },
+      where: {
+        id: parseInt(id),
+      },
+    });
+    return res.json(updatedAppointment);
+  } catch (e) {
+    res.send(e.message);
+  }
+};
