@@ -19,6 +19,21 @@ enum session_types {
   HOME
 }
 
+enum genders {
+  MALE
+  FEMALE
+}
+
+enum week_days {
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+  SATURDAY
+  SUNDAY
+}
+
 model users {
   id                                Int                                @id @unique @default(autoincrement())
   first_name                        String                             @db.VarChar(255)
