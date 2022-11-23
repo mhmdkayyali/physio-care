@@ -37,3 +37,9 @@ const updateLink = async (req, res) => {
     res.send(e.message);
   }
 };
+
+module.exports = {
+  getAllLinks,
+  getLink,
+  updateLink,
+};
