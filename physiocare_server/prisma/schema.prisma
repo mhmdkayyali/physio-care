@@ -46,3 +46,12 @@ model therapist_additional_informations {
   start_time      String  @default("") @db.VarChar(255)
   end_time        String  @default("") @db.VarChar(255)
 }
+
+model pt_additional_informations {
+  id              Int      @id @unique @default(autoincrement())
+  diagnosis       String   @db.VarChar(255)
+  case_date       DateTime @db.Date
+  treating_doctor String   @db.VarChar(255)
+  users_id        Int      @unique
+  users           users    @relation(fields: [users_id], references: [id], onDelete: Cascade)
+}
