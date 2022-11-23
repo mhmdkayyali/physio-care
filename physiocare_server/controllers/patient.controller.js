@@ -56,3 +56,29 @@ const createPatient = async (req, res) => {
     res.send(e.message);
   }
 };
+
+const updatePatient = async (req, res) => {
+  try {
+    const { id, diagnosis, treating_doctor, dob, ...data } = req.body;
+    // console.log(case_date);
+    const updatedPatient = await db.users.update({
+      data: {
+        ...data,
+        dob: new Date(dob),
+        pt_additional_informations: {
+          create: {
+            diagnosis: req.body.pt_additional_informations.case_date,
+            case_date: new Date(req.body.pt_additional_informations.case_date),
+            treating_doctor,
+          },
+        },
+      },
+      where: {
+        id: parseInt(id),
+      },
+    });
+    return res.json(updatedPatient);
+  } catch (e) {
+    res.send(e.message);
+  }
+};
