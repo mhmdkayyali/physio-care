@@ -11,3 +11,4 @@ const {
 } = require("../controllers/patient.controller");
 
 router.get("/:id", getPatient);
+router.get("/", getAllPatients);
