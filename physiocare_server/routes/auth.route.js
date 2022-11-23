@@ -8,3 +8,4 @@ const {
 
 router.post("/login", login);
 router.post("/patient", signupPatient);
+router.post("/therapist", signupTherapist);
