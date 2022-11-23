@@ -6,3 +6,5 @@ const {
   updateTherapist,
   deleteTherapist,
 } = require("../controllers/therapist.controller");
+
+router.get("/", getAllTherapists);
