@@ -83,3 +83,11 @@ const deleteTherapist = async (req, res) => {
     Response: "Success",
   });
 };
+
+module.exports = {
+  getAllTherapists,
+  getTherapist,
+  createTherapist,
+  updateTherapist,
+  deleteTherapist,
+};
