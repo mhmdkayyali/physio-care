@@ -7,3 +7,4 @@ const {
 } = require("../controllers/link.controller");
 
 router.get("/", getAllLinks);
+router.get("/:id", getLink);
