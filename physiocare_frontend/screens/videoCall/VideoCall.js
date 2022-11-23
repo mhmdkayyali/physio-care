@@ -33,3 +33,5 @@ const VideoPage = ({ navigation, route }) => {
     />
   );
 };
+
+export default VideoPage;
