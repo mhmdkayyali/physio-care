@@ -171,3 +171,20 @@ const getAppointments = async (req, res) => {
     res.send(e.message);
   }
 };
+
+const cancelAppointment = async (req, res) => {
+  try {
+    const { id } = req.body;
+    const appointment = await db.appointments.update({
+      data: {
+        canceled_at: new Date(),
+      },
+      where: {
+        id: parseInt(id),
+      },
+    });
+    return res.json(appointment);
+  } catch (e) {
+    res.send(e.message);
+  }
+};
