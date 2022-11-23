@@ -6,3 +6,25 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model users {
+  id                                Int                                @id @unique @default(autoincrement())
+  first_name                        String                             @db.VarChar(255)
+  last_name                         String                             @db.VarChar(255)
+  email                             String                             @db.VarChar(255)
+  password                          String                             @db.VarChar(255)
+  phone_number                      String                             @db.VarChar(255)
+  user_type                         user_types                         @default(PATIENT)
+  location                          String                             @default("") @db.VarChar(255)
+  longitude                         Float
+  latitude                          Float
+  gender                            genders                            @default(FEMALE)
+  dob                               DateTime                           @db.Date
+  canceled_appointments             appointments[]                     @relation("canceled_appointments")
+  patient_appointments              appointments[]                     @relation("patient_appointments")
+  therapist_appointments            appointments[]                     @relation("therapist_appointments")
+  therapist_additional_informations therapist_additional_informations?
+  pt_additional_informations        pt_additional_informations?
+  created_at                        DateTime?                          @default(now())
+  updated_at                        DateTime?                          @updatedAt
+}
