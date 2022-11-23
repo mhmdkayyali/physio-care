@@ -8,3 +8,4 @@ const {
 } = require("../controllers/therapist.controller");
 
 router.get("/", getAllTherapists);
+router.get("/:id", getTherapist);
