@@ -60,7 +60,6 @@ const createPatient = async (req, res) => {
 const updatePatient = async (req, res) => {
   try {
     const { id, diagnosis, treating_doctor, dob, ...data } = req.body;
-    // console.log(case_date);
     const updatedPatient = await db.users.update({
       data: {
         ...data,
