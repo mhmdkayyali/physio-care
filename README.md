@@ -42,7 +42,7 @@
 | Login | Sign ups |
 | ----- | -------- |
 
-| ![Login]() | ![Sign ups]() |
+| ![Login](https://github.com/mhmdkayyali/physio-care/blob/main/readme/assets/mockups/loginpage.svg) | ![Sign ups]() |
 | Appointmets | Cancel Appointment |
 | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | ![Appointmets]() | ![Cancel Appointment]() |
@@ -64,9 +64,9 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 > Using the above mentioned tech stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, these are screenshots from the real app
 
-| Login                                                                                              | Sign ups      |
-| -------------------------------------------------------------------------------------------------- | ------------- |
-| ![Login](https://github.com/mhmdkayyali/physio-care/blob/main/readme/assets/mockups/loginpage.svg) | ![Sign ups]() |
+| Login      | Sign ups      |
+| ---------- | ------------- |
+| ![Login]() | ![Sign ups]() |
 
 <br><br>
 
