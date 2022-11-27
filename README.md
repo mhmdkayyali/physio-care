@@ -42,7 +42,7 @@
 | Login | Sign ups |
 | ----- | -------- |
 
-| ![Login](https://github.com/mhmdkayyali/physio-care/blob/main/readme/assets/mockups/loginpage.svg) | ![Sign ups]() |
+| ![Login](https://github.com/mhmdkayyali/physio-care/blob/main/readme/assets/mockups/login%20page.svg) | ![Sign ups](https://github.com/mhmdkayyali/physio-care/blob/main/readme/assets/mockups/sign%20up%20page.svg) |
 | Appointmets | Cancel Appointment |
 | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | ![Appointmets]() | ![Cancel Appointment]() |
