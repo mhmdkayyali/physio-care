@@ -39,13 +39,9 @@
 > This design was planned before on paper, then moved to Figma app for the fine details.
 > Note that i didn't use any styling library or theme, all from scratch and using pure css modules
 
-| Login | Sign ups |
-| ----- | -------- |
-
-| ![Login](https://github.com/mhmdkayyali/physio-care/blob/main/readme/assets/mockups/login%20page.svg) | ![Sign ups](https://github.com/mhmdkayyali/physio-care/blob/main/readme/assets/mockups/sign%20up%20page.svg) |
-| Appointmets | Cancel Appointment |
-| ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| ![Appointmets]() | ![Cancel Appointment]() |
+| Login                                                                                                 | Sign up (select user type)                                                                                  | Sign up (location)                                                                                                                      | Sign up (Therapist availability)                                                                                 |
+| ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| ![Login](https://github.com/mhmdkayyali/physio-care/blob/main/readme/assets/mockups/login%20page.svg) | ![Sign up](https://github.com/mhmdkayyali/physio-care/blob/main/readme/assets/mockups/sign%20up%20page.svg) | ![Sign up](https://github.com/mhmdkayyali/physio-care/blob/main/readme/assets/mockups/sign%20up%20page%20patient%20and%20therapist.svg) | ![Sign up](https://github.com/mhmdkayyali/physio-care/blob/main/readme/assets/mockups/sign%20up%20page%20pt.svg) |
 
 <br><br>
 
