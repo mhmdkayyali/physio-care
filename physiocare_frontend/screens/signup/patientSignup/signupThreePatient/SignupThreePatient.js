@@ -1,12 +1,11 @@
 import { useState } from "react";
 import UserTextInput from "../../../../components/userTextInput/UserTextInput";
 import { StyleSheet, Text, View, Image } from "react-native";
-import Buttons from "../../../../components/button/Buttons";
+import Buttons from "../../../../components/button";
 import { ScrollView } from "react-native-gesture-handler";
 
-function SignupThreePatient({ navigation, route }) {
+const SignupThreePatient = ({ navigation, route }) => {
   const user = route.params.user;
-
   const [enteredInfo, setEnteredInfo] = useState({
     gender: "",
     dob: "",
@@ -15,13 +14,13 @@ function SignupThreePatient({ navigation, route }) {
     treating_doctor: "",
   });
 
-  function handleInputChange(value, key) {
+  const handleInputChange = (value, key) => {
     setEnteredInfo((prev) => {
       return { ...prev, [key]: value };
     });
-  }
+  };
 
-  function nextButtonHandler() {
+  const nextButtonHandler = () => {
     navigation.navigate("SignupFourPatient", {
       user: {
         ...user,
@@ -32,7 +31,7 @@ function SignupThreePatient({ navigation, route }) {
         treating_doctor: enteredInfo.treating_doctor,
       },
     });
-  }
+  };
 
   return (
     <View style={styles.appContainer}>
@@ -82,7 +81,7 @@ function SignupThreePatient({ navigation, route }) {
       </View>
     </View>
   );
-}
+};
 
 export default SignupThreePatient;
 

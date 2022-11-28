@@ -1,23 +1,15 @@
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import Buttons from "../../../../components/button/Buttons";
-import MapView, { Marker } from "react-native-maps";
+import MapView, { Callout, Circle, Marker } from "react-native-maps";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-function SignupThreeTherapist({ navigation }) {
+const SignupThreeTherapist = ({ navigation }) => {
   const [data, setData] = useState();
   const [pin, setPin] = useState({
     latitude: 33.8912434,
     longitude: 35.5059952,
   });
-
-  useEffect(() => {
-    AsyncStorage.getItem("user")
-      .then((res) => {
-        setData(JSON.parse(res));
-      })
-      .catch((error) => console.log(error));
-  }, []);
 
   const storeData = async (value) => {
     await AsyncStorage.setItem("user", JSON.stringify(value));
@@ -29,8 +21,16 @@ function SignupThreeTherapist({ navigation }) {
       ...pin,
     };
     storeData(data2);
-    navigation.navigate("SignupPageFourTherapist");
+    navigation.navigate("SignupFourTherapist");
   };
+
+  useEffect(() => {
+    AsyncStorage.getItem("user")
+      .then((res) => {
+        setData(JSON.parse(res));
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <View style={styles.appContainer}>
@@ -82,7 +82,7 @@ function SignupThreeTherapist({ navigation }) {
       </View>
     </View>
   );
-}
+};
 
 export default SignupThreeTherapist;
 
@@ -120,7 +120,6 @@ const styles = StyleSheet.create({
     flex: 3,
     width: "100%",
   },
-  paragraphContainer: {},
   paragraph: {
     fontSize: 15,
     color: "#383838",

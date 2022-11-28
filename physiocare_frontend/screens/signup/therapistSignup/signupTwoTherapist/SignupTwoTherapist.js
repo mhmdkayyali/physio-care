@@ -4,8 +4,9 @@ import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
 import Buttons from "../../../../components/button/Buttons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-function SignupTwoTherapist({ navigation }) {
+const SignupTwoTherapist = ({ navigation }) => {
   const [data, setData] = useState();
+  const [confirmedPassword, setConfirmedPassword] = useState(true);
   const [enteredInfo, setEnteredInfo] = useState({
     first_name: "",
     last_name: "",
@@ -13,14 +14,6 @@ function SignupTwoTherapist({ navigation }) {
     password: "",
     phone_number: "",
   });
-
-  useEffect(() => {
-    AsyncStorage.getItem("user")
-      .then((res) => {
-        setData(JSON.parse(res));
-      })
-      .catch((error) => console.log(error));
-  }, []);
 
   const storeData = async (value) => {
     try {
@@ -49,11 +42,18 @@ function SignupTwoTherapist({ navigation }) {
       specialty: enteredInfo.specialty,
       location: enteredInfo.location,
       rate: enteredInfo.rate,
-      profile_picture: "",
     };
     storeData(data2);
     navigation.navigate("SignupThreeTherapist");
   };
+
+  useEffect(() => {
+    AsyncStorage.getItem("user")
+      .then((res) => {
+        setData(JSON.parse(res));
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <View style={styles.appContainer}>
@@ -84,6 +84,14 @@ function SignupTwoTherapist({ navigation }) {
           onChangeHandler={(value) => handleInputChange(value, "password")}
           placeHolder={"Password"}
           secureTextEntry={true}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => {
+            handleInputChange(value, "confirmPassword");
+          }}
+          placeHolder={"Confirm password"}
+          secureTextEntry={true}
+          textInput={confirmedPassword ? "textInput" : "incorrectPassword"}
         />
         <UserTextInput
           onChangeHandler={(value) => handleInputChange(value, "phone_number")}
@@ -117,13 +125,17 @@ function SignupTwoTherapist({ navigation }) {
         <Buttons
           btnText={"NEXT"}
           onPress={() => {
-            nextButtonHandler();
+            if (enteredInfo.password === enteredInfo.confirmPassword) {
+              nextButtonHandler();
+            } else {
+              setConfirmedPassword(false);
+            }
           }}
         />
       </View>
     </View>
   );
-}
+};
 
 export default SignupTwoTherapist;
 
