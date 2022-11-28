@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
-import { Text } from "react-native";
 import { WebView } from "react-native-webview";
 import { Camera } from "expo-camera";
 
 const VideoPage = ({ navigation, route }) => {
   const meetingId = route?.params?.meetingId ?? "123";
-  const name = route?.params?.name.split(" ")[0] ?? "Unknown";
+  const meeting = route?.params?.meeting ?? "123";
   console.log(meetingId);
   useEffect(() => {
     (async () => {
@@ -19,7 +18,6 @@ const VideoPage = ({ navigation, route }) => {
   return (
     <WebView
       originWhitelist={["*"]}
-      incognito={true}
       allowsInlineMediaPlayback
       javaScriptEnabled
       scalesPageToFit
@@ -28,7 +26,7 @@ const VideoPage = ({ navigation, route }) => {
       useWebkit
       startInLoadingState={true}
       source={{
-        uri: `http://192.168.43.32:3000/video?meetingId=123123&name=name`,
+        uri: meeting,
       }}
     />
   );
