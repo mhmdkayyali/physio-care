@@ -1,9 +1,10 @@
+import { useState, useEffect } from "react";
 import Buttons from "../components/Buttons";
 import UserTextInput from "../components/UserTextInput";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
-import { useState, useEffect } from "react";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import baseUrl from "../baseUrl/BaseUrl";
 
 const Login = ({ navigation }) => {
   const [token, setToken] = useState();
@@ -16,10 +17,10 @@ const Login = ({ navigation }) => {
   useEffect(() => {
     if (token) {
       navigation.navigate("DrawerNavigator", {
-        screen: "TherapistLandingPage",
+        screen: "HomeMap",
       });
     }
-  }, [token]);
+  }, []);
 
   useEffect(() => {
     getToken();
@@ -63,7 +64,7 @@ const Login = ({ navigation }) => {
         access: "application/json",
       },
       method: "post",
-      url: "http://192.168.43.32:8000/auth/login/",
+      url: `${baseUrl}auth/login`,
       data: {
         email: enteredInfo.email,
         password: enteredInfo.password,
@@ -79,7 +80,7 @@ const Login = ({ navigation }) => {
           });
         } else if (token && res.data.user.user_type === "THERAPIST") {
           navigation.navigate("DrawerNavigator", {
-            screen: "ScheduleDrawer",
+            screen: "HomeMap",
           });
         }
       })
@@ -112,10 +113,10 @@ const Login = ({ navigation }) => {
         />
       </View>
       <View style={styles.login_signup_container}>
-        <Buttons btnText={"LOGIN"} />
+        <Buttons btnText={"LOGIN"} onPress={loginButtonHandler} />
         <View style={styles.account_sign_up}>
           <Text>Don't have an account? </Text>
-          <Pressable>
+          <Pressable onPress={() => navigation.navigate("SignupOne")}>
             <Text style={styles.signup_btn}>Sign up</Text>
           </Pressable>
         </View>
