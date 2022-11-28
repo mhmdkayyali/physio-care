@@ -1,36 +1,42 @@
+import MapView, { Marker } from "react-native-maps";
 import { useEffect, useState } from "react";
+import axios from "axios";
+import baseUrl from "../../../../baseUrl/BaseUrl";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import Buttons from "../../../../components/button/Buttons";
-import MapView, { Callout, Circle, Marker } from "react-native-maps";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const SignupThreeTherapist = ({ navigation }) => {
-  const [data, setData] = useState();
+const SignupFourPatient = ({ navigation, route }) => {
+  const user = route.params.user;
   const [pin, setPin] = useState({
     latitude: 33.8912434,
     longitude: 35.5059952,
   });
 
-  const storeData = async (value) => {
-    await AsyncStorage.setItem("user", JSON.stringify(value));
-  };
+  const [lastInfo, setLastInfo] = useState({});
 
-  const nextButtonHandler = () => {
-    const data2 = {
-      ...data,
-      ...pin,
-    };
-    storeData(data2);
-    navigation.navigate("SignupFourTherapist");
+  const signupButtonHandler = () => {
+    axios({
+      headers: {
+        access: "application/json",
+      },
+      method: "post",
+      url: `${baseUrl}auth/patient`,
+      data: lastInfo,
+    })
+      .then((res) => {
+        navigation.navigate("Login");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   useEffect(() => {
-    AsyncStorage.getItem("user")
-      .then((res) => {
-        setData(JSON.parse(res));
-      })
-      .catch((error) => console.log(error));
-  }, []);
+    setLastInfo({
+      ...user,
+      ...pin,
+    });
+  }, [pin]);
 
   return (
     <View style={styles.appContainer}>
@@ -45,7 +51,7 @@ const SignupThreeTherapist = ({ navigation }) => {
       </View>
       <View style={styles.mapTitleContainer}>
         <View style={styles.paragraphContainer}>
-          <Text style={styles.paragraph}>Enter your Location</Text>
+          <Text style={styles.paragraph}>Enter your location</Text>
         </View>
         <Pressable>
           <View style={styles.map}>
@@ -72,24 +78,19 @@ const SignupThreeTherapist = ({ navigation }) => {
                     longitude: e.nativeEvent.coordinate.longitude,
                   });
                 }}
-              >
-                <Callout>
-                  <Text>Mohammad Al Kayyali</Text>
-                </Callout>
-              </Marker>
-              <Circle center={pin} radius={1000} />
+              ></Marker>
             </MapView>
           </View>
         </Pressable>
       </View>
       <View style={styles.btnContainer}>
-        <Buttons btnText={"NEXT"} onPress={nextButtonHandler} />
+        <Buttons btnText={"SIGN UP"} onPress={signupButtonHandler} />
       </View>
     </View>
   );
 };
 
-export default SignupThreeTherapist;
+export default SignupFourPatient;
 
 const styles = StyleSheet.create({
   appContainer: {
@@ -125,13 +126,17 @@ const styles = StyleSheet.create({
     flex: 3,
     width: "100%",
   },
+  paragraphContainer: {
+    alignItems: "center",
+    justifyContent: "center",
+  },
   paragraph: {
-    fontSize: 15,
+    fontSize: 17,
     color: "#383838",
-    marginBottom: 10,
+    marginBottom: 20,
   },
   map: {
-    height: 285,
+    height: 250,
     width: "100%",
     borderRadius: 15,
     alignItems: "center",

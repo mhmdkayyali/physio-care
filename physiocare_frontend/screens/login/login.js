@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
-import Buttons from "../components/Buttons";
-import UserTextInput from "../components/UserTextInput";
+import Buttons from "../../components/button/Buttons";
+import UserTextInput from "../../components/userTextInput/UserTextInput";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -76,7 +75,7 @@ const Login = ({ navigation }) => {
         console.log(res.data);
         if (token && res.data.user.user_type === "PATIENT") {
           navigation.navigate("DrawerNavigator", {
-            screen: "PatientLandingPage",
+            screen: "HomeMap",
           });
         } else if (token && res.data.user.user_type === "THERAPIST") {
           navigation.navigate("DrawerNavigator", {

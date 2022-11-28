@@ -1,7 +1,7 @@
 import { StyleSheet, View, Text } from "react-native";
 import { useState, useEffect } from "react";
 import ProfilePicture from "../../../components/profilePicture/ProfilePicture";
-import PressedTime from "../../../components/pressedTimeButton/PressedTimeButton";
+import PressedTimeButton from "../../../components/pressedTimeButton/PressedTimeButton";
 import { ScrollView } from "react-native-gesture-handler";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
@@ -102,7 +102,7 @@ const ScheduleTime = ({ navigation, route }) => {
         <View style={styles.btnContainer}>
           <ScrollView>
             {availableSlots.map((slot, index) => (
-              <PressedTime
+              <PressedTimeButton
                 key={index}
                 slot={slot}
                 selected={selectedSlot === index}

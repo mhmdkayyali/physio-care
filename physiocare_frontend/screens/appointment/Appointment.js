@@ -21,7 +21,6 @@ const Appointment = () => {
           : `${baseUrl}patient/appointment/${user.id}/THERAPIST`
       )
       .then((res) => {
-        console.log(res.data);
         setAppointments(res.data);
       })
       .catch((err) => {
@@ -46,6 +45,10 @@ const Appointment = () => {
       getAppointments();
     }
   }, [user]);
+
+  function cancelSessionBtnHandler() {
+    setModalVisible(true);
+  }
 
   return (
     <View style={styles.appContainer}>
@@ -72,7 +75,6 @@ const Appointment = () => {
                       id: cancelledId,
                     })
                     .then((res) => {
-                      console.log(res.data);
                       getAppointments();
                     })
                     .catch((err) => {

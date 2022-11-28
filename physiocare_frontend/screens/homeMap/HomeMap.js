@@ -61,7 +61,7 @@ const HomeMap = ({ navigation }) => {
   };
 
   const listViewBtnHandler = () => {
-    navigation.navigate("ListView");
+    navigation.navigate("UserListView");
   };
 
   if (!user || !therapists) {
