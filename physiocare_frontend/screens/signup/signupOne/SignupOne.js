@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import Buttons from "../../components/Buttons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-function SignupOne() {
+function SignupOne({ navigation }) {
   const [userType, setUserType] = useState();
   const storeData = async (value) => {
     try {
@@ -24,11 +24,11 @@ function SignupOne() {
     }
   }, [userType]);
 
-  function userTypeHandler() {
+  const userTypeHandler = () => {
     userType === "PATIENT"
-      ? navigation.navigate("SignupPageTwoPatient", { user_type: userType })
-      : navigation.navigate("SignupPageTwoTherapist", { user_type: userType });
-  }
+      ? navigation.navigate("SignupTwoPatient", { user_type: userType })
+      : navigation.navigate("SignupTwoTherapist", { user_type: userType });
+  };
 
   return (
     <View style={styles.appContainer}>
@@ -82,7 +82,7 @@ function SignupOne() {
         />
         <View style={styles.account_login}>
           <Text>Already have an account? </Text>
-          <Pressable>
+          <Pressable onPress={() => navigation.navigate("Login")}>
             <Text style={styles.loginBtn}>Login</Text>
           </Pressable>
         </View>
