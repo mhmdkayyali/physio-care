@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
-import Buttons from "../../components/Buttons";
+import Buttons from "../../../components/button/Buttons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-function SignupOne({ navigation }) {
+const SignupOne = ({ navigation }) => {
   const [userType, setUserType] = useState();
   const storeData = async (value) => {
     try {
@@ -18,17 +18,17 @@ function SignupOne({ navigation }) {
     }
   };
 
-  useEffect(() => {
-    if (userType) {
-      storeData(userType);
-    }
-  }, [userType]);
-
   const userTypeHandler = () => {
     userType === "PATIENT"
       ? navigation.navigate("SignupTwoPatient", { user_type: userType })
       : navigation.navigate("SignupTwoTherapist", { user_type: userType });
   };
+
+  useEffect(() => {
+    if (userType) {
+      storeData(userType);
+    }
+  }, [userType]);
 
   return (
     <View style={styles.appContainer}>
@@ -36,7 +36,7 @@ function SignupOne({ navigation }) {
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
-            source={require("../../assets/images/logo.png")}
+            source={require("../../../assets/images/logo.png")}
           />
         </View>
         <Text style={styles.title}>Sign up</Text>
@@ -89,7 +89,7 @@ function SignupOne({ navigation }) {
       </View>
     </View>
   );
-}
+};
 
 export default SignupOne;
 

@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
-import UserTextInput from "../../../components/UserTextInput";
-import { StyleSheet, Text, View, Image, Pressable, Button } from "react-native";
-import Buttons from "../../../components/Buttons";
+import { useState } from "react";
+import UserTextInput from "../../../../components/userTextInput/UserTextInput";
+import { StyleSheet, Text, View, Image } from "react-native";
+import Buttons from "../../../../components/button";
 import { ScrollView } from "react-native-gesture-handler";
 
-function SignupThree({ navigation, route }) {
+const SignupThreePatient = ({ navigation, route }) => {
   const user = route.params.user;
-
   const [enteredInfo, setEnteredInfo] = useState({
     gender: "",
     dob: "",
@@ -15,14 +14,14 @@ function SignupThree({ navigation, route }) {
     treating_doctor: "",
   });
 
-  function handleInputChange(value, key) {
+  const handleInputChange = (value, key) => {
     setEnteredInfo((prev) => {
       return { ...prev, [key]: value };
     });
-  }
+  };
 
-  function nextButtonHandler() {
-    navigation.navigate("SignupPageFourPatient", {
+  const nextButtonHandler = () => {
+    navigation.navigate("SignupFourPatient", {
       user: {
         ...user,
         gender: enteredInfo.gender,
@@ -32,7 +31,7 @@ function SignupThree({ navigation, route }) {
         treating_doctor: enteredInfo.treating_doctor,
       },
     });
-  }
+  };
 
   return (
     <View style={styles.appContainer}>
@@ -40,7 +39,7 @@ function SignupThree({ navigation, route }) {
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
-            source={require("../../../assets/images/logo.png")}
+            source={require("../../../../assets/images/logo.png")}
           />
         </View>
         <Text style={styles.title}>Sign up</Text>
@@ -82,9 +81,9 @@ function SignupThree({ navigation, route }) {
       </View>
     </View>
   );
-}
+};
 
-export default SignupThree;
+export default SignupThreePatient;
 
 const styles = StyleSheet.create({
   appContainer: {

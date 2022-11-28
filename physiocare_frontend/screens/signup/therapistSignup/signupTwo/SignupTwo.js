@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import UserTextInput from "../../../components/UserTextInput";
+import UserTextInput from "../../../../components/userTextInput/UserTextInput";
 import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
-import Buttons from "../../../components/Buttons";
+import Buttons from "../../../../components/button/Buttons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-function SignupTwo({ navigation }) {
+const SignupTwoTherapist = ({ navigation }) => {
   const [data, setData] = useState();
+  const [confirmedPassword, setConfirmedPassword] = useState(true);
   const [enteredInfo, setEnteredInfo] = useState({
     first_name: "",
     last_name: "",
@@ -13,14 +14,6 @@ function SignupTwo({ navigation }) {
     password: "",
     phone_number: "",
   });
-
-  useEffect(() => {
-    AsyncStorage.getItem("user")
-      .then((res) => {
-        setData(JSON.parse(res));
-      })
-      .catch((error) => console.log(error));
-  }, []);
 
   const storeData = async (value) => {
     try {
@@ -49,11 +42,18 @@ function SignupTwo({ navigation }) {
       specialty: enteredInfo.specialty,
       location: enteredInfo.location,
       rate: enteredInfo.rate,
-      profile_picture: "",
     };
     storeData(data2);
-    navigation.navigate("SignupPageThreeTherapist");
+    navigation.navigate("SignupThreeTherapist");
   };
+
+  useEffect(() => {
+    AsyncStorage.getItem("user")
+      .then((res) => {
+        setData(JSON.parse(res));
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <View style={styles.appContainer}>
@@ -61,7 +61,7 @@ function SignupTwo({ navigation }) {
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
-            source={require("../../../assets/images/logo.png")}
+            source={require("../../../../assets/images/logo.png")}
           />
         </View>
         <Text style={styles.title}>Sign up</Text>
@@ -84,6 +84,14 @@ function SignupTwo({ navigation }) {
           onChangeHandler={(value) => handleInputChange(value, "password")}
           placeHolder={"Password"}
           secureTextEntry={true}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => {
+            handleInputChange(value, "confirmPassword");
+          }}
+          placeHolder={"Confirm password"}
+          secureTextEntry={true}
+          textInput={confirmedPassword ? "textInput" : "incorrectPassword"}
         />
         <UserTextInput
           onChangeHandler={(value) => handleInputChange(value, "phone_number")}
@@ -117,15 +125,19 @@ function SignupTwo({ navigation }) {
         <Buttons
           btnText={"NEXT"}
           onPress={() => {
-            nextButtonHandler();
+            if (enteredInfo.password === enteredInfo.confirmPassword) {
+              nextButtonHandler();
+            } else {
+              setConfirmedPassword(false);
+            }
           }}
         />
       </View>
     </View>
   );
-}
+};
 
-export default SignupTwo;
+export default SignupTwoTherapist;
 
 const styles = StyleSheet.create({
   appContainer: {

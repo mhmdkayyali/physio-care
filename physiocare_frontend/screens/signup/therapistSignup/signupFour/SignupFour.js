@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { StyleSheet, Text, View, Image, Pressable, Button } from "react-native";
-import Buttons from "../../../components/Buttons";
-import TimeInput from "../../../components/TimeInput";
+import { StyleSheet, Text, View, Image } from "react-native";
+import Buttons from "../../../../components/button/Buttons";
+import TimeInput from "../../../../components/timeInput/TimeInput";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
+import { ScrollView } from "react-native-gesture-handler";
+import baseUrl from "../../../../baseUrl/BaseUrl";
 
-function SignupFour({ navigation }) {
+const SignupFourTherapist = ({ navigation }) => {
   const [data, setData] = useState();
   const [select, setSelect] = useState({
     sunday: false,
@@ -17,13 +19,10 @@ function SignupFour({ navigation }) {
     saturday: false,
   });
 
-  useEffect(() => {
-    AsyncStorage.getItem("user")
-      .then((res) => {
-        setData(JSON.parse(res));
-      })
-      .catch((error) => console.log(error));
-  }, []);
+  const [enteredInfo, setEnteredInfo] = useState({
+    start_time: "",
+    end_time: "",
+  });
 
   const storeData = async (value) => {
     await AsyncStorage.setItem("user", JSON.stringify(value));
@@ -35,31 +34,25 @@ function SignupFour({ navigation }) {
     });
   };
 
-  const [enteredInfo, setEnteredInfo] = useState({
-    start_time: "",
-    end_time: "",
-  });
-
   const handleInputChange = (value, key) => {
     setEnteredInfo((prev) => {
       return { ...prev, [key]: value };
     });
   };
 
-  function signupButtonHandler() {
+  const signupButtonHandler = () => {
     const data2 = {
       ...data,
       ...select,
       ...enteredInfo,
     };
     storeData(data2);
-    console.log(data2);
     axios({
       headers: {
-        accept: "application/json",
+        "Content-Type": "application/json",
       },
       method: "post",
-      url: "http://192.168.43.32:8000/auth/therapist",
+      url: `${baseUrl}auth/therapist`,
       data: {
         ...data,
         ...select,
@@ -67,21 +60,28 @@ function SignupFour({ navigation }) {
       },
     })
       .then((res) => {
-        console.log("res", res.data);
-        navigation.navigate("LoginPage");
+        navigation.navigate("Login");
       })
       .catch((error) => {
         console.log(error);
       });
-  }
+  };
+
+  useEffect(() => {
+    AsyncStorage.getItem("user")
+      .then((res) => {
+        setData(JSON.parse(res));
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
-    <View style={styles.appContainer}>
+    <ScrollView style={styles.appContainer}>
       <View style={styles.logo_login_container}>
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
-            source={require("../../../assets/images/logo.png")}
+            source={require("../../../../assets/images/logo.png")}
           />
         </View>
         <Text style={styles.title}>Sign up</Text>
@@ -217,17 +217,15 @@ function SignupFour({ navigation }) {
           }}
         />
       </View>
-    </View>
+    </ScrollView>
   );
-}
+};
 
-export default SignupFour;
+export default SignupFourTherapist;
 
 const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "space-around",
     paddingHorizontal: 20,
     backgroundColor: "#EFEFEF",
   },
@@ -262,11 +260,20 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
   },
+  userTypeBtn: {
+    height: 120,
+    width: "100%",
+    backgroundColor: "#FFFFFF",
+    borderRadius: 15,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 11,
+  },
   userTypeText: {
     fontSize: 20,
   },
   btnContainer: {
-    flex: 0.9,
+    marginTop: 40,
     width: "100%",
   },
   dash: {

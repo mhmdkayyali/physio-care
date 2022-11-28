@@ -1,10 +1,10 @@
 import { useState } from "react";
-import UserTextInput from "../../../components/UserTextInput";
+import UserTextInput from "../../../../components/userTextInput/UserTextInput";
 import { StyleSheet, Text, View, Image } from "react-native";
-import Buttons from "../../../components/Buttons";
+import Buttons from "../../../../components/button/Buttons";
 import { ScrollView } from "react-native-gesture-handler";
 
-function SignupTwo({ navigation, route }) {
+const SignupTwoPatient = ({ navigation, route }) => {
   const user = route.params;
   const [enteredInfo, setEnteredInfo] = useState({
     first_name: "",
@@ -34,13 +34,14 @@ function SignupTwo({ navigation, route }) {
       },
     });
   };
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.logo_login_container}>
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
-            source={require("../../../assets/images/logo.png")}
+            source={require("../../../../assets/images/logo.png")}
           />
         </View>
         <Text style={styles.title}>Sign up</Text>
@@ -84,9 +85,9 @@ function SignupTwo({ navigation, route }) {
       </View>
     </View>
   );
-}
+};
 
-export default SignupTwo;
+export default SignupTwoPatient;
 
 const styles = StyleSheet.create({
   appContainer: {
