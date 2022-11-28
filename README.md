@@ -68,9 +68,9 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 > Using the above mentioned tech stacks and the wireframes build with figma from the user sotries we have, the implementation of the app is shown as below, these are screenshots from the real app
 
-| Login      | Sign ups      |
-| ---------- | ------------- |
-| ![Login]() | ![Sign ups]() |
+| Login - first Sign up screen                                                                                        | Patient Home (Can see all therapists)                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| ![Login-signup](https://github.com/mhmdkayyali/physio-care/blob/main/readme/assets/implementation/login-signup.gif) | ![Patient home](https://github.com/mhmdkayyali/physio-care/blob/main/readme/assets/implementation/home-map-patient.gif) |
 
 <br><br>
 
