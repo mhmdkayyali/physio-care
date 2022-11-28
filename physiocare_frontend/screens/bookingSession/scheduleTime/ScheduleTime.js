@@ -6,8 +6,9 @@ import { ScrollView } from "react-native-gesture-handler";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import uuid from "react-native-uuid";
+import baseUrl from "../../../baseUrl/BaseUrl";
 
-function ScheduleTime({ navigation, route }) {
+const ScheduleTime = ({ navigation, route }) => {
   const selectedDate = JSON.parse(route.params.date);
   const selectedUser = JSON.parse(route.params.user);
   const currentDate = new Date(selectedDate).getDay();
@@ -28,29 +29,23 @@ function ScheduleTime({ navigation, route }) {
   ];
 
   useEffect(() => {
-    console.log(selectedTime);
-  }, [selectedTime]);
-
-  useEffect(() => {
     const createAppointment = async () => {
       if (canChoose === false) {
         const user = await AsyncStorage.getItem("user");
         const patient_id = JSON.parse(user).id;
-        console.log(patient_id);
 
         const payload = {
           time: selectedTime,
           date_time: selectedDate,
           therapist_id: selectedUser.id,
           patient_id: patient_id,
-          meeting_link: `http://192.168.43.32:3000/video?meetingId=${uuid.v4()}&name=${
+          meeting_link: `https://7741-91-197-46-156.eu.ngrok.io/video?meetingId=${uuid.v4()}&name=${
             JSON.parse(user).first_name
           }`,
         };
-        console.log(payload);
 
         axios
-          .post("http://192.168.43.32:8000/patient", payload)
+          .post(`${baseUrl}patient`, payload)
           .then((res) => {
             console.log(res.data);
             navigation.navigate("DrawerNavigator", {
@@ -82,11 +77,17 @@ function ScheduleTime({ navigation, route }) {
     <View style={styles.appContainer}>
       <View style={styles.infoDateContainer}>
         <View style={styles.profilePictureContainer}>
-          <ProfilePicture />
+          <ProfilePicture
+            image={`${baseUrl}${selectedUser?.therapist_additional_informations?.profile_picture}`}
+          />
         </View>
         <View style={styles.nameSpecialtyContainer}>
-          <Text style={styles.therapistNameText}>Mohammad Al Kayyali</Text>
-          <Text style={styles.specialtyText}>Neuromusculoskeletal</Text>
+          <Text style={styles.therapistNameText}>
+            {selectedUser.first_name + " " + selectedUser.last_name}
+          </Text>
+          <Text style={styles.specialtyText}>
+            {selectedUser.therapist_additional_informations.specialty}
+          </Text>
         </View>
         <View>
           <Text style={styles.dayText}>{weekDays[currentDate]}</Text>
@@ -118,7 +119,7 @@ function ScheduleTime({ navigation, route }) {
       </View>
     </View>
   );
-}
+};
 
 export default ScheduleTime;
 
