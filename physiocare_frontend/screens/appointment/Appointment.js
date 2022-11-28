@@ -1,33 +1,24 @@
 import { View, StyleSheet, ScrollView, Modal, Text } from "react-native";
 import { useEffect, useState } from "react";
-import ScheduleCard from "../components/ScheduleCard";
-import SearchingBar from "../components/SearchingBar";
-import Btn from "../components/Btn";
+import AppointmentCard from "../../components/appointmentCard/AppointmentCard";
+import Buttons from "../../components/button/Buttons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
+import baseUrl from "../../baseUrl/BaseUrl";
 
-function Schedule() {
+const Appointment = () => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [enteredSearchText, setEnteredSearchText] = useState("");
   const [user, setUser] = useState();
   const [cancelled, setCancelled] = useState();
   const [cancelledId, setCancelledId] = useState();
   const [appointments, setAppointments] = useState([]);
 
-  useEffect(() => {
-    const getUser = async () => {
-      const user = await AsyncStorage.getItem("user");
-      setUser(JSON.parse(user));
-    };
-    getUser();
-  }, []);
-
   const getAppointments = async () => {
     await axios
       .get(
         user?.user_type === "PATIENT"
-          ? `http://192.168.43.32:8000/patient/appointment/${user.id}/PATIENT`
-          : `http://192.168.43.32:8000/patient/appointment/${user.id}/THERAPIST`
+          ? `${baseUrl}patient/appointment/${user.id}/PATIENT`
+          : `${baseUrl}patient/appointment/${user.id}/THERAPIST`
       )
       .then((res) => {
         console.log(res.data);
@@ -38,23 +29,23 @@ function Schedule() {
       });
   };
 
+  const cancelSessionBtnHandler = () => {
+    setModalVisible(true);
+  };
+
   useEffect(() => {
-    console.log(cancelledId);
-  }, [cancelledId]);
+    const getUser = async () => {
+      const user = await AsyncStorage.getItem("user");
+      setUser(JSON.parse(user));
+    };
+    getUser();
+  }, []);
 
   useEffect(() => {
     if (user != null) {
       getAppointments();
     }
   }, [user]);
-
-  function cancelSessionBtnHandler() {
-    setModalVisible(true);
-  }
-
-  function searchBarInputHandler(enteredText) {
-    setEnteredSearchText(enteredText);
-  }
 
   return (
     <View style={styles.appContainer}>
@@ -65,19 +56,19 @@ function Schedule() {
               Are you sure you want to cancel the session with {cancelled}
             </Text>
             <View style={styles.btnContainer}>
-              <Btn
-                btnStyle={"noBtn"}
-                textStyle={"noBtnText"}
+              <Buttons
+                btnStyle={"noButton"}
+                textStyle={"noButtonText"}
                 btnText={"NO"}
                 onPress={() => setModalVisible(false)}
               />
-              <Btn
-                btnStyle={"yesBtn"}
-                textStyle={"yesBtnText"}
+              <Buttons
+                btnStyle={"yesButton"}
+                textStyle={"yesButtonText"}
                 btnText={"YES"}
                 onPress={() => {
                   axios
-                    .put(`http://192.168.43.32:8000/patient/cancel`, {
+                    .put(`${baseUrl}patient/cancel`, {
                       id: cancelledId,
                     })
                     .then((res) => {
@@ -98,7 +89,7 @@ function Schedule() {
       <ScrollView>
         {appointments.map((appointment) => {
           return user.user_type === "THERAPIST" ? (
-            <ScheduleCard
+            <AppointmentCard
               isCancelled={appointment.canceled_at}
               key={appointment.id}
               id={appointment.id}
@@ -115,7 +106,7 @@ function Schedule() {
               meetingName={appointment?.patient?.first_name}
             />
           ) : (
-            <ScheduleCard
+            <AppointmentCard
               isCancelled={appointment.canceled_at}
               key={appointment.id}
               id={appointment.id}
@@ -137,8 +128,9 @@ function Schedule() {
       </ScrollView>
     </View>
   );
-}
-export default Schedule;
+};
+
+export default Appointment;
 
 const styles = StyleSheet.create({
   appContainer: {
