@@ -2,12 +2,14 @@ import * as React from "react";
 import { View, StyleSheet, Text, Dimensions } from "react-native";
 import { useState, useEffect } from "react";
 import MapView, { Callout, Circle, Marker } from "react-native-maps";
+import Buttons from "../../components/button/Buttons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
-import Buttons from "../../components/button/Buttons";
+import baseUrl from "../../baseUrl/BaseUrl";
 
-function HomeMap({ navigation }) {
+const HomeMap = ({ navigation }) => {
   const [therapists, setTherapists] = useState([]);
+  const [patients, setPatients] = useState([]);
   const [token, setToken] = useState();
   const [user, setUser] = useState();
 
@@ -28,14 +30,9 @@ function HomeMap({ navigation }) {
     }
   };
 
-  useEffect(() => {
-    getToken();
-    getUser();
-  }, []);
-
-  useEffect(() => {
+  const getAllTherapists = () => {
     axios
-      .get("http://192.168.43.32:8000/therapist", {
+      .get(`${baseUrl}therapist`, {
         headers: {
           authorization: `Bearer ${token}`,
         },
@@ -46,7 +43,22 @@ function HomeMap({ navigation }) {
       .catch((error) => {
         console.log(error);
       });
-  }, [token]);
+  };
+
+  const getPatients = () => {
+    axios
+      .get(`${baseUrl}patient/appointment/${user.id}/THERAPIST`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        setPatients(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const listViewBtnHandler = () => {
     navigation.navigate("UserListView");
@@ -55,6 +67,16 @@ function HomeMap({ navigation }) {
   if (!user || !therapists) {
     return <Text>Loading...</Text>;
   }
+
+  useEffect(() => {
+    user?.user_type === "THERAPIST" ? getPatients() : getAllTherapists();
+  }, [user]);
+
+  useEffect(() => {
+    getToken();
+    getUser();
+  }, []);
+
   return (
     <View style={styles.appContainer}>
       <View style={styles.viewBtnSearchBarContainer}>
@@ -81,7 +103,7 @@ function HomeMap({ navigation }) {
         />
         <Marker
           coordinate={{ longitude: user.longitude, latitude: user.latitude }}
-          pinColor={"#1A7C6B"}
+          pinColor={"red"}
         >
           <Callout>
             <Text>
@@ -90,28 +112,47 @@ function HomeMap({ navigation }) {
           </Callout>
         </Marker>
 
-        {therapists.map((therapist) => {
-          return (
-            <Marker
-              coordinate={{
-                longitude: therapist.longitude,
-                latitude: therapist.latitude,
-              }}
-              pinColor={"#1A7C6B"}
-              key={therapist.id}
-            >
-              <Callout>
-                <Text>
-                  {therapist.first_name} {therapist.last_name}
-                </Text>
-              </Callout>
-            </Marker>
-          );
-        })}
+        {user.user_type === "PATIENT"
+          ? therapists.map((therapist) => {
+              return (
+                <Marker
+                  coordinate={{
+                    longitude: therapist.longitude,
+                    latitude: therapist.latitude,
+                  }}
+                  pinColor={"#1A7C6B"}
+                  key={therapist.id}
+                >
+                  <Callout>
+                    <Text>
+                      {therapist.first_name} {therapist.last_name}
+                    </Text>
+                  </Callout>
+                </Marker>
+              );
+            })
+          : patients?.map((patient) => {
+              return (
+                <Marker
+                  coordinate={{
+                    longitude: patient.patient.longitude,
+                    latitude: patient.patient.latitude,
+                  }}
+                  pinColor={"#1A7C6B"}
+                  key={patient.id}
+                >
+                  <Callout>
+                    <Text>
+                      {patient.patient.first_name} {patient.patient.last_name}
+                    </Text>
+                  </Callout>
+                </Marker>
+              );
+            })}
       </MapView>
     </View>
   );
-}
+};
 
 export default HomeMap;
 

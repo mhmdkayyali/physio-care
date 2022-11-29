@@ -54,8 +54,8 @@ const DrawerNavigator = () => {
         name="Appointment"
         component={Appointment}
         options={{
-          drawerLabel: "Appointment",
-          title: "Appointment",
+          drawerLabel: "Appointments",
+          title: "Appointments",
           drawerIcon: ({ color, size }) => (
             <Ionicons name={"calendar"} color={color} size={size} />
           ),

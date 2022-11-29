@@ -1,21 +1,21 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { View, StyleSheet, ScrollView } from "react-native";
+import { View, StyleSheet, ScrollView, Text } from "react-native";
 import UserCard from "../../components/userCard/UserCard";
+import SearchingBar from "../../components/searchBar/SearchBar";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import baseUrl from "../../baseUrl/BaseUrl";
 
-function UserListView() {
+const UserListView = () => {
   const [token, setToken] = useState("");
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState("");
   const [storageData, setStorageData] = useState();
+  const [enteredSearchText, setEnteredSearchText] = useState("");
 
-  useEffect(() => {
-    AsyncStorage.getItem("user")
-      .then((res) => {
-        setStorageData(JSON.parse(res));
-      })
-      .catch((error) => console.log(error));
-  }, []);
+  const searchBarInputHandler = (enteredText) => {
+    setEnteredSearchText(enteredText);
+  };
 
   const getToken = async () => {
     try {
@@ -27,17 +27,31 @@ function UserListView() {
   };
 
   useEffect(() => {
+    AsyncStorage.getItem("user")
+      .then((res) => {
+        setStorageData(JSON.parse(res));
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
+  useEffect(() => {
+    const filteredData = data.filter((item) => {
+      return item.first_name
+        .toLowerCase()
+        .includes(enteredSearchText.toLowerCase());
+    });
+    setFilteredData(filteredData);
+  }, [enteredSearchText]);
+
+  useEffect(() => {
     getToken();
   }, []);
-  useEffect(() => {
-    console.log(data);
-  }, [data]);
 
   useEffect(() => {
     const url =
       storageData?.user_type === "PATIENT"
-        ? "http://192.168.43.32:8000/therapist"
-        : "http://192.168.43.32:8000/patient";
+        ? `${baseUrl}therapist`
+        : `${baseUrl}patient`;
     axios
       .get(url, {
         headers: {
@@ -52,35 +66,64 @@ function UserListView() {
       .catch((error) => {
         console.log(error);
       });
-  }, [token]);
+  }, [storageData]);
 
   return (
     <View style={styles.appContainer}>
+      <View style={styles.searchBarContainer}>
+        <SearchingBar
+          onChangeHandler={searchBarInputHandler}
+          placeHolder={"Search bar"}
+        />
+      </View>
       <ScrollView>
-        {data.map((item) => (
-          <UserCard
-            userType={item.user_type}
-            key={item.id}
-            userName={`${item.first_name} ${item.last_name}`}
-            conditionSpecialty={
-              item.user_type === "THERAPIST"
-                ? item?.therapist_additional_informations?.specialty
-                : item?.pt_additional_informations?.diagnosis
-            }
-            gender={item.gender}
-            location={item.location}
-            user={item}
-          />
-        ))}
+        {filteredData.length === 0
+          ? data.map((item) => (
+              <UserCard
+                userType={item.user_type}
+                key={item.id}
+                userName={`${item.first_name} ${item.last_name}`}
+                conditionSpecialty={
+                  item.user_type === "THERAPIST"
+                    ? item?.therapist_additional_informations?.specialty
+                    : item?.pt_additional_informations?.diagnosis
+                }
+                gender={item.gender}
+                location={item.location}
+                user={item}
+                image={item?.therapist_additional_informations?.profile_picture}
+              />
+            ))
+          : filteredData.map((item) => (
+              <UserCard
+                userType={item.user_type}
+                key={item.id}
+                userName={`${item.first_name} ${item.last_name}`}
+                conditionSpecialty={
+                  item.user_type === "THERAPIST"
+                    ? item?.therapist_additional_informations?.specialty
+                    : item?.pt_additional_informations?.diagnosis
+                }
+                gender={item.gender}
+                location={item.location}
+                user={item}
+                image={item?.therapist_additional_informations?.profile_picture}
+              />
+            ))}
       </ScrollView>
     </View>
   );
-}
+};
+
 export default UserListView;
 
 const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
     paddingHorizontal: 20,
+  },
+  searchBarContainer: {
+    marginBottom: 5,
+    marginTop: 10,
   },
 });
