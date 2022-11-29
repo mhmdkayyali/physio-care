@@ -1,31 +1,24 @@
 import { View, StyleSheet, ScrollView, Modal, Text } from "react-native";
 import { useEffect, useState } from "react";
 import AppointmentCard from "../../components/appointmentCard/AppointmentCard";
+import Buttons from "../../components/button/Buttons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
-import Buttons from "../../components/button/Buttons";
+import baseUrl from "../../baseUrl/BaseUrl";
 
-function Appointment() {
+const Appointment = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [user, setUser] = useState();
   const [cancelled, setCancelled] = useState();
   const [cancelledId, setCancelledId] = useState();
   const [appointments, setAppointments] = useState([]);
 
-  useEffect(() => {
-    const getUser = async () => {
-      const user = await AsyncStorage.getItem("user");
-      setUser(JSON.parse(user));
-    };
-    getUser();
-  }, []);
-
   const getAppointments = async () => {
     await axios
       .get(
         user?.user_type === "PATIENT"
-          ? `http://192.168.43.32:8000/patient/appointment/${user.id}/PATIENT`
-          : `http://192.168.43.32:8000/patient/appointment/${user.id}/THERAPIST`
+          ? `${baseUrl}patient/appointment/${user.id}/PATIENT`
+          : `${baseUrl}patient/appointment/${user.id}/THERAPIST`
       )
       .then((res) => {
         setAppointments(res.data);
@@ -35,9 +28,17 @@ function Appointment() {
       });
   };
 
+  const cancelSessionBtnHandler = () => {
+    setModalVisible(true);
+  };
+
   useEffect(() => {
-    console.log(cancelledId);
-  }, [cancelledId]);
+    const getUser = async () => {
+      const user = await AsyncStorage.getItem("user");
+      setUser(JSON.parse(user));
+    };
+    getUser();
+  }, []);
 
   useEffect(() => {
     if (user != null) {
@@ -59,18 +60,18 @@ function Appointment() {
             </Text>
             <View style={styles.btnContainer}>
               <Buttons
-                btnStyle={"noBtn"}
-                textStyle={"noBtnText"}
+                btnStyle={"noButton"}
+                textStyle={"noButtonText"}
                 btnText={"NO"}
                 onPress={() => setModalVisible(false)}
               />
               <Buttons
-                btnStyle={"yesBtn"}
-                textStyle={"yesBtnText"}
+                btnStyle={"yesButton"}
+                textStyle={"yesButtonText"}
                 btnText={"YES"}
                 onPress={() => {
                   axios
-                    .put(`http://192.168.43.32:8000/patient/cancel`, {
+                    .put(`${baseUrl}patient/cancel`, {
                       id: cancelledId,
                     })
                     .then((res) => {
@@ -129,7 +130,8 @@ function Appointment() {
       </ScrollView>
     </View>
   );
-}
+};
+
 export default Appointment;
 
 const styles = StyleSheet.create({

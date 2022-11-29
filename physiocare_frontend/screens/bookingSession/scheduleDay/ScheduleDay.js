@@ -2,18 +2,25 @@ import { StyleSheet, View, Text } from "react-native";
 import Buttons from "../../../components/button/Buttons";
 import ProfilePicture from "../../../components/profilePicture/ProfilePicture";
 import { Calendar } from "react-native-calendars";
+import baseUrl from "../../../baseUrl/BaseUrl";
 
-function ScheduleDay({ navigation, route }) {
+const ScheduleDay = ({ navigation, route }) => {
   const selectedUser = JSON.parse(route.params.user);
   return (
     <View style={styles.appContainer}>
       <View style={styles.infoDateContainer}>
         <View style={styles.profilePictureContainer}>
-          <ProfilePicture />
+          <ProfilePicture
+            image={`${baseUrl}${selectedUser?.therapist_additional_informations?.profile_picture}`}
+          />
         </View>
         <View style={styles.nameSpecialtyContainer}>
-          <Text style={styles.therapistNameText}>Mohammad Al Kayyali</Text>
-          <Text style={styles.specialtyText}>Neuromusculoskeletal</Text>
+          <Text style={styles.therapistNameText}>
+            {selectedUser.first_name + " " + selectedUser.last_name}
+          </Text>
+          <Text style={styles.specialtyText}>
+            {selectedUser.therapist_additional_informations.specialty}
+          </Text>
         </View>
         <Buttons btnStyle={"callButton"} btnText={"CALL NOW"} />
       </View>
@@ -42,7 +49,7 @@ function ScheduleDay({ navigation, route }) {
       </View>
     </View>
   );
-}
+};
 
 export default ScheduleDay;
 

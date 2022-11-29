@@ -1,16 +1,12 @@
 import MapView, { Marker } from "react-native-maps";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import baseUrl from "../../../../baseUrl/BaseUrl";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import Buttons from "../../../../components/button/Buttons";
 
-function SignupFourPatient({ navigation, route }) {
+const SignupFourPatient = ({ navigation, route }) => {
   const user = route.params.user;
-
-  useEffect(() => {
-    console.log(lastInfo);
-  }, [pin]);
-
   const [pin, setPin] = useState({
     latitude: 33.8912434,
     longitude: 35.5059952,
@@ -18,38 +14,29 @@ function SignupFourPatient({ navigation, route }) {
 
   const [lastInfo, setLastInfo] = useState({});
 
-  useEffect(() => {
-    setLastInfo({
-      ...user,
-      ...pin,
-    });
-  }, []);
-
-  function signupButtonHandler() {
+  const signupButtonHandler = () => {
     axios({
       headers: {
         access: "application/json",
       },
       method: "post",
-      url: "http://192.168.44.109:8000/auth/patient",
+      url: `${baseUrl}auth/patient`,
       data: lastInfo,
     })
       .then((res) => {
-        console.log(res.data);
-        navigation.navigate(
-          "DrawerNavigator",
-          {
-            screen: "Login",
-          },
-          {
-            token: res.data.token,
-          }
-        );
+        navigation.navigate("Login");
       })
       .catch((error) => {
         console.log(error);
       });
-  }
+  };
+
+  useEffect(() => {
+    setLastInfo({
+      ...user,
+      ...pin,
+    });
+  }, [pin]);
 
   return (
     <View style={styles.appContainer}>
@@ -101,7 +88,7 @@ function SignupFourPatient({ navigation, route }) {
       </View>
     </View>
   );
-}
+};
 
 export default SignupFourPatient;
 

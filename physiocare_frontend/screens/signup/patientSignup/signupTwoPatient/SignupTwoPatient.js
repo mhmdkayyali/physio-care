@@ -1,9 +1,10 @@
+import { useState } from "react";
 import UserTextInput from "../../../../components/userTextInput/UserTextInput";
-import { Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import Buttons from "../../../../components/button/Buttons";
 import { ScrollView } from "react-native-gesture-handler";
 
-function SignupTwoPatient({ navigation, route }) {
+const SignupTwoPatient = ({ navigation, route }) => {
   const user = route.params;
   const [enteredInfo, setEnteredInfo] = useState({
     first_name: "",
@@ -11,15 +12,16 @@ function SignupTwoPatient({ navigation, route }) {
     email: "",
     password: "",
     phone_number: "",
+    location: "",
   });
 
-  function handleInputChange(value, key) {
+  const handleInputChange = (value, key) => {
     setEnteredInfo((prev) => {
       return { ...prev, [key]: value };
     });
-  }
+  };
 
-  function nextButtonHandler() {
+  const nextButtonHandler = () => {
     navigation.navigate("SignupThreePatient", {
       user: {
         ...user,
@@ -28,9 +30,10 @@ function SignupTwoPatient({ navigation, route }) {
         email: enteredInfo.email,
         password: enteredInfo.password,
         phone_number: enteredInfo.phone_number,
+        location: enteredInfo.location,
       },
     });
-  }
+  };
 
   return (
     <View style={styles.appContainer}>
@@ -67,6 +70,10 @@ function SignupTwoPatient({ navigation, route }) {
           placeHolder={"Phone number"}
           keyboardType={"numeric"}
         />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "location")}
+          placeHolder={"Location"}
+        />
       </ScrollView>
       <View style={styles.btnContainer}>
         <Buttons
@@ -78,7 +85,7 @@ function SignupTwoPatient({ navigation, route }) {
       </View>
     </View>
   );
-}
+};
 
 export default SignupTwoPatient;
 

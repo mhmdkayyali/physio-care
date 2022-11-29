@@ -4,53 +4,86 @@ import ProfilePicture from "../../components/profilePicture/ProfilePicture";
 import Buttons from "../../components/button/Buttons";
 import { View, StyleSheet, ScrollView } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from "axios";
+import * as ImagePicker from "expo-image-picker";
+import baseUrl from "../../baseUrl/BaseUrl";
 
 function Profile() {
+  const [image, setImage] = useState();
+  const [base64Image, setBase64Image] = useState(null);
   const [canEdit, setCanEdit] = useState(false);
   const [storageData, setStorageData] = useState();
-  const [info, setInfo] = useState({
-    first_name: storageData?.first_name,
-    last_name: storageData?.last_name,
-    email: storageData?.email,
-    phone_number: storageData?.phone_number,
-    location: storageData?.location,
-    diagnosis: storageData?.pt_additional_informations?.diagnosis,
-    case_date: storageData?.pt_additional_informations?.case_date,
-    treating_doctor: storageData?.pt_additional_informations?.treating_doctor,
-    dob: storageData?.dob,
-    specialty: storageData?.therapist_additional_informations?.specialty,
-  });
 
-  useEffect(() => {
-    AsyncStorage.getItem("user")
-      .then((res) => {
-        setStorageData(JSON.parse(res));
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
-  function canEditHandler() {
+  const canEditHandler = () => {
     setCanEdit(!canEdit);
-  }
-  function handleInputChange(value, key) {
-    setInfo((prev) => {
+  };
+
+  const handleInputChange = (value, key) => {
+    setStorageData((prev) => {
       return { ...prev, [key]: value };
     });
-  }
+  };
+
+  const handleAdditionalTherapistInputChange = (value, key) => {
+    setStorageData((prev) => {
+      return {
+        ...prev,
+        therapist_additional_informations: {
+          ...prev.therapist_additional_informations,
+          [key]: value,
+        },
+      };
+    });
+  };
+
+  const handleAdditionalPatientInputChange = (value, key) => {
+    setStorageData((prev) => {
+      return {
+        ...prev,
+        pt_additional_informations: {
+          ...prev.pt_additional_informations,
+          [key]: value,
+        },
+      };
+    });
+  };
+
+  const pickImage = async () => {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [3, 4],
+      quality: 1,
+      base64: true,
+    });
+
+    handleAdditionalTherapistInputChange(result.base64, "profile_picture");
+    if (!result.cancelled) {
+      console.log("result", result);
+      setImage(result.uri);
+      setBase64Image(result.base64);
+    }
+  };
+
   useEffect(() => {
     AsyncStorage.getItem("user")
       .then((res) => {
         setStorageData(JSON.parse(res));
-        console.log("res", res);
       })
       .catch((error) => console.log(error));
   }, []);
+
+  useEffect(() => {
+    setImage(
+      `${baseUrl}${storageData?.therapist_additional_informations?.profile_picture}`
+    );
+  }, [storageData]);
 
   return (
     <View style={styles.appContainer}>
       {storageData?.user_type === "THERAPIST" ? (
         <View style={styles.profilePictureContainer}>
-          <ProfilePicture />
+          <ProfilePicture image={image} onPress={pickImage} />
         </View>
       ) : (
         <View style={styles.topMargin}></View>
@@ -60,47 +93,41 @@ function Profile() {
           inputTitle={"FIRST NAME"}
           canEdit={canEdit}
           changeInput={(value) => handleInputChange(value, "first_name")}
-          value={info.first_name}
-          defaultValue={storageData?.first_name}
+          value={storageData?.first_name}
         />
         <ProfileInput
           inputTitle={"LAST NAME"}
           canEdit={canEdit}
           changeInput={(value) => handleInputChange(value, "last_name")}
-          value={info.last_name}
-          defaultValue={storageData?.last_name}
+          value={storageData?.last_name}
         />
         <ProfileInput
           inputTitle={"EMAIL"}
           canEdit={canEdit}
           changeInput={(value) => handleInputChange(value, "email")}
-          value={info.email}
-          defaultValue={storageData?.email}
+          value={storageData?.email}
         />
         <ProfileInput
           inputTitle={"PHONE NUMBER"}
           canEdit={canEdit}
           changeInput={(value) => handleInputChange(value, "phone_number")}
-          value={info.phone_number}
-          defaultValue={storageData?.phone_number}
+          value={storageData?.phone_number}
         />
         <ProfileInput
           inputTitle={"DATE OF BIRTH"}
           canEdit={canEdit}
           changeInput={(value) => handleInputChange(value, "dob")}
-          value={info.dob}
-          defaultValue={storageData?.dob}
+          value={storageData?.dob.split("T")[0]}
         />
         {storageData?.user_type === "THERAPIST" ? (
           <>
             <ProfileInput
               inputTitle={"SPECIALITY"}
               canEdit={canEdit}
-              changeInput={(value) => handleInputChange(value, "specialty")}
-              value={info.specialty}
-              defaultValue={
-                storageData?.therapist_additional_informations.specialty
+              changeInput={(value) =>
+                handleAdditionalTherapistInputChange(value, "specialty")
               }
+              value={storageData?.therapist_additional_informations.specialty}
             />
           </>
         ) : (
@@ -108,27 +135,28 @@ function Profile() {
             <ProfileInput
               inputTitle={"DIAGNOSIS"}
               canEdit={canEdit}
-              changeInput={(value) => handleInputChange(value, "diagnosis")}
-              value={info.diagnosis}
-              defaultValue={storageData?.pt_additional_informations.diagnosis}
+              changeInput={(value) =>
+                handleAdditionalPatientInputChange(value, "diagnosis")
+              }
+              value={storageData?.pt_additional_informations?.diagnosis}
             />
             <ProfileInput
               inputTitle={"CASE DATE"}
               canEdit={canEdit}
-              changeInput={(value) => handleInputChange(value, "case_date")}
-              value={info.case_date}
-              defaultValue={storageData?.pt_additional_informations.case_date}
+              changeInput={(value) =>
+                handleAdditionalPatientInputChange(value, "case_date")
+              }
+              value={
+                storageData?.pt_additional_informations?.case_date.split("T")[0]
+              }
             />
             <ProfileInput
               inputTitle={"TREATING DOCTOR"}
               canEdit={canEdit}
               changeInput={(value) =>
-                handleInputChange(value, "treating_doctor")
+                handleAdditionalPatientInputChange(value, "treating_doctor")
               }
-              value={info.treating_doctor}
-              defaultValue={
-                storageData?.pt_additional_informations.treating_doctor
-              }
+              value={storageData?.pt_additional_informations?.treating_doctor}
             />
           </>
         )}
@@ -136,7 +164,17 @@ function Profile() {
       <View style={styles.btnContainer}>
         <Buttons
           btnText={canEdit ? "SAVE" : "EDIT"}
-          onPress={canEditHandler}
+          onPress={() => {
+            canEditHandler();
+            if (canEdit) {
+              axios
+                .put(`${baseUrl}therapist`, storageData)
+                .then((res) => {
+                  setImage(`${baseUrl}${res.data}`);
+                })
+                .catch((error) => console.log(error));
+            }
+          }}
           btnStyle={canEdit ? "saveButton" : null}
         />
       </View>
