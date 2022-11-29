@@ -34,7 +34,7 @@ const login = async (req, res) => {
 };
 
 const signupPatient = async (req, res) => {
-  const { password, ...data } = req.body;
+  const { password, diagnosis, case_date, treating_doctor, ...data } = req.body;
   console.log(password);
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
@@ -45,10 +45,9 @@ const signupPatient = async (req, res) => {
         dob: new Date(req.body.dob),
         pt_additional_informations: {
           create: {
-            diagnosis: req.body.pt_additional_informations.diagnosis,
+            diagnosis: req.body.diagnosis,
             case_date: new Date(req.body.case_date),
-            treating_doctor:
-              req.body.pt_additional_informations.treating_doctor,
+            treating_doctor: req.body.treating_doctor,
           },
         },
         therapist_additional_informations: undefined,
@@ -119,4 +118,8 @@ const signupTherapist = async (req, res) => {
   }
 };
 
-module.exports = { login, signupPatient, signupTherapist };
+const test = async (req, res) => {
+  res.send(req);
+};
+
+module.exports = { login, signupPatient, signupTherapist, test };

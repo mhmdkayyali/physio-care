@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const router = Router();
+const { login } = require("../controllers/auth.controller");
 const {
-  login,
   signupPatient,
   signupTherapist,
 } = require("../controllers/auth.controller");
