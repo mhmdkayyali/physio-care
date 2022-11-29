@@ -1,4 +1,6 @@
 const db = require("../config/db.config");
+const crypto = require("crypto");
+const fs = require("fs");
 
 const getAllTherapists = async (req, res) => {
   try {
@@ -53,15 +55,40 @@ const createTherapist = async (req, res) => {
 };
 
 const updateTherapist = async (req, res) => {
-  const { id, specialty, profile_picture, ...data } = req.body;
+  const { id, specialty, ...data } = req.body;
+
+  const profile_picture =
+    req.body.therapist_additional_informations.profile_picture;
+
+  const isPicture = profile_picture.length > 1000;
+
+  let profile_picture_url = null;
+
+  console.log(isPicture);
+  if (isPicture) {
+    const image_id = crypto.randomBytes(16).toString("hex");
+    const base64Data = profile_picture.replace("data:image/png;base64,", "");
+    const new_image = Buffer.from(base64Data, "base64");
+
+    fs.writeFile(
+      __dirname.replace("controllers", "public/") + image_id + ".png",
+      new_image,
+      (err) => {
+        console.log(err);
+      }
+    );
+
+    profile_picture_url = image_id + ".png";
+  }
   const updatedTherapist = await db.users.update({
     data: {
       ...data,
       dob: req.body.dob ? new Date(req.body.dob) : undefined,
+      pt_additional_informations: undefined,
       therapist_additional_informations: {
         update: {
           specialty,
-          profile_picture,
+          profile_picture: isPicture ? profile_picture_url : profile_picture,
         },
       },
     },
@@ -69,7 +96,14 @@ const updateTherapist = async (req, res) => {
       id: parseInt(id),
     },
   });
-  return res.json(updatedTherapist);
+
+  const additional = await db.therapist_additional_informations.findFirst({
+    where: {
+      users_id: parseInt(id),
+    },
+  });
+
+  return res.json(additional.profile_picture);
 };
 
 const deleteTherapist = async (req, res) => {
@@ -83,7 +117,6 @@ const deleteTherapist = async (req, res) => {
     Response: "Success",
   });
 };
-
 module.exports = {
   getAllTherapists,
   getTherapist,
