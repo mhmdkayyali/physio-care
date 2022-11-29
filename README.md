@@ -59,8 +59,11 @@ Here's a brief high-level overview of the tech stack the Well app uses:
 
 - This project uses the [react-native](https://reactnative.dev/) framework. It is a JavaScript framework for writing real, natively rendering mobile applications for iOS and Android.
 - For maps implementation, the project uses [react-native-maps](https://www.npmjs.com/package/react-native-maps?activeTab=readme) for the map view.
+- Node.js is an open-source, cross-platform JavaScript runtime environment and library for running web applications outside the client's browser.
+- The project uses [Express](https://expressjs.com/) as a web application framework for Node.js.
 - It uses [prisma](https://www.prisma.io/). A next-generation object–relational mapper (ORM). It is used to connect to the database. It is used to generate the database schema and the client. It uses a custom Schema Definition Language (SDL) that automatically writes migrations and generates type-safe code.
 - This project also uses [MySQL](https://www.mysql.com/). A relational database management system (RDBMS) based on SQL – Structured Query Language. It is used to store the data.
+- VideoSdk is used for video calls. It is a video calling SDK that enables you to add video calling to your mobile apps. It is used to connect patients and physiotherapists.
 
 <br><br>
 
@@ -133,4 +136,4 @@ Here's a brief high-level overview of the tech stack the Well app uses:
    ```sh
    expo start
    ```
-9. Scan QR that appeared in the terminal with your phone (expo go app required)
+9. Scan QR that appeared in the terminal with your phone
