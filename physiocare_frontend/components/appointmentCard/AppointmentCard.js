@@ -23,9 +23,9 @@ function AppointmentCard(props) {
           <Text style={styles.cancelledText}>Cancelled</Text>
         </View>
       ) : (
-        <View style={styles.btnContainer}>
+        <View style={styles.buttonContainer}>
           <Buttons
-            btnStyle={"attendedBtn"}
+            btnStyle={"attendedButton"}
             textStyle={"scheduleBtnText"}
             btnText={"ATTEND"}
             onPress={() => {
@@ -36,7 +36,7 @@ function AppointmentCard(props) {
             }}
           />
           <Buttons
-            btnStyle={"cancelBtn"}
+            btnStyle={"cancelButton"}
             textStyle={"scheduleBtnText"}
             btnText={"CANCEL"}
             onPress={() => {

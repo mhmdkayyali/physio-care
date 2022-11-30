@@ -64,7 +64,7 @@ const Login = ({ navigation }) => {
         access: "application/json",
       },
       method: "post",
-      url: `${baseUrl}auth/login`,
+      url: `${process.env.BASE_URL}auth/login`,
       data: {
         email: enteredInfo.email,
         password: enteredInfo.password,

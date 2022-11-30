@@ -11,7 +11,7 @@ const ScheduleDay = ({ navigation, route }) => {
       <View style={styles.infoDateContainer}>
         <View style={styles.profilePictureContainer}>
           <ProfilePicture
-            image={`${baseUrl}${selectedUser?.therapist_additional_informations?.profile_picture}`}
+            image={`${process.env.BASE_URL}${selectedUser?.therapist_additional_informations?.profile_picture}`}
           />
         </View>
         <View style={styles.nameSpecialtyContainer}>

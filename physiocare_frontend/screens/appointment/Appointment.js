@@ -13,25 +13,6 @@ const Appointment = () => {
   const [cancelledId, setCancelledId] = useState();
   const [appointments, setAppointments] = useState([]);
 
-  const getAppointments = async () => {
-    await axios
-      .get(
-        user?.user_type === "PATIENT"
-          ? `${baseUrl}patient/appointment/${user.id}/PATIENT`
-          : `${baseUrl}patient/appointment/${user.id}/THERAPIST`
-      )
-      .then((res) => {
-        setAppointments(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const cancelSessionBtnHandler = () => {
-    setModalVisible(true);
-  };
-
   useEffect(() => {
     const getUser = async () => {
       const user = await AsyncStorage.getItem("user");
@@ -45,6 +26,25 @@ const Appointment = () => {
       getAppointments();
     }
   }, [user]);
+
+  const getAppointments = async () => {
+    await axios
+      .get(
+        user?.user_type === "PATIENT"
+          ? `${process.env.BASE_URL}patient/appointment/${user.id}/PATIENT`
+          : `${process.env.BASE_URL}patient/appointment/${user.id}/THERAPIST`
+      )
+      .then((res) => {
+        setAppointments(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const cancelSessionBtnHandler = () => {
+    setModalVisible(true);
+  };
 
   return (
     <View style={styles.appContainer}>
@@ -67,7 +67,7 @@ const Appointment = () => {
                 btnText={"YES"}
                 onPress={() => {
                   axios
-                    .put(`${baseUrl}patient/cancel`, {
+                    .put(`${process.env.BASE_URL}patient/cancel`, {
                       id: cancelledId,
                     })
                     .then((res) => {

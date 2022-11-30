@@ -1,4 +1,5 @@
 import * as React from "react";
+import { View, Image } from "react-native";
 import "react-native-gesture-handler";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 

@@ -30,9 +30,14 @@ const HomeMap = ({ navigation }) => {
     }
   };
 
+  useEffect(() => {
+    getToken();
+    getUser();
+  }, []);
+
   const getAllTherapists = () => {
     axios
-      .get(`${baseUrl}therapist`, {
+      .get(`${process.env.BASE_URL}therapist`, {
         headers: {
           authorization: `Bearer ${token}`,
         },
@@ -47,7 +52,7 @@ const HomeMap = ({ navigation }) => {
 
   const getPatients = () => {
     axios
-      .get(`${baseUrl}patient/appointment/${user.id}/THERAPIST`, {
+      .get(`${process.env.BASE_URL}patient/appointment/${user.id}/THERAPIST`, {
         headers: {
           authorization: `Bearer ${token}`,
         },
@@ -60,6 +65,10 @@ const HomeMap = ({ navigation }) => {
       });
   };
 
+  useEffect(() => {
+    user?.user_type === "THERAPIST" ? getPatients() : getAllTherapists();
+  }, [user]);
+
   const listViewBtnHandler = () => {
     navigation.navigate("UserListView");
   };
@@ -67,15 +76,6 @@ const HomeMap = ({ navigation }) => {
   if (!user || !therapists) {
     return <Text>Loading...</Text>;
   }
-
-  useEffect(() => {
-    user?.user_type === "THERAPIST" ? getPatients() : getAllTherapists();
-  }, [user]);
-
-  useEffect(() => {
-    getToken();
-    getUser();
-  }, []);
 
   return (
     <View style={styles.appContainer}>

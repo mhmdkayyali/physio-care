@@ -45,7 +45,7 @@ const ScheduleTime = ({ navigation, route }) => {
         };
 
         axios
-          .post(`${baseUrl}patient`, payload)
+          .post(`${process.env.BASE_URL}patient`, payload)
           .then((res) => {
             console.log(res.data);
             navigation.navigate("DrawerNavigator", {
@@ -78,7 +78,7 @@ const ScheduleTime = ({ navigation, route }) => {
       <View style={styles.infoDateContainer}>
         <View style={styles.profilePictureContainer}>
           <ProfilePicture
-            image={`${baseUrl}${selectedUser?.therapist_additional_informations?.profile_picture}`}
+            image={`${process.env.BASE_URL}${selectedUser?.therapist_additional_informations?.profile_picture}`}
           />
         </View>
         <View style={styles.nameSpecialtyContainer}>

@@ -13,6 +13,14 @@ const UserListView = () => {
   const [storageData, setStorageData] = useState();
   const [enteredSearchText, setEnteredSearchText] = useState("");
 
+  useEffect(() => {
+    AsyncStorage.getItem("user")
+      .then((res) => {
+        setStorageData(JSON.parse(res));
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
   const searchBarInputHandler = (enteredText) => {
     setEnteredSearchText(enteredText);
   };
@@ -25,14 +33,6 @@ const UserListView = () => {
       console.log(error);
     }
   };
-
-  useEffect(() => {
-    AsyncStorage.getItem("user")
-      .then((res) => {
-        setStorageData(JSON.parse(res));
-      })
-      .catch((error) => console.log(error));
-  }, []);
 
   useEffect(() => {
     const filteredData = data.filter((item) => {
@@ -50,8 +50,8 @@ const UserListView = () => {
   useEffect(() => {
     const url =
       storageData?.user_type === "PATIENT"
-        ? `${baseUrl}therapist`
-        : `${baseUrl}patient`;
+        ? `${process.env.BASE_URL}therapist`
+        : `${process.env.BASE_URL}patient`;
     axios
       .get(url, {
         headers: {

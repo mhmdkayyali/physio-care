@@ -15,8 +15,8 @@ function PressedTimeButton(props) {
       />
       {props.selected && (
         <Buttons
-          btnStyle={"confirmTimeBtn"}
-          textStyle={"confirmTimeBtnText"}
+          btnStyle={"confirmTimeButton"}
+          textStyle={"confirmTimeButtonText"}
           btnText={"CONFIRM"}
           onPress={() => {
             props.unselect();

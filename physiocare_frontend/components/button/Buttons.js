@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 7,
-    marginRight: 20,
+    marginLeft: 20,
   },
   noButton: {
     height: 40,
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 7,
-    marginLeft: 20,
+    marginRight: 20,
   },
   listViewButton: {
     alignItems: "center",

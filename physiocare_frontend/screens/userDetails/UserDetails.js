@@ -13,7 +13,7 @@ const UserDetails = ({ navigation, route }) => {
         <>
           <View style={styles.profilePictureContainer}>
             <ProfilePicture
-              image={`${baseUrl}${user?.therapist_additional_informations?.profile_picture}`}
+              image={`${process.env.BASE_URL}${user?.therapist_additional_informations?.profile_picture}`}
             />
           </View>
           <View>

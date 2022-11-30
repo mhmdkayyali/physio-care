@@ -75,7 +75,7 @@ function Profile() {
 
   useEffect(() => {
     setImage(
-      `${baseUrl}${storageData?.therapist_additional_informations?.profile_picture}`
+      `${process.env.BASE_URL}${storageData?.therapist_additional_informations?.profile_picture}`
     );
   }, [storageData]);
 
@@ -168,9 +168,9 @@ function Profile() {
             canEditHandler();
             if (canEdit) {
               axios
-                .put(`${baseUrl}therapist`, storageData)
+                .put(`${process.env.BASE_URL}therapist`, storageData)
                 .then((res) => {
-                  setImage(`${baseUrl}${res.data}`);
+                  setImage(`${process.env.BASE_URL}${res.data}`);
                 })
                 .catch((error) => console.log(error));
             }

@@ -13,7 +13,7 @@ function UserCard(props) {
         {props.userType === "THERAPIST" ? (
           <Image
             style={styles.picture}
-            source={{ uri: `${baseUrl}${props.image}` }}
+            source={{ uri: `${process.env.BASE_URL}${props.image}` }}
           />
         ) : (
           <View

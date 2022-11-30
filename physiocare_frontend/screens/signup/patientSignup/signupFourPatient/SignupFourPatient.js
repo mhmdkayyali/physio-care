@@ -20,7 +20,7 @@ const SignupFourPatient = ({ navigation, route }) => {
         access: "application/json",
       },
       method: "post",
-      url: `${baseUrl}auth/patient`,
+      url: `${process.env.BASE_URL}auth/patient`,
       data: lastInfo,
     })
       .then((res) => {

@@ -52,7 +52,7 @@ const SignupFourTherapist = ({ navigation }) => {
         "Content-Type": "application/json",
       },
       method: "post",
-      url: `${baseUrl}auth/therapist`,
+      url: `${process.env.BASE_URL}auth/therapist`,
       data: {
         ...data,
         ...select,
