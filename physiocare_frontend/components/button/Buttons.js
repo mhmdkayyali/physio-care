@@ -40,7 +40,7 @@ function Buttons(props) {
   return (
     <Pressable style={btnStyle(props.btnStyle)} onPress={props.onPress}>
       <View>
-        <Text style={textStyle(props.textStyle)}></Text>
+        <Text style={textStyle(props.textStyle)}>{props.btnText}</Text>
       </View>
     </Pressable>
   );
