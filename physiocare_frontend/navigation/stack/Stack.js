@@ -38,14 +38,17 @@ const NativeStackNavigator = () => {
           name="Login"
           component={Login}
           options={{ headerShown: false }}
-          ini
         />
         <Stack.Screen
           name="DrawerNavigator"
           component={DrawerNavigator}
           options={{ headerShown: false }}
         />
-        <Stack.Screen name="UserListView" component={UserListView} />
+        <Stack.Screen
+          name="UserListView"
+          component={UserListView}
+          options={{ title: "List View" }}
+        />
         <Stack.Screen
           name="SignupOne"
           component={SignupOne}
@@ -95,6 +98,11 @@ const NativeStackNavigator = () => {
           name="ScheduleTime"
           component={ScheduleTime}
           options={{ headerTitle: "Select a Time" }}
+        />
+        <Stack.Screen
+          name="VideoPage"
+          component={VideoPage}
+          options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>

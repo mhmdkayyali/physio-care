@@ -14,7 +14,30 @@ const Drawer = createDrawerNavigator();
 const DrawerNavigator = () => {
   return (
     <Drawer.Navigator
-      drawerContent={(props) => <CustomDrawer {...props} />}
+      drawerContent={(props) => {
+        return (
+          <View style={{ flex: 1 }}>
+            <View
+              style={{
+                height: 160,
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Image
+                source={require("./assets/images/white-logo.png")}
+                style={{
+                  height: 150,
+                  width: 150,
+                  resizeMode: "contain",
+                  marginTop: 60,
+                }}
+              />
+            </View>
+            <CustomDrawer {...props} />
+          </View>
+        );
+      }}
       screenOptions={{
         headerTitleAlign: "center",
         drawerActiveTintColor: "#35DB9F",
