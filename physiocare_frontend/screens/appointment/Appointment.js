@@ -4,7 +4,7 @@ import AppointmentCard from "../../components/appointmentCard/AppointmentCard";
 import Buttons from "../../components/button/Buttons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
-import baseUrl from "../../baseUrl/BaseUrl";
+import baseUrl from "../../config/env";
 
 const Appointment = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -45,10 +45,6 @@ const Appointment = () => {
       getAppointments();
     }
   }, [user]);
-
-  function cancelSessionBtnHandler() {
-    setModalVisible(true);
-  }
 
   return (
     <View style={styles.appContainer}>

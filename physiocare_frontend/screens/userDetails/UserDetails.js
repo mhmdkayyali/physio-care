@@ -2,7 +2,7 @@ import DisplayProfile from "../../components/displayProfile/DisplayProfile";
 import ProfilePicture from "../../components/profilePicture/ProfilePicture";
 import Buttons from "../../components/button/Buttons";
 import { View, StyleSheet, ScrollView, Text } from "react-native";
-import baseUrl from "../../baseUrl/BaseUrl";
+import baseUrl from "../../config/env";
 
 const UserDetails = ({ navigation, route }) => {
   const user = route.params.user;

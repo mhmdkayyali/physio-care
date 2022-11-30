@@ -25,7 +25,7 @@ const DrawerNavigator = () => {
               }}
             >
               <Image
-                source={require("./assets/images/white-logo.png")}
+                source={require("../../assets/images/white-logo.png")}
                 style={{
                   height: 150,
                   width: 150,

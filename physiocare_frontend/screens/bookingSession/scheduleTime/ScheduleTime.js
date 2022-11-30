@@ -6,7 +6,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import uuid from "react-native-uuid";
-import baseUrl from "../../../baseUrl/BaseUrl";
+import baseUrl from "../../../config/env";
 
 const ScheduleTime = ({ navigation, route }) => {
   const selectedDate = JSON.parse(route.params.date);

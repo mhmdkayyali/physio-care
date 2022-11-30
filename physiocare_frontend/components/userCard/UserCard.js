@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import baseUrl from "../../config/env";
 
 function UserCard(props) {
   const navigation = useNavigation();
@@ -12,7 +13,7 @@ function UserCard(props) {
         {props.userType === "THERAPIST" ? (
           <Image
             style={styles.picture}
-            source={require("../assets/images/doctor.jpg")}
+            source={{ uri: `${baseUrl}${props.image}` }}
           />
         ) : (
           <View

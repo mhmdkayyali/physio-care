@@ -4,7 +4,7 @@ import { View, StyleSheet, ScrollView, Text } from "react-native";
 import UserCard from "../../components/userCard/UserCard";
 import SearchingBar from "../../components/searchBar/SearchBar";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import baseUrl from "../../baseUrl/BaseUrl";
+import baseUrl from "../../config/env";
 
 const UserListView = () => {
   const [token, setToken] = useState("");

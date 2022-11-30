@@ -1,19 +1,20 @@
-import { StyleSheet, Image, View } from "react-native";
+import { StyleSheet, Image, Pressable } from "react-native";
 
-function ProfilePicture() {
+const ProfilePicture = (props) => {
   return (
-    <View style={styles.profilePictureContainer}>
-      <Image
-        style={styles.profilePicture}
-        source={require("../assets/images/doctor.jpg")}
-      />
-    </View>
+    // <Pressable onPress={props.onPress}>
+    <Pressable style={styles.profilePictureContainer} onPress={props.onPress}>
+      <Image style={styles.profilePicture} source={{ uri: props.image }} />
+    </Pressable>
+    // </Pressable>
   );
-}
+};
 export default ProfilePicture;
 
 const styles = StyleSheet.create({
   profilePictureContainer: {
+    backgroundColor: "rgba(53, 69, 219, 0.07)",
+    borderRadius: 10,
     height: 138,
     width: 113,
   },

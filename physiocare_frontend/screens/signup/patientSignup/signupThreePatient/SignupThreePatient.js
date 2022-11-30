@@ -1,7 +1,7 @@
 import { useState } from "react";
 import UserTextInput from "../../../../components/userTextInput/UserTextInput";
 import { StyleSheet, Text, View, Image } from "react-native";
-import Buttons from "../../../../components/button";
+import Buttons from "../../../../components/button/Buttons";
 import { ScrollView } from "react-native-gesture-handler";
 
 const SignupThreePatient = ({ navigation, route }) => {

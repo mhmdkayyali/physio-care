@@ -3,7 +3,7 @@ import UserTextInput from "../../components/userTextInput/UserTextInput";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import baseUrl from "../baseUrl/BaseUrl";
+import baseUrl from "../../config/env";
 
 const Login = ({ navigation }) => {
   const [token, setToken] = useState();
@@ -94,7 +94,7 @@ const Login = ({ navigation }) => {
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
-            source={require("../assets/images/logo.png")}
+            source={require("../../assets/images/logo.png")}
           />
         </View>
         <Text style={styles.title}>Login</Text>

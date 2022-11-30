@@ -2,7 +2,7 @@ import { StyleSheet, View, Text } from "react-native";
 import Buttons from "../../../components/button/Buttons";
 import ProfilePicture from "../../../components/profilePicture/ProfilePicture";
 import { Calendar } from "react-native-calendars";
-import baseUrl from "../../../baseUrl/BaseUrl";
+import baseUrl from "../../../config/env";
 
 const ScheduleDay = ({ navigation, route }) => {
   const selectedUser = JSON.parse(route.params.user);
