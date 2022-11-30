@@ -12,6 +12,9 @@ const { adminMiddleware } = require("./middlewares/admin.middleware");
 const authRoutes = require("./routes/auth.route");
 app.use("/auth", authRoutes);
 
+const adminRoutes = require("./routes/admins.routes");
+app.use("/admin", adminMiddleware, adminRoutes);
+
 const patientRoutes = require("./routes/patients.routes");
 app.use("/patient", patientRoutes);
 
@@ -21,9 +24,8 @@ app.use("/therapist", therapistRoutes);
 const appointmentRoutes = require("./routes/appointments.routes");
 app.use("/appointment", appointmentRoutes);
 
-app.get("/video", (req, res) => {
-  res.sendFile(`videosdk/index.html`, { root: __dirname });
-});
+const linkRoutes = require("./routes/links.routes");
+app.use("/link", linkRoutes);
 
 app.get("/video", (req, res) => {
   res.sendFile(`videosdk/index.html`, { root: __dirname });
