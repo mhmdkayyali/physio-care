@@ -21,6 +21,8 @@ import ScheduleTime from "../../screens/bookingSession/scheduleTime/ScheduleTime
 import ScheduleDay from "../../screens/bookingSession/scheduleDay/ScheduleDay";
 import UserListView from "../../screens/userListView/UserListView";
 
+import VideoCall from "../../screens/videcall/VideoCall";
+
 const Stack = createNativeStackNavigator();
 
 const NativeStackNavigator = () => {
@@ -100,8 +102,8 @@ const NativeStackNavigator = () => {
           options={{ headerTitle: "Select a Time" }}
         />
         <Stack.Screen
-          name="VideoPage"
-          component={VideoPage}
+          name="VideoCall"
+          component={VideoCall}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

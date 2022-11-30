@@ -29,7 +29,7 @@ function AppointmentCard(props) {
             textStyle={"scheduleBtnText"}
             btnText={"ATTEND"}
             onPress={() => {
-              navigate.navigate("VideoPage", {
+              navigate.navigate("VideoCall", {
                 meetingId: props.meeting,
                 name: props.meetingName,
               });

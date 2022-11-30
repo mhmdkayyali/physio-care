@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Buttons from "../../components/button/Buttons";
 import UserTextInput from "../../components/userTextInput/UserTextInput";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
