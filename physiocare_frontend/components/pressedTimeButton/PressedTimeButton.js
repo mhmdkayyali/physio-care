@@ -8,7 +8,7 @@ function PressedTimeButton(props) {
   return (
     <View style={styles.buttonContainer}>
       <Buttons
-        btnStyle={confirmed ? "confirmTimeButton" : "pressedTimeButton"}
+        btnStyle={confirmed ? "confirmedButton" : "pressedTimeButton"}
         textStyle={confirmed ? "" : "pressedtimeButtonText"}
         btnText={props.slot}
         onPress={props.onPress}

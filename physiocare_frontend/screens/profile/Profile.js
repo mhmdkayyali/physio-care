@@ -6,7 +6,6 @@ import { View, StyleSheet, ScrollView } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import * as ImagePicker from "expo-image-picker";
-import baseUrl from "../../config/env";
 
 function Profile() {
   const [image, setImage] = useState();

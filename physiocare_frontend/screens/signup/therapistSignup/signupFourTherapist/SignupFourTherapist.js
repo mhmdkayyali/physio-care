@@ -5,7 +5,6 @@ import TimeInput from "../../../../components/timeInput/TimeInput";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import { ScrollView } from "react-native-gesture-handler";
-import baseUrl from "../../../../config/env";
 
 const SignupFourTherapist = ({ navigation }) => {
   const [data, setData] = useState();
@@ -135,7 +134,7 @@ const SignupFourTherapist = ({ navigation }) => {
                 btnText={"Tuesday"}
                 onPress={() => onPressHandler(!select.tuesday, "tuesday")}
               />
-              <Btn
+              <Buttons
                 btnStyle={
                   select.wednesday
                     ? "selectedAvailableDaysButton"

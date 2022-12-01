@@ -4,7 +4,6 @@ import UserTextInput from "../../components/userTextInput/UserTextInput";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import axios from "axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import baseUrl from "../../config/env";
 
 const Login = ({ navigation }) => {
   const [token, setToken] = useState();
@@ -59,6 +58,7 @@ const Login = ({ navigation }) => {
   };
 
   const loginButtonHandler = () => {
+    console.log("shu bekkkkkk");
     axios({
       headers: {
         access: "application/json",

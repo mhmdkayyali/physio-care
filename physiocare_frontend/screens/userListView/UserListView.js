@@ -4,7 +4,6 @@ import { View, StyleSheet, ScrollView, Text } from "react-native";
 import UserCard from "../../components/userCard/UserCard";
 import SearchingBar from "../../components/searchBar/SearchBar";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import baseUrl from "../../config/env";
 
 const UserListView = () => {
   const [token, setToken] = useState("");
@@ -61,6 +60,7 @@ const UserListView = () => {
       .then((res) => {
         if (res) {
           setData(res.data);
+          console.log(res.data);
         }
       })
       .catch((error) => {

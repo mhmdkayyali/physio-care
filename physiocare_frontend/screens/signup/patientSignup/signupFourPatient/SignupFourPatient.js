@@ -1,7 +1,7 @@
 import MapView, { Marker } from "react-native-maps";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import baseUrl from "../../../../config/env";
+
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import Buttons from "../../../../components/button/Buttons";
 
