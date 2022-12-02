@@ -1,10 +1,11 @@
-import { View, StyleSheet, ScrollView, Modal, Text } from "react-native";
+import { View, ScrollView, Modal, Text } from "react-native";
 import { useEffect, useState } from "react";
 import AppointmentCard from "../../components/appointmentCard/AppointmentCard";
 import Buttons from "../../components/button/Buttons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
 import sendRequest from "../../config/axios";
+import styles from "./Appointment.styles";
 
 const Appointment = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -130,36 +131,3 @@ const Appointment = () => {
 };
 
 export default Appointment;
-
-const styles = StyleSheet.create({
-  appContainer: {
-    flex: 1,
-    padding: 15,
-  },
-  modal: {
-    flex: 1,
-    height: "100%",
-    width: "100%",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "rgba(56,56,56,0.6)",
-  },
-  modalContainer: {
-    height: 160,
-    width: "80%",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#EFEFEF",
-    borderRadius: 10,
-    justifyContent: "space-evenly",
-    paddingHorizontal: 20,
-  },
-  btnContainer: {
-    width: "100%",
-    justifyContent: "center",
-    flexDirection: "row",
-  },
-  searchBarContainer: {
-    marginBottom: 5,
-  },
-});

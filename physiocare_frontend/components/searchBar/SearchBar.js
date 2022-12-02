@@ -1,4 +1,5 @@
-import { TextInput, StyleSheet } from "react-native";
+import { TextInput } from "react-native";
+import styles from "./SearchBar.styles";
 
 function SearchingBar(props) {
   return (
@@ -11,13 +12,3 @@ function SearchingBar(props) {
 }
 
 export default SearchingBar;
-
-const styles = StyleSheet.create({
-  searchInput: {
-    width: "100%",
-    backgroundColor: "#FFFFFF",
-    height: 40,
-    borderRadius: 10,
-    paddingLeft: 12,
-  },
-});

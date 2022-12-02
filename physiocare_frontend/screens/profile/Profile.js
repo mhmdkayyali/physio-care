@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import ProfileInput from "../../components/profileInput/ProfileInput";
 import ProfilePicture from "../../components/profilePicture/ProfilePicture";
 import Buttons from "../../components/button/Buttons";
-import { View, StyleSheet, ScrollView } from "react-native";
+import { View, ScrollView } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import * as ImagePicker from "expo-image-picker";
 import sendRequest from "../../config/axios";
+import styles from "./Profile.styles";
 
 function Profile() {
   const [image, setImage] = useState();
@@ -185,22 +186,3 @@ function Profile() {
 }
 
 export default Profile;
-
-const styles = StyleSheet.create({
-  appContainer: {
-    flex: 1,
-    paddingHorizontal: 20,
-  },
-  profilePictureContainer: {
-    alignItems: "center",
-    marginTop: 30,
-    marginBottom: 14,
-  },
-  btnContainer: {
-    marginTop: 20,
-    marginBottom: 30,
-  },
-  topMargin: {
-    marginTop: 30,
-  },
-});

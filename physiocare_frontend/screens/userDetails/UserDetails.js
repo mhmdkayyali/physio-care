@@ -1,7 +1,8 @@
 import DisplayProfile from "../../components/displayProfile/DisplayProfile";
 import ProfilePicture from "../../components/profilePicture/ProfilePicture";
 import Buttons from "../../components/button/Buttons";
-import { View, StyleSheet, ScrollView, Text } from "react-native";
+import { View, ScrollView, Text } from "react-native";
+import styles from "./UserDetails.styles";
 
 const UserDetails = ({ navigation, route }) => {
   const user = route.params.user;
@@ -93,27 +94,3 @@ const UserDetails = ({ navigation, route }) => {
 };
 
 export default UserDetails;
-
-const styles = StyleSheet.create({
-  appContainer: {
-    flex: 1,
-    paddingHorizontal: 20,
-  },
-  profilePictureContainer: {
-    alignItems: "center",
-    marginTop: 30,
-    marginBottom: 14,
-  },
-  btnContainer: {
-    marginTop: 20,
-    marginBottom: 30,
-  },
-  therapistNameText: {
-    fontSize: 22,
-    color: "#383838",
-    fontWeight: "bold",
-    textAlign: "center",
-    marginTop: 20,
-    marginBottom: 10,
-  },
-});

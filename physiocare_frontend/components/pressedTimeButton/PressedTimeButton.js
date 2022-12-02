@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { View } from "react-native";
 import Buttons from "../button/Buttons";
+import styles from "./PressedTimeButton.styles";
 
 function PressedTimeButton(props) {
   const [confirmed, setConfirmed] = useState(false);
@@ -31,12 +32,3 @@ function PressedTimeButton(props) {
 }
 
 export default PressedTimeButton;
-
-const styles = StyleSheet.create({
-  buttonContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    width: "100%",
-    marginVertical: 5,
-  },
-});

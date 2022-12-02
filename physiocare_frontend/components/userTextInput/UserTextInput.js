@@ -1,4 +1,5 @@
 import { TextInput, StyleSheet } from "react-native";
+import styles from "./UserTextInput.styles";
 
 function UserTextInput(props) {
   return (
@@ -14,14 +15,3 @@ function UserTextInput(props) {
 }
 
 export default UserTextInput;
-
-const styles = StyleSheet.create({
-  textInput: {
-    width: "100%",
-    backgroundColor: "#FFFFFF",
-    height: 48,
-    borderRadius: 5,
-    marginBottom: 16,
-    paddingLeft: 12,
-  },
-});

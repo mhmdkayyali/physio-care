@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { View, StyleSheet, ScrollView, Text } from "react-native";
+import { View, ScrollView, Text } from "react-native";
 import UserCard from "../../components/userCard/UserCard";
 import SearchingBar from "../../components/searchBar/SearchBar";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import sendRequest from "../../config/axios";
+import styles from "./UserListView.styles";
 
 const UserListView = () => {
   const [token, setToken] = useState("");
@@ -110,14 +111,3 @@ const UserListView = () => {
 };
 
 export default UserListView;
-
-const styles = StyleSheet.create({
-  appContainer: {
-    flex: 1,
-    paddingHorizontal: 20,
-  },
-  searchBarContainer: {
-    marginBottom: 5,
-    marginTop: 10,
-  },
-});

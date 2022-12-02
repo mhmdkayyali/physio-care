@@ -1,7 +1,8 @@
-import { StyleSheet, View, Text } from "react-native";
+import { View, Text } from "react-native";
 import Buttons from "../../../components/button/Buttons";
 import ProfilePicture from "../../../components/profilePicture/ProfilePicture";
 import { Calendar } from "react-native-calendars";
+import styles from "./ScheduleDay.styles";
 
 const ScheduleDay = ({ navigation, route }) => {
   const selectedUser = JSON.parse(route.params.user);
@@ -51,67 +52,3 @@ const ScheduleDay = ({ navigation, route }) => {
 };
 
 export default ScheduleDay;
-
-const styles = StyleSheet.create({
-  appContainer: {
-    flex: 1,
-    alignItems: "center",
-    paddingHorizontal: 20,
-    backgroundColor: "#EFEFEF",
-  },
-  profilePictureContainer: {
-    margin: 20,
-  },
-  nameSpecialtyContainer: {
-    flex: 0.7,
-  },
-  infoDateContainer: {
-    flex: 0.9,
-    width: "100%",
-    alignItems: "center",
-  },
-  scheduleTimeBtnContainer: {
-    flex: 1,
-    width: "100%",
-  },
-  scheduleTimeContainer: {
-    width: "100%",
-    flexDirection: "row",
-    marginBottom: 10,
-  },
-  btnContainer: {
-    width: "100%",
-  },
-  therapistNameText: {
-    fontSize: 25,
-    color: "#383838",
-    fontWeight: "bold",
-  },
-  specialtyText: {
-    fontSize: 15,
-    color: "#383838",
-    textAlign: "center",
-  },
-  dayText: {
-    textAlign: "center",
-    fontSize: 18,
-    color: "#383838",
-    fontWeight: "500",
-  },
-  dateText: {
-    textAlign: "center",
-    fontSize: 16,
-    color: "#383838",
-  },
-  scheduleParagraph: {
-    fontSize: 15,
-    color: "#383838",
-    marginLeft: 10,
-    marginRight: 20,
-    fontWeight: "500",
-  },
-  selectTimeParagraph: {
-    fontSize: 12,
-    color: "#A1A1A1",
-  },
-});

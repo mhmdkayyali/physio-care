@@ -1,10 +1,11 @@
 import * as React from "react";
-import { View, StyleSheet, Text, Dimensions } from "react-native";
+import { View, Text } from "react-native";
 import { useState, useEffect } from "react";
 import MapView, { Callout, Circle, Marker } from "react-native-maps";
 import Buttons from "../../components/button/Buttons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import sendRequest from "../../config/axios";
+import styles from "./HomeMap.styles";
 
 const HomeMap = ({ navigation }) => {
   const [therapists, setTherapists] = useState([]);
@@ -147,49 +148,3 @@ const HomeMap = ({ navigation }) => {
 };
 
 export default HomeMap;
-
-const styles = StyleSheet.create({
-  appContainer: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "space-between",
-    paddingHorizontal: 15,
-    backgroundColor: "#EFEFEF",
-  },
-  viewBtnSearchBarContainer: {
-    zIndex: 1,
-    width: "100%",
-    height: 90,
-    justifyContent: "space-between",
-  },
-  filterByTextBtnsContainer: {
-    flexDirection: "row",
-    marginBottom: 60,
-    zIndex: 1,
-  },
-  filterParagraphContainer: {
-    height: 44,
-    borderRadius: 10,
-    alignItems: "center",
-    justifyContent: "center",
-    marginRight: 10,
-    backgroundColor: "rgba(131, 131, 131, 0.3)",
-    marginTop: 5,
-  },
-  filterParagraph: {
-    fontSize: 13,
-    fontWeight: "bold",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingHorizontal: 7,
-    color: "#383838",
-  },
-  map: {
-    height: "100%",
-    width: "100%",
-    marginTop: -165,
-    alignItems: "center",
-    justifyContent: "center",
-    width: Dimensions.get("window").width,
-  },
-});

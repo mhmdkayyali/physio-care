@@ -1,4 +1,5 @@
-import { TextInput, StyleSheet } from "react-native";
+import { TextInput } from "react-native";
+import styles from "./TimeInput.styles";
 
 function TimeInput(props) {
   return (
@@ -11,14 +12,3 @@ function TimeInput(props) {
 }
 
 export default TimeInput;
-
-const styles = StyleSheet.create({
-  TimeTextInput: {
-    width: "43%",
-    backgroundColor: "#FFFFFF",
-    height: 32,
-    borderRadius: 10,
-    marginBottom: 16,
-    textAlign: "center",
-  },
-});
