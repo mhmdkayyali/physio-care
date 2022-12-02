@@ -4,8 +4,8 @@ import ProfilePicture from "../../components/profilePicture/ProfilePicture";
 import Buttons from "../../components/button/Buttons";
 import { View, StyleSheet, ScrollView } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import axios from "axios";
 import * as ImagePicker from "expo-image-picker";
+import sendRequest from "../../config/axios";
 
 function Profile() {
   const [image, setImage] = useState();
@@ -166,8 +166,11 @@ function Profile() {
           onPress={() => {
             canEditHandler();
             if (canEdit) {
-              axios
-                .put(`${process.env.BASE_URL}therapist`, storageData)
+              sendRequest({
+                method: "put",
+                url: "therapist",
+                data: storageData,
+              })
                 .then((res) => {
                   setImage(`${process.env.BASE_URL}${res.data}`);
                 })

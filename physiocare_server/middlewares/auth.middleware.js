@@ -6,13 +6,12 @@ const authMiddleware = async (req, res, next) => {
   try {
     const decode = jwt.verify(token, process.env.JWT_SECRET_KEY);
 
-    const admin = await db.users.findFirst({
+    const user = await db.users.findFirst({
       where: {
         email: decode.email,
       },
     });
-
-    req.user = admin;
+    req.user = user;
     next();
   } catch (err) {
     return res.status(401).json({ message: "Unauthorized" });

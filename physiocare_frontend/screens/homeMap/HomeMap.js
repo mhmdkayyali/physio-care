@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import MapView, { Callout, Circle, Marker } from "react-native-maps";
 import Buttons from "../../components/button/Buttons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import axios from "axios";
+import sendRequest from "../../config/axios";
 
 const HomeMap = ({ navigation }) => {
   const [therapists, setTherapists] = useState([]);
@@ -35,15 +35,9 @@ const HomeMap = ({ navigation }) => {
   }, []);
 
   const getAllTherapists = () => {
-    axios
-      .get(`${process.env.BASE_URL}therapist`, {
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-      })
+    sendRequest({ method: "GET", url: "therapist" })
       .then((res) => {
         setTherapists(res.data);
-        // console.log(res.data);
       })
       .catch((error) => {
         console.log(error);
@@ -51,12 +45,10 @@ const HomeMap = ({ navigation }) => {
   };
 
   const getPatients = () => {
-    axios
-      .get(`${process.env.BASE_URL}patient/appointment/${user.id}/THERAPIST`, {
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-      })
+    sendRequest({
+      method: "GET",
+      url: `patient/appointment/${user.id}/THERAPIST`,
+    })
       .then((res) => {
         setPatients(res.data);
       })

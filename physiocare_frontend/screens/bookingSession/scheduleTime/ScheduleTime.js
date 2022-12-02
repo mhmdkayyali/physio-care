@@ -4,8 +4,8 @@ import ProfilePicture from "../../../components/profilePicture/ProfilePicture";
 import PressedTimeButton from "../../../components/pressedTimeButton/PressedTimeButton";
 import { ScrollView } from "react-native-gesture-handler";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import axios from "axios";
 import uuid from "react-native-uuid";
+import sendRequest from "../../../config/axios";
 
 const ScheduleTime = ({ navigation, route }) => {
   const selectedDate = JSON.parse(route.params.date);
@@ -42,8 +42,11 @@ const ScheduleTime = ({ navigation, route }) => {
             JSON.parse(user).first_name
           }`,
         };
-        axios
-          .post(`${process.env.BASE_URL}patient`, payload)
+        sendRequest({
+          method: "post",
+          url: "patient",
+          data: payload,
+        })
           .then((res) => {
             console.log(res.data);
             navigation.navigate("DrawerNavigator", {

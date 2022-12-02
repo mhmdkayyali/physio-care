@@ -4,6 +4,7 @@ import AppointmentCard from "../../components/appointmentCard/AppointmentCard";
 import Buttons from "../../components/button/Buttons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
+import sendRequest from "../../config/axios";
 
 const Appointment = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -27,12 +28,13 @@ const Appointment = () => {
   }, [user]);
 
   const getAppointments = async () => {
-    await axios
-      .get(
+    sendRequest({
+      method: "GET",
+      url:
         user?.user_type === "PATIENT"
-          ? `${process.env.BASE_URL}patient/appointment/${user.id}/PATIENT`
-          : `${process.env.BASE_URL}patient/appointment/${user.id}/THERAPIST`
-      )
+          ? `patient/appointment/${user.id}/PATIENT`
+          : `patient/appointment/${user.id}/THERAPIST`,
+    })
       .then((res) => {
         setAppointments(res.data);
       })

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Buttons from "../../components/button/Buttons";
 import UserTextInput from "../../components/userTextInput/UserTextInput";
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
-import axios from "axios";
+import sendRequest from "../../config/axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const Login = ({ navigation }) => {
@@ -58,13 +58,9 @@ const Login = ({ navigation }) => {
   };
 
   const loginButtonHandler = () => {
-    console.log("shu bekkkkkk");
-    axios({
-      headers: {
-        access: "application/json",
-      },
+    sendRequest({
       method: "post",
-      url: `${process.env.BASE_URL}auth/login`,
+      url: "auth/login",
       data: {
         email: enteredInfo.email,
         password: enteredInfo.password,
@@ -74,11 +70,11 @@ const Login = ({ navigation }) => {
         await storeToken(res.data.token);
         await storeUser(res.data.user);
         console.log(res.data);
-        if (token && res.data.user.user_type === "PATIENT") {
+        if (res.data.user.user_type === "PATIENT") {
           navigation.navigate("DrawerNavigator", {
             screen: "HomeMap",
           });
-        } else if (token && res.data.user.user_type === "THERAPIST") {
+        } else if (res.data.user.user_type === "THERAPIST") {
           navigation.navigate("DrawerNavigator", {
             screen: "HomeMap",
           });

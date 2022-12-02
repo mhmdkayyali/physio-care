@@ -1,9 +1,9 @@
 import MapView, { Marker } from "react-native-maps";
 import { useEffect, useState } from "react";
-import axios from "axios";
 
 import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import Buttons from "../../../../components/button/Buttons";
+import sendRequest from "../../../../config/axios";
 
 const SignupFourPatient = ({ navigation, route }) => {
   const user = route.params.user;
@@ -15,12 +15,9 @@ const SignupFourPatient = ({ navigation, route }) => {
   const [lastInfo, setLastInfo] = useState({});
 
   const signupButtonHandler = () => {
-    axios({
-      headers: {
-        access: "application/json",
-      },
+    sendRequest({
       method: "post",
-      url: `${process.env.BASE_URL}auth/patient`,
+      url: "auth/patient",
       data: lastInfo,
     })
       .then((res) => {

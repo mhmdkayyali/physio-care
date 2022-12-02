@@ -3,8 +3,8 @@ import { StyleSheet, Text, View, Image } from "react-native";
 import Buttons from "../../../../components/button/Buttons";
 import TimeInput from "../../../../components/timeInput/TimeInput";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import axios from "axios";
 import { ScrollView } from "react-native-gesture-handler";
+import sendRequest from "../../../../config/axios";
 
 const SignupFourTherapist = ({ navigation }) => {
   const [data, setData] = useState();
@@ -46,12 +46,9 @@ const SignupFourTherapist = ({ navigation }) => {
       ...enteredInfo,
     };
     storeData(data2);
-    axios({
-      headers: {
-        "Content-Type": "application/json",
-      },
+    sendRequest({
       method: "post",
-      url: `${process.env.BASE_URL}auth/therapist`,
+      url: "auth/therapist",
       data: {
         ...data,
         ...select,

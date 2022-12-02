@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { View, StyleSheet, ScrollView, Text } from "react-native";
 import UserCard from "../../components/userCard/UserCard";
 import SearchingBar from "../../components/searchBar/SearchBar";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import sendRequest from "../../config/axios";
 
 const UserListView = () => {
   const [token, setToken] = useState("");
@@ -47,16 +47,10 @@ const UserListView = () => {
   }, []);
 
   useEffect(() => {
-    const url =
-      storageData?.user_type === "PATIENT"
-        ? `${process.env.BASE_URL}therapist`
-        : `${process.env.BASE_URL}patient`;
-    axios
-      .get(url, {
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-      })
+    sendRequest({
+      method: "GET",
+      url: storageData?.user_type === "PATIENT" ? "therapist" : "patient",
+    })
       .then((res) => {
         if (res) {
           setData(res.data);
