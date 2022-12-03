@@ -1,83 +1,22 @@
-import { useEffect, useState } from "react";
 import ProfileInput from "../../components/profileInput/ProfileInput";
 import ProfilePicture from "../../components/profilePicture/ProfilePicture";
 import Buttons from "../../components/button/Buttons";
 import { View, ScrollView } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import * as ImagePicker from "expo-image-picker";
 import sendRequest from "../../config/axios";
 import styles from "./Profile.styles";
+import useLogic from "./Profile.logic";
 
 function Profile() {
-  const [image, setImage] = useState();
-  const [base64Image, setBase64Image] = useState(null);
-  const [canEdit, setCanEdit] = useState(false);
-  const [storageData, setStorageData] = useState();
-
-  const canEditHandler = () => {
-    setCanEdit(!canEdit);
-  };
-
-  const handleInputChange = (value, key) => {
-    setStorageData((prev) => {
-      return { ...prev, [key]: value };
-    });
-  };
-
-  const handleAdditionalTherapistInputChange = (value, key) => {
-    setStorageData((prev) => {
-      return {
-        ...prev,
-        therapist_additional_informations: {
-          ...prev.therapist_additional_informations,
-          [key]: value,
-        },
-      };
-    });
-  };
-
-  const handleAdditionalPatientInputChange = (value, key) => {
-    setStorageData((prev) => {
-      return {
-        ...prev,
-        pt_additional_informations: {
-          ...prev.pt_additional_informations,
-          [key]: value,
-        },
-      };
-    });
-  };
-
-  const pickImage = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.All,
-      allowsEditing: true,
-      aspect: [3, 4],
-      quality: 1,
-      base64: true,
-    });
-
-    handleAdditionalTherapistInputChange(result.base64, "profile_picture");
-    if (!result.cancelled) {
-      console.log("result", result);
-      setImage(result.uri);
-      setBase64Image(result.base64);
-    }
-  };
-
-  useEffect(() => {
-    AsyncStorage.getItem("user")
-      .then((res) => {
-        setStorageData(JSON.parse(res));
-      })
-      .catch((error) => console.log(error));
-  }, []);
-
-  useEffect(() => {
-    setImage(
-      `${process.env.BASE_URL}${storageData?.therapist_additional_informations?.profile_picture}`
-    );
-  }, [storageData]);
+  const {
+    image,
+    canEditHandler,
+    handleInputChange,
+    handleAdditionalPatientInputChange,
+    pickImage,
+    storageData,
+    canEdit,
+    handleAdditionalTherapistInputChange,
+  } = useLogic();
 
   return (
     <View style={styles.appContainer}>

@@ -1,39 +1,12 @@
 import MapView, { Marker } from "react-native-maps";
-import { useEffect, useState } from "react";
+
 import styles from "./SignupFourPatient.styles";
 import { Text, View, Image, Pressable } from "react-native";
 import Buttons from "../../../../components/button/Buttons";
-import sendRequest from "../../../../config/axios";
+import useLogic from "./SignupFourPatient.logic";
 
 const SignupFourPatient = ({ navigation, route }) => {
-  const user = route.params.user;
-  const [pin, setPin] = useState({
-    latitude: 33.8912434,
-    longitude: 35.5059952,
-  });
-
-  const [lastInfo, setLastInfo] = useState({});
-
-  const signupButtonHandler = () => {
-    sendRequest({
-      method: "post",
-      url: "auth/patient",
-      data: lastInfo,
-    })
-      .then((res) => {
-        navigation.navigate("Login");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  useEffect(() => {
-    setLastInfo({
-      ...user,
-      ...pin,
-    });
-  }, [pin]);
+  const { signupButtonHandler, pin, setPin } = useLogic(navigation, route);
 
   return (
     <View style={styles.appContainer}>

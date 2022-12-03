@@ -1,76 +1,13 @@
-import { useEffect, useState } from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { Text, View, Image } from "react-native";
 import Buttons from "../../../../components/button/Buttons";
 import TimeInput from "../../../../components/timeInput/TimeInput";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { ScrollView } from "react-native-gesture-handler";
-import sendRequest from "../../../../config/axios";
 import styles from "./SignupFourTherapist.styles";
+import useLogic from "./SignupFourTherapist.logic";
 
 const SignupFourTherapist = ({ navigation }) => {
-  const [data, setData] = useState();
-  const [select, setSelect] = useState({
-    sunday: false,
-    monday: false,
-    tuesday: false,
-    wednesday: false,
-    thursday: false,
-    friday: false,
-    saturday: false,
-  });
-
-  const [enteredInfo, setEnteredInfo] = useState({
-    start_time: "",
-    end_time: "",
-  });
-
-  const storeData = async (value) => {
-    await AsyncStorage.setItem("user", JSON.stringify(value));
-    console.log(value);
-  };
-  const onPressHandler = (value, key) => {
-    setSelect((prev) => {
-      return { ...prev, [key]: value };
-    });
-  };
-
-  const handleInputChange = (value, key) => {
-    setEnteredInfo((prev) => {
-      return { ...prev, [key]: value };
-    });
-  };
-
-  const signupButtonHandler = () => {
-    const data2 = {
-      ...data,
-      ...select,
-      ...enteredInfo,
-    };
-    storeData(data2);
-    sendRequest({
-      method: "post",
-      url: "auth/therapist",
-      data: {
-        ...data,
-        ...select,
-        ...enteredInfo,
-      },
-    })
-      .then((res) => {
-        navigation.navigate("Login");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-
-  useEffect(() => {
-    AsyncStorage.getItem("user")
-      .then((res) => {
-        setData(JSON.parse(res));
-      })
-      .catch((error) => console.log(error));
-  }, []);
+  const { select, onPressHandler, handleInputChange, signupButtonHandler } =
+    useLogic(navigation);
 
   return (
     <ScrollView style={styles.appContainer}>
@@ -207,7 +144,7 @@ const SignupFourTherapist = ({ navigation }) => {
         </View>
       </View>
       <View style={styles.btnContainer}>
-        <Btn
+        <Buttons
           btnText={"SIGN UP"}
           onPress={() => {
             signupButtonHandler();

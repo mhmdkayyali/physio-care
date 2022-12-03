@@ -1,52 +1,23 @@
 import { View, ScrollView, Modal, Text } from "react-native";
-import { useEffect, useState } from "react";
 import AppointmentCard from "../../components/appointmentCard/AppointmentCard";
 import Buttons from "../../components/button/Buttons";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
-import sendRequest from "../../config/axios";
 import styles from "./Appointment.styles";
+import useLogic from "./Appointment.logic";
 
 const Appointment = () => {
-  const [modalVisible, setModalVisible] = useState(false);
-  const [user, setUser] = useState();
-  const [cancelled, setCancelled] = useState();
-  const [cancelledId, setCancelledId] = useState();
-  const [appointments, setAppointments] = useState([]);
-
-  useEffect(() => {
-    const getUser = async () => {
-      const user = await AsyncStorage.getItem("user");
-      setUser(JSON.parse(user));
-    };
-    getUser();
-  }, []);
-
-  useEffect(() => {
-    if (user != null) {
-      getAppointments();
-    }
-  }, [user]);
-
-  const getAppointments = async () => {
-    sendRequest({
-      method: "GET",
-      url:
-        user?.user_type === "PATIENT"
-          ? `patient/appointment/${user.id}/PATIENT`
-          : `patient/appointment/${user.id}/THERAPIST`,
-    })
-      .then((res) => {
-        setAppointments(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  const cancelSessionBtnHandler = () => {
-    setModalVisible(true);
-  };
+  const {
+    modalVisible,
+    setModalVisible,
+    user,
+    cancelled,
+    setCancelled,
+    cancelledId,
+    setCancelledId,
+    appointments,
+    cancelSessionBtnHandler,
+    getAppointments,
+  } = useLogic();
 
   return (
     <View style={styles.appContainer}>

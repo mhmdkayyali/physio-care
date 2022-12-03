@@ -1,37 +1,11 @@
-import { useEffect, useState } from "react";
 import { Text, View, Image, Pressable } from "react-native";
 import Buttons from "../../../../components/button/Buttons";
 import MapView, { Marker } from "react-native-maps";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import styles from "./SignupThreeTherapist.styles";
+import useLogic from "./SignupThreeTherapist.logic";
 
 const SignupThreeTherapist = ({ navigation }) => {
-  const [data, setData] = useState();
-  const [pin, setPin] = useState({
-    latitude: 33.8912434,
-    longitude: 35.5059952,
-  });
-
-  const storeData = async (value) => {
-    await AsyncStorage.setItem("user", JSON.stringify(value));
-  };
-
-  const nextButtonHandler = () => {
-    const data2 = {
-      ...data,
-      ...pin,
-    };
-    storeData(data2);
-    navigation.navigate("SignupFourTherapist");
-  };
-
-  useEffect(() => {
-    AsyncStorage.getItem("user")
-      .then((res) => {
-        setData(JSON.parse(res));
-      })
-      .catch((error) => console.log(error));
-  }, []);
+  const { nextButtonHandler, pin, setPin } = useLogic(navigation);
 
   return (
     <View style={styles.appContainer}>

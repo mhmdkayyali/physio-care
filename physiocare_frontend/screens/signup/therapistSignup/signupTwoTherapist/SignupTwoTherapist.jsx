@@ -1,40 +1,17 @@
-import { useState } from "react";
 import UserTextInput from "../../../../components/userTextInput/UserTextInput";
-import { Text, View, Image } from "react-native";
+import { Text, View, Image, ScrollView } from "react-native";
 import Buttons from "../../../../components/button/Buttons";
-import { ScrollView } from "react-native-gesture-handler";
-import styles from "./SignupTwoPatient.styles";
+import styles from "./SignupTwoTherapist.styles";
+import useLogic from "./SignupTwoTherapist.logic";
 
-const SignupTwoPatient = ({ navigation, route }) => {
-  const user = route.params;
-  const [enteredInfo, setEnteredInfo] = useState({
-    first_name: "",
-    last_name: "",
-    email: "",
-    password: "",
-    phone_number: "",
-    location: "",
-  });
-
-  const handleInputChange = (value, key) => {
-    setEnteredInfo((prev) => {
-      return { ...prev, [key]: value };
-    });
-  };
-
-  const nextButtonHandler = () => {
-    navigation.navigate("SignupThreePatient", {
-      user: {
-        ...user,
-        first_name: enteredInfo.first_name,
-        last_name: enteredInfo.last_name,
-        email: enteredInfo.email,
-        password: enteredInfo.password,
-        phone_number: enteredInfo.phone_number,
-        location: enteredInfo.location,
-      },
-    });
-  };
+const SignupTwoTherapist = ({ navigation }) => {
+  const {
+    handleInputChange,
+    nextButtonHandler,
+    confirmedPassword,
+    enteredInfo,
+    setConfirmedPassword,
+  } = useLogic(navigation);
 
   return (
     <View style={styles.appContainer}>
@@ -67,20 +44,50 @@ const SignupTwoPatient = ({ navigation, route }) => {
           secureTextEntry={true}
         />
         <UserTextInput
+          onChangeHandler={(value) => {
+            handleInputChange(value, "confirmPassword");
+          }}
+          placeHolder={"Confirm password"}
+          secureTextEntry={true}
+          textInput={confirmedPassword ? "textInput" : "incorrectPassword"}
+        />
+        <UserTextInput
           onChangeHandler={(value) => handleInputChange(value, "phone_number")}
           placeHolder={"Phone number"}
           keyboardType={"numeric"}
         />
         <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "gender")}
+          placeHolder={"Gender"}
+          autoCapitalize={"characters"}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "dob")}
+          placeHolder={"Date of birth"}
+          keyboardType={"numeric"}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "specialty")}
+          placeHolder={"Specialty"}
+        />
+        <UserTextInput
           onChangeHandler={(value) => handleInputChange(value, "location")}
           placeHolder={"Location"}
+        />
+        <UserTextInput
+          onChangeHandler={(value) => handleInputChange(value, "rate")}
+          placeHolder={"Rate"}
         />
       </ScrollView>
       <View style={styles.btnContainer}>
         <Buttons
           btnText={"NEXT"}
           onPress={() => {
-            nextButtonHandler();
+            if (enteredInfo.password === enteredInfo.confirmPassword) {
+              nextButtonHandler();
+            } else {
+              setConfirmedPassword(false);
+            }
           }}
         />
       </View>
@@ -88,4 +95,4 @@ const SignupTwoPatient = ({ navigation, route }) => {
   );
 };
 
-export default SignupTwoPatient;
+export default SignupTwoTherapist;

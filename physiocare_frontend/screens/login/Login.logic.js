@@ -1,12 +1,8 @@
 import { useState, useEffect } from "react";
-import Buttons from "../../components/button/Buttons";
-import UserTextInput from "../../components/userTextInput/UserTextInput";
-import { Text, View, Image, Pressable } from "react-native";
 import sendRequest from "../../config/axios";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import styles from "./Login.styles";
 
-const Login = ({ navigation }) => {
+const useLogic = (navigation) => {
   const [token, setToken] = useState();
   const [data, setData] = useState();
   const [enteredInfo, setEnteredInfo] = useState({
@@ -85,41 +81,10 @@ const Login = ({ navigation }) => {
         console.log(error);
       });
   };
-
-  return (
-    <View style={styles.appContainer}>
-      <View style={styles.logo_login_container}>
-        <View style={styles.logoContainer}>
-          <Image
-            style={styles.logo}
-            source={require("../../assets/images/logo.png")}
-          />
-        </View>
-        <Text style={styles.title}>Login</Text>
-      </View>
-      <View style={styles.inputContainer}>
-        <UserTextInput
-          onChangeHandler={(value) => handleInputChange(value, "email")}
-          placeHolder={"Email"}
-          autoCapitalize={"none"}
-        />
-        <UserTextInput
-          onChangeHandler={(value) => handleInputChange(value, "password")}
-          placeHolder={"Password"}
-          secureTextEntry={true}
-        />
-      </View>
-      <View style={styles.login_signup_container}>
-        <Buttons btnText={"LOGIN"} onPress={loginButtonHandler} />
-        <View style={styles.account_sign_up}>
-          <Text>Don't have an account? </Text>
-          <Pressable onPress={() => navigation.navigate("SignupOne")}>
-            <Text style={styles.signup_btn}>Sign up</Text>
-          </Pressable>
-        </View>
-      </View>
-    </View>
-  );
+  return {
+    handleInputChange,
+    loginButtonHandler,
+  };
 };
 
-export default Login;
+export default useLogic;

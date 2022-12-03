@@ -1,4 +1,4 @@
-import { TextInput, StyleSheet } from "react-native";
+import { TextInput } from "react-native";
 import styles from "./UserTextInput.styles";
 
 function UserTextInput(props) {

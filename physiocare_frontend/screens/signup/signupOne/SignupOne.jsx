@@ -1,35 +1,11 @@
-import { useEffect, useState } from "react";
 import { Text, View, Image, Pressable } from "react-native";
 import Buttons from "../../../components/button/Buttons";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import styles from "./SignupOne.styles";
+import useLogic from "./SignupOne.logic";
 
 const SignupOne = ({ navigation }) => {
-  const [userType, setUserType] = useState();
-  const storeData = async (value) => {
-    try {
-      if (value) {
-        await AsyncStorage.setItem(
-          "user",
-          JSON.stringify({ user_type: value })
-        );
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const userTypeHandler = () => {
-    userType === "PATIENT"
-      ? navigation.navigate("SignupTwoPatient", { user_type: userType })
-      : navigation.navigate("SignupTwoTherapist", { user_type: userType });
-  };
-
-  useEffect(() => {
-    if (userType) {
-      storeData(userType);
-    }
-  }, [userType]);
+  const { storeData, userType, setUserType, userTypeHandler } =
+    useLogic(navigation);
 
   return (
     <View style={styles.appContainer}>

@@ -1,7 +1,6 @@
-import { View, Pressable, Text } from "react-native";
 import styles from "./Buttons.styles";
 
-function Buttons(props) {
+const useLogic = () => {
   function btnStyle(type) {
     if (type === "userTypeButton") return styles.userTypeButton;
     if (type === "selectedUserTypeButton") return styles.selectedUserTypeButton;
@@ -38,13 +37,7 @@ function Buttons(props) {
       return styles.selectedAvailableDaysButtonText;
     return styles.buttonText;
   }
-  return (
-    <Pressable style={btnStyle(props.btnStyle)} onPress={props.onPress}>
-      <View>
-        <Text style={textStyle(props.textStyle)}>{props.btnText}</Text>
-      </View>
-    </Pressable>
-  );
-}
+  return { btnStyle, textStyle };
+};
 
-export default Buttons;
+export default useLogic;
